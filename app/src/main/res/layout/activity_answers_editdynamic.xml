@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include layout="@layout/layout_title"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin15dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:layout_marginTop="@dimen/margin15dp">
+
+                <TextView
+                    android:id="@+id/tv_dymaic_title_txt"
+                    android:layout_width="@dimen/margin60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="标        题:"
+                    android:textSize="@dimen/owner_edit_dynamic_text"/>
+
+                <EditText
+                    android:id="@+id/et_answers_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin10dp"
+                    android:layout_toRightOf="@id/tv_dymaic_title_txt"
+                    android:background="@drawable/shape_release_edit_bg"
+                    android:hint="标题不得超过20个字符"
+                    android:maxLength="20"
+                    android:padding="@dimen/margin5dp"
+                    android:singleLine="true"
+                    android:textSize="@dimen/owner_edit_dynamic_text"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin15dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:layout_marginTop="@dimen/margin15dp">
+
+                <TextView
+                    android:id="@+id/tv_dymaic_content_txt"
+                    android:layout_width="@dimen/margin60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin3dp"
+                    android:text="内容详情:"
+                    android:textSize="@dimen/owner_edit_dynamic_text"/>
+
+                <EditText
+                    android:id="@+id/et_answers_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin10dp"
+                    android:layout_toRightOf="@id/tv_dymaic_content_txt"
+                    android:background="@drawable/shape_release_edit_bg"
+                    android:gravity="top"
+                    android:hint="请输入相关内容"
+                    android:maxLength="20"
+                    android:minLines="10"
+                    android:padding="@dimen/margin5dp"
+                    android:textSize="@dimen/font_size_12"/>
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_answers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin85dp"
+                android:layout_marginRight="@dimen/margin10dp"
+                android:layout_marginTop="@dimen/margin13dp"
+                android:scrollbars="none"></android.support.v7.widget.RecyclerView>
+
+            <Button
+                android:id="@+id/bt_release"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginLeft="@dimen/margin50dp"
+                android:layout_marginRight="@dimen/margin50dp"
+                android:layout_marginTop="@dimen/margin120dp"
+                android:layout_marginBottom="@dimen/margin30dp"
+                android:background="@drawable/edit_dynamic_release_bj"
+                android:text="确定发布"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

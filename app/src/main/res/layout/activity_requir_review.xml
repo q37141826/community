@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.qixiu.intelligentcommunity.mvp.view.activity.mine.RequirReviewActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_titile_reqirereview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ScrollView
+            android:fillViewport="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin20dp"
+                    android:layout_marginRight="@dimen/margin20dp"
+                    android:paddingBottom="@dimen/margin7dp"
+                    android:paddingTop="@dimen/margin14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="所在小区：" />
+
+                        <TextView
+                            android:id="@+id/textView_estate_requireReview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View style="@style/line_grey_horizental"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin20dp"
+                    android:layout_marginRight="@dimen/margin20dp"
+                    android:paddingBottom="@dimen/margin7dp"
+                    android:paddingTop="@dimen/margin14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="用户身份：" />
+
+                        <TextView
+                            android:id="@+id/textView_identity_requireReview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View style="@style/line_grey_horizental"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin20dp"
+                    android:layout_marginRight="@dimen/margin20dp"
+                    android:paddingBottom="@dimen/margin7dp"
+                    android:paddingTop="@dimen/margin14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="用户姓名：" />
+
+                        <TextView
+                            android:id="@+id/textView_name_requireReview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View style="@style/line_grey_horizental"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin20dp"
+                    android:layout_marginRight="@dimen/margin20dp"
+                    android:paddingBottom="@dimen/margin7dp"
+                    android:paddingTop="@dimen/margin14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="所在期数：" />
+
+                        <TextView
+                            android:id="@+id/textView_period_requireReview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View style="@style/line_grey_horizental"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin20dp"
+                    android:layout_marginRight="@dimen/margin20dp"
+                    android:paddingBottom="@dimen/margin7dp"
+                    android:paddingTop="@dimen/margin14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="所在楼栋：" />
+
+                        <TextView
+                            android:id="@+id/textView_building_requireReview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View style="@style/line_grey_horizental"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin20dp"
+                    android:layout_marginRight="@dimen/margin20dp"
+                    android:paddingBottom="@dimen/margin7dp"
+                    android:paddingTop="@dimen/margin14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="单元号码：" />
+
+                        <TextView
+                            android:id="@+id/textView_unit_requireReview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View style="@style/line_grey_horizental"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin20dp"
+                    android:layout_marginRight="@dimen/margin20dp"
+                    android:paddingBottom="@dimen/margin7dp"
+                    android:paddingTop="@dimen/margin14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="门牌号码：" />
+
+                        <TextView
+                            android:id="@+id/textView_door_requireReview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View style="@style/line_grey_horizental"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin20dp"
+                    android:layout_marginRight="@dimen/margin20dp"
+                    android:paddingBottom="@dimen/margin7dp"
+                    android:paddingTop="@dimen/margin14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="身份证号：" />
+
+                        <TextView
+                            android:id="@+id/textView_idcard_requireReview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View style="@style/line_grey_horizental"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin20dp"
+                    android:layout_marginRight="@dimen/margin20dp"
+                    android:paddingBottom="@dimen/margin7dp"
+                    android:paddingTop="@dimen/margin14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="正面照片：" />
+
+                        <ImageView
+                            android:scaleType="centerCrop"
+                            android:id="@+id/imageView_reqireReview"
+                            android:layout_width="@dimen/margin150dp"
+                            android:layout_height="@dimen/margin150dp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin20dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_agree_require"
+                        android:layout_width="0px"
+                        android:layout_height="@dimen/margin40dp"
+                        android:layout_marginLeft="@dimen/margin50dp"
+                        android:layout_marginRight="@dimen/margin25dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/sharp_background_darkgrey"
+                        android:text="同意并授权"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/btn_refuse_require"
+                        android:layout_width="0px"
+                        android:layout_height="@dimen/margin40dp"
+                        android:layout_marginLeft="@dimen/margin25dp"
+                        android:layout_marginRight="@dimen/margin50dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/sharp_background_darkgrey"
+                        android:text="拒绝"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin40dp"></RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+
+</LinearLayout>
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+       >
+
+        <RelativeLayout
+            android:id="@+id/relativelayout_back_myProfile"
+            android:layout_width="100px"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true">
+
+            <ImageView
+                android:id="@+id/iv_classhour_back"
+                android:layout_width="38px"
+                android:layout_height="38px"
+                android:layout_centerInParent="true"
+                android:clickable="false"
+                android:src="@mipmap/back"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_classhour_head_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="分类列表"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:padding="5dp"
+        android:id="@+id/fl_classify"
+        android:background="@color/white"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    </FrameLayout>
+</LinearLayout>

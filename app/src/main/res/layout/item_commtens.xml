@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/line_comments_list"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin0.5dp"
+        android:background="#e7e7e7"></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circular_head_comments_owendetail"
+            android:layout_width="@dimen/margin30dp"
+            android:layout_height="@dimen/margin30dp"
+           />
+
+        <TextView
+            android:maxLength="11"
+            android:textSize="12sp"
+            android:id="@+id/textView_name1_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin5dp"
+            android:layout_toRightOf="@+id/circular_head_comments_owendetail"
+            android:textColor="@color/font_grey" />
+
+
+        <TextView
+            android:textSize="12sp"
+            android:id="@+id/textView_callback_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView_name1_comments"
+            android:text=" 回复 "
+            android:textColor="@color/yancy_grey500" />
+
+        <TextView
+            android:maxEms="11"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="12sp"
+            android:id="@+id/textView_name2_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView_callback_comments"
+            android:textColor="@color/font_grey" />
+
+        <TextView
+            android:textSize="12sp"
+            android:id="@+id/textView_maohao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView_name2_comments"
+            android:text=": "
+            android:textColor="@color/font_grey" />
+
+        <TextView
+            android:textSize="12sp"
+            android:id="@+id/textView_content_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView_maohao"
+            android:ellipsize="end"
+            android:maxEms="100"
+            android:textColor="@color/yancy_grey500" />
+        <TextView
+            android:textSize="12sp"
+            android:textColor="@color/yancy_grey500"
+            android:id="@+id/textView_time_comments_details"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--如果是详情  用下面这个装正文-->
+        <TextView
+            android:textSize="12sp"
+            android:textColor="@color/yancy_grey500"
+            android:id="@+id/textView_content_use_for_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin5dp"
+            android:layout_below="@+id/textView_name1_comments"
+            android:layout_toRightOf="@+id/circular_head_comments_owendetail"
+            android:layout_marginTop="@dimen/margin5dp" />
+    </RelativeLayout>
+
+</LinearLayout>

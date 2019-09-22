@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="d_mainTitle16">16sp</dimen>
+    <dimen name="top16dp">@dimen/margin16dp</dimen>
+    <dimen name="top8dp">@dimen/margin8dp</dimen>
+    <dimen name="top7dp">@dimen/margin7dp</dimen>
+    <dimen name="top10dp">@dimen/margin10dp</dimen>
+    <dimen name="top13dp">@dimen/margin13dp</dimen>
+</resources>

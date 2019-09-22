@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_myprofile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:fitsSystemWindows="true"
+    tools:context="com.qixiu.intelligentcommunity.mvp.view.activity.mine.myprofile.MyprofileActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_title_myprofile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_below="@+id/relativeLayout_title_myprofile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:paddingRight="@dimen/margin20dp"
+            android:paddingLeft="@dimen/margin20dp"
+            android:paddingBottom="@dimen/margin10dp"
+            android:id="@+id/relativeLayout_changehead"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:textColor="@color/yancy_grey700"
+                android:textSize="15sp"
+                android:layout_alignParentBottom="true"
+                android:text="头像:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_marginBottom="@dimen/margin5dp"
+                android:id="@+id/tomyleft"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/my_back_icon3x"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circular_head_edit"
+                android:layout_marginRight="@dimen/margin20dp"
+                android:layout_toLeftOf="@+id/tomyleft"
+                android:layout_alignParentBottom="true"
+                android:layout_width="@dimen/margin30dp"
+                android:layout_height="@dimen/margin30dp" />
+
+        </RelativeLayout>
+        <View
+            android:id="@+id/belowme_02"
+            android:layout_marginRight="@dimen/margin15dp"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_below="@+id/relativeLayout_changehead"
+            android:background="@color/theme_color"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin0.5dp"></View>
+        <RelativeLayout
+            android:paddingRight="@dimen/margin20dp"
+            android:paddingLeft="@dimen/margin20dp"
+            android:paddingBottom="@dimen/margin10dp"
+            android:id="@+id/relativeLayout_changenickname"
+            android:layout_below="@+id/belowme_02"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:textColor="@color/yancy_grey700"
+                android:textSize="15sp"
+                android:layout_alignParentBottom="true"
+                android:text="昵称:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_marginBottom="@dimen/margin5dp"
+                android:id="@+id/tomyleft01"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/my_back_icon3x"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textColor="@color/yancy_grey700"
+                android:id="@+id/textView_nickname_change"
+                android:layout_marginRight="@dimen/margin20dp"
+                android:layout_toLeftOf="@+id/tomyleft01"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+        <View
+            android:layout_marginRight="@dimen/margin15dp"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_below="@+id/relativeLayout_changenickname"
+            android:background="@color/theme_color"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin0.5dp"></View>
+    </RelativeLayout>
+
+</RelativeLayout>
+

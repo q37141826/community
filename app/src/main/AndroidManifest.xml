@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.qixiu.intelligentcommunity">
+    <!-- 获取机器码需要读取 -->
+    <application
+        android:name=".application.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/TranslucentTheme">
+        <activity android:name=".mvp.view.activity.store.StoreActivity"></activity>
+        <activity
+            android:name=".mvp.view.activity.main.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".mvp.view.activity.mine.LoginActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/TranslucentTheme">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".mvp.view.activity.mine.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TranslucentTheme" />
+        <activity
+            android:name="me.iwf.photopicker.PhotoPickerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="me.iwf.photopicker.PhotoPagerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".mvp.view.activity.mine.myprofile.MyprofileActivity" />
+        <activity android:name=".mvp.view.activity.mine.myprofile.MyPublishActivity" />
+        <activity
+            android:name=".mvp.view.activity.mine.AuthorizationActivity"
+            android:screenOrientation="portrait">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+
+        </activity> <!-- 修改密码 -->
+        <activity
+            android:name=".mvp.view.activity.mine.ChangePasswordActivity"
+            android:screenOrientation="portrait" /> <!-- 一键呼叫 -->
+        <activity
+            android:name=".mvp.view.activity.mine.myprofile.OnekeyCallActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.mine.myprofile.SuggestionCommittingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.mine.myprofile.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.home.WuyePayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.home.PayRecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.home.AliWeixinPayActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.qixiu.nanhu.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- 微信分享回调 -->
+        <activity
+            android:name="com.qixiu.nanhu.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- <activity android:name=".mvp.view.activity.ownercircle.EditDynamicActivity"/> -->
+                <!-- <activity android:name=".widget.selectphoto.SelectPhotoActivity"/> -->
+                <!-- <activity android:name=".widget.imagepager.ImagePagerActivity"/> -->
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="tencent1106162321" />
+            </intent-filter>
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" /> <!-- alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.home.ConfirmCarPayActivity"
+            android:screenOrientation="portrait" /> <!-- alipay sdk end -->
+        <activity
+            android:name=".mvp.view.activity.mine.messagelist.MessageListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.guidepage.StartPageActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".mvp.view.activity.mine.RequirReviewActivity" />
+        <activity android:name=".mvp.view.activity.service.MoveHomeActivity" />
+        <activity
+            android:name=".mvp.view.activity.home.web.HomeWebActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".bluetooth.AnyScanActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/select_device"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".mvp.view.activity.home.web.HomeWebDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".mvp.view.activity.bigpicture.BigPictureActivity" />
+        <activity
+            android:name=".mvp.view.activity.guidepage.GuidePageActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".mvp.view.activity.ownercircle.EditDynamicActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".widget.imagepager.ImagePagerActivity" />
+
+        <activity android:name=".widget.selectphoto.SelectPhotoActivity" />
+        <activity
+            android:name=".mvp.view.activity.ownercircle.MyOwenDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.ownercircle.AnswersEditDynamicActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ownercircle.AnswerDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.ownercircle.OwnerEventDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.ownercircle.eventdetail.ApplyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.home.web.BrowserInnerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.home.get_goods.GetGoodsActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".mvp.view.activity.home.web.GoToActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.home.get_goods.GetGoodsRecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.view.activity.home.get_goods.GetGoodsDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".mvp.view.activity.home.get_goods.GiveTipActvity" />
+        <activity android:name=".mvp.view.activity.store.GoodDetailActivity" />
+        <activity android:name=".mvp.view.activity.store.StoreClassifyItemActivity" />
+        <activity android:name=".mvp.view.activity.store.StoreShopCarActivity" />
+        <activity android:name=".mvp.view.activity.store.classify.StoreAllClassifyActivity" />
+        <activity android:name=".mvp.view.activity.store.classify.StoreClassifyListActivity"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity android:name=".mvp.view.activity.store.StoreMoreActivity" />
+        <activity android:name=".mvp.view.activity.mine.MyPointsActivity" />
+        <activity android:name=".mvp.view.activity.mine.MyPointsListActivity" />
+        <activity android:name=".mvp.view.activity.store.order.CheckWhereActivity" />
+        <activity android:name=".mvp.view.activity.store.order.ConfirmOrderActivity" />
+        <activity android:name=".mvp.view.activity.store.order.MyOrderActivity" />
+        <activity android:name=".mvp.view.activity.store.order.OrderDetailsActivity" />
+        <activity android:name=".mvp.view.activity.store.order.ShopAddressActivity" />
+        <activity android:name=".mvp.view.activity.store.address_manage.AddAddressActivity" />
+        <activity android:name=".mvp.view.activity.store.search.StoreSearchListActivity" />
+        <activity
+            android:name=".mvp.view.adapter.shop.EvaluateOrderActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity android:name=".mvp.view.activity.home.BlueToothManageActivity" />
+        <receiver
+            android:name=".receiver.JPushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
+                <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".bluetooth.BluetoothServiceBle" />
+        <service android:name=".service.UpdateVersionService" />
+    </application> <!-- 安装权限 -->
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true" /> <!-- 蓝牙用到的权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 添加可以向外拨打电话的权限 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+</manifest>

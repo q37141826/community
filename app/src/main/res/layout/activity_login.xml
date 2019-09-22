@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/login_bg"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_login_logo"
+        style="@style/style_login_regist_logo_iv"
+        />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin80dp"
+        android:layout_marginLeft="@dimen/margin40dp"
+        android:layout_marginRight="@dimen/margin40dp"
+
+        >
+
+        <TextView
+            android:id="@+id/textView_weixin_login"
+            style="@style/style_login_platform_txt"
+            android:drawableTop="@mipmap/weixinlogin_icon"
+            android:text="微信登陆"
+            />
+
+        <TextView
+            android:id="@+id/textView_qq_login"
+            style="@style/style_login_platform_txt"
+            android:drawableTop="@mipmap/qqlogin_ionc"
+            android:text="QQ登陆"/>
+
+        <TextView
+            android:id="@+id/textView_weibo_login"
+            style="@style/style_login_platform_txt"
+            android:drawableTop="@mipmap/weibologin_icon"
+            android:text="微博登陆"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_input"
+        style="@style/style_login_regist_input_bg"
+        android:layout_below="@+id/iv_login_logo"
+
+        >
+
+        <RelativeLayout
+            style="@style/style_login_regist_input_bg_single"
+            >
+
+            <TextView
+                android:id="@+id/tv_phone_txt"
+                style="@style/style_login_input_txt"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@mipmap/login_phone_icon"
+                android:text="手机号:"
+                />
+
+            <RelativeLayout
+                android:id="@+id/rl_clean_input_phone"
+                style="@style/style_login_regist_clean_input_rl"
+                android:visibility="gone"
+                >
+
+                <ImageView
+                    style="@style/style_login_regist_clean_input_iv"
+                    />
+
+            </RelativeLayout>
+
+            <EditText
+                android:maxLength="11"
+                android:id="@+id/et_login_phone"
+                style="@style/style_login_input_edit"
+                android:layout_toLeftOf="@+id/rl_clean_input_phone"
+                android:layout_toRightOf="@+id/tv_phone_txt"
+                android:inputType="phone"/>
+
+        </RelativeLayout>
+
+        <View
+            style="@style/style_login_regist_line"
+            />
+
+        <RelativeLayout
+            style="@style/style_login_regist_input_bg_single"
+
+            >
+
+            <TextView
+                android:id="@+id/tv_password_txt"
+                style="@style/style_login_input_txt"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@mipmap/login_password_icon"
+                android:text="密    码:"
+                />
+
+            <RelativeLayout
+                android:id="@+id/rl_clean_input_password"
+                style="@style/style_login_regist_clean_input_rl"
+                android:visibility="gone"
+                >
+
+                <ImageView
+                    style="@style/style_login_regist_clean_input_iv"
+                    />
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_login_password"
+                style="@style/style_login_input_edit"
+                android:layout_toLeftOf="@id/rl_clean_input_password"
+                android:layout_toRightOf="@+id/tv_password_txt"
+                android:inputType="textPassword"
+
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_loging"
+        style="@style/style_login_regist_confirm"
+        android:layout_below="@id/ll_input"
+        android:text="登录"
+
+        />
+
+    <RelativeLayout
+        android:id="@+id/rl_goto_regist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bt_loging"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_toLeftOf="@+id/textView_forgetpassword">
+
+        <TextView
+            android:id="@+id/tv_goregist_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_goregist_txt"
+            android:layout_centerVertical="true"
+
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@id/tv_goregist_txt"
+            android:gravity="center"
+            android:text="注册"
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView_forgetpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/rl_goto_regist"
+        android:layout_marginRight="@dimen/margin50dp"
+        android:gravity="center"
+        android:text="忘记密码?"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

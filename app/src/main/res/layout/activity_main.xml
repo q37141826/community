@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/home_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.qixiu.intelligentcommunity.mvp.view.activity.main.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/include_title"
+            layout="@layout/layout_title"
+           ></include>
+
+        <LinearLayout
+            android:id="@+id/ll_store_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin45dp"
+            android:background="@color/theme_color"
+            android:visibility="gone">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_store_title"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin30dp"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_search_bg"
+                android:drawableLeft="@mipmap/search_icon"
+                android:drawablePadding="@dimen/margin6dp"
+                android:gravity="center_vertical"
+                android:hint="请输入关键字"
+                android:padding="@dimen/margin3dp"
+                android:textColorHint="@color/home_back"
+                android:textSize="13sp"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_shopcar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/margin12dp"
+                    android:src="@mipmap/shopcar_white"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_main_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title"
+        android:layout_marginBottom="50dp"
+        ></FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="3dp">
+
+        <TextView
+            android:id="@+id/tv_main_home"
+            style="@style/style_main_activity_bottom_navigationtext"
+            android:drawableTop="@mipmap/main_bottom_home"
+            android:text="首页"
+            />
+
+        <TextView
+            android:id="@+id/tv_main_ownercircle"
+            style="@style/style_main_activity_bottom_navigationtext"
+            android:drawableTop="@mipmap/main_bottom_ownercircle"
+            android:text="邻里圈"
+            />
+
+        <TextView
+            android:visibility="invisible"
+            android:layout_height="@dimen/margin60dp"
+            style="@style/style_main_activity_bottom_navigationtext"
+            android:text="服务"/>
+
+        <TextView
+            android:id="@+id/tv_main_store"
+            style="@style/style_main_activity_bottom_navigationtext"
+            android:drawableTop="@mipmap/main_bottmo_store_icon"
+            android:text="商超"/>
+
+        <TextView
+            android:id="@+id/tv_main_mine"
+
+            style="@style/style_main_activity_bottom_navigationtext"
+            android:drawableTop="@mipmap/main_bottom_mine"
+            android:text="我的"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin0.5dp"
+        android:layout_above="@id/ll_main_bottom"
+        android:background="@color/txt_E5E5E5"
+        />
+    <RelativeLayout
+        android:padding="@dimen/margin4dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/relaytive_bottom"
+            android:background="@drawable/home_bottom_open"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginBottom="@dimen/margin5dp"
+                android:id="@+id/iv_main_serve"
+                android:layout_width="@dimen/margin40dp"
+                android:layout_height="@dimen/margin40dp"
+                android:clickable="true"
+                android:src="@mipmap/main_bottom_serve_select"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_main_serve"
+            android:textSize="11sp"
+            android:layout_centerInParent="true"
+            android:text="开门"
+            android:textColor="@color/black"
+            android:layout_below="@+id/relaytive_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+    </RelativeLayout>
+
+
+</RelativeLayout>

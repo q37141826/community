@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/rl_eventdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:paddingLeft="@dimen/margin12dp"
+                android:paddingRight="@dimen/margin12dp">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_eventuserhead"
+        android:layout_width="@dimen/margin45dp"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_eventdetail_usericon"
+            android:layout_width="@dimen/margin30dp"
+            android:layout_height="@dimen/margin30dp"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+            android:id="@+id/tv_eventdetail_username"
+            android:layout_width="@dimen/margin45dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_eventdetail_usericon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:ellipsize="end"
+            android:maxEms="5"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_13"/>
+
+    </RelativeLayout>
+
+    <TextView
+
+        android:id="@+id/tv_eventdetail_title_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin10dp"
+        android:layout_toRightOf="@id/rl_eventuserhead"
+        android:text="不行"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_size_13"/>
+
+    <TextView
+        android:id="@+id/tv_eventdetail_date_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_eventdetail_title_item"
+        android:layout_marginBottom="@dimen/margin2dp"
+        android:layout_marginLeft="@dimen/margin10dp"
+        android:layout_marginTop="@dimen/margin16dp"
+        android:layout_toRightOf="@id/rl_eventuserhead"
+        android:text="2017-06-30 15:34"
+        android:textColor="@color/black_c"
+        android:textSize="12sp"
+        />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_child_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_eventdetail_date_item"
+        android:layout_marginBottom="@dimen/margin2dp"
+        android:layout_marginLeft="@dimen/margin10dp"
+        android:layout_marginTop="@dimen/margin10dp"
+        android:layout_toRightOf="@+id/rl_eventuserhead"
+        ></android.support.v7.widget.RecyclerView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin2dp"
+        android:layout_below="@id/rv_child_comment"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:background="@color/FBFBFB"/>
+</RelativeLayout>

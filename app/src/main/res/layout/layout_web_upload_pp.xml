@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@drawable/bg_transparent">
+
+    <LinearLayout
+        android:id="@+id/ll_share_community"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin80dp"
+            android:background="@drawable/dialog_shape"
+            android:gravity="center"
+
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_camera"
+                android:layout_width="match_parent"
+                android:paddingLeft="@dimen/margin5dp"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:text="拍照"
+                    android:textSize="15sp"
+                    android:textColor="@color/font_grey"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/F5F5F5"
+                android:layout_height="@dimen/margin0.5dp"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_photo_select"
+                android:layout_width="match_parent"
+                android:paddingLeft="@dimen/margin5dp"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="图片选择"
+                    android:textSize="15sp"
+                    android:textColor="@color/font_grey"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_close"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/dialog_shape"
+            android:gravity="center"
+            android:text="取消"
+            android:textSize="15sp"
+            android:textColor="@color/blue"/>
+    </LinearLayout>
+
+</FrameLayout>

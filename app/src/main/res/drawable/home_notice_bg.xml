@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<solid android:color="@color/home_notice_bg_color" ></solid>
+
+    <corners android:bottomLeftRadius="@dimen/margin2dp"
+        android:bottomRightRadius="@dimen/margin9dp"
+        android:topRightRadius="@dimen/margin2dp"
+        android:topLeftRadius="@dimen/margin2dp"></corners>
+
+</shape>

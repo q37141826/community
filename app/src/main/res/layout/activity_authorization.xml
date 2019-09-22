@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/theme_color"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+<RelativeLayout
+    android:id="@+id/vg_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"></RelativeLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:scrollbars="none">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/top10dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_user_identity"
+                style="@style/style_authorization_item_bg">
+
+                <TextView
+                    android:id="@+id/tv_user_identity_txt"
+                    style="@style/style_authorization_item_txt"
+                    android:text="@string/user_identity"/>
+
+                <ImageView
+                    android:id="@+id/iv_user_identity_icon"
+                    style="@style/style_authorization_item_right_icon"
+
+                    />
+
+                <EditText
+                    android:id="@+id/et_user_identity"
+                    style="@style/style_authorization_item_edit"
+                    android:layout_toLeftOf="@id/iv_user_identity_icon"
+                    android:layout_toRightOf="@+id/tv_user_identity_txt"
+                    android:focusable="false"
+                    android:hint="@string/please_select_identity"
+
+                    />
+
+
+            </RelativeLayout>
+
+            <View style="@style/style_authorization_item_line"/>
+
+            <RelativeLayout style="@style/style_authorization_item_bg">
+
+                <TextView
+                    android:id="@+id/tv_user_name_txt"
+                    style="@style/style_authorization_item_txt"
+                    android:text="@string/user_name"/>
+
+                <ImageView
+                    android:id="@+id/iv_user_name_icon"
+                    style="@style/style_authorization_item_right_icon"
+                    android:visibility="invisible"
+
+                    />
+
+                <EditText
+                    android:id="@+id/et_user_name"
+                    style="@style/style_authorization_item_edit"
+                    android:layout_toLeftOf="@id/iv_user_name_icon"
+                    android:layout_toRightOf="@+id/tv_user_name_txt"
+                    android:hint="@string/please_write_username"
+
+                    />
+            </RelativeLayout>
+
+            <View style="@style/style_authorization_item_line"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_place_plot"
+                style="@style/style_authorization_item_bg">
+
+                <TextView
+                    android:id="@+id/tv_place_plot_txt"
+                    style="@style/style_authorization_item_txt"
+                    android:enabled="false"
+                    android:text="@string/place_plot"/>
+
+                <ImageView
+                    android:id="@+id/iv_place_plot_icon"
+                    style="@style/style_authorization_item_right_icon"
+
+                    />
+
+                <EditText
+                    android:id="@+id/et_place_plot"
+                    style="@style/style_authorization_item_edit"
+                    android:layout_toLeftOf="@id/iv_place_plot_icon"
+                    android:layout_toRightOf="@+id/tv_place_plot_txt"
+                    android:focusable="false"
+                    android:hint="@string/please_select_plot"
+
+                    />
+            </RelativeLayout>
+
+            <View style="@style/style_authorization_item_line"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_place_periods"
+                style="@style/style_authorization_item_bg">
+
+                <TextView
+                    android:id="@+id/tv_place_periods_txt"
+                    style="@style/style_authorization_item_txt"
+                    android:text="@string/place_periods"/>
+
+                <ImageView
+                    android:id="@+id/iv_place_periods_icon"
+                    style="@style/style_authorization_item_right_icon"
+
+                    />
+
+                <EditText
+                    android:id="@+id/et_place_periods"
+                    style="@style/style_authorization_item_edit"
+                    android:layout_toLeftOf="@id/iv_place_periods_icon"
+                    android:layout_toRightOf="@+id/tv_place_periods_txt"
+                    android:focusable="false"
+                    android:hint="@string/please_select_periods"
+
+                    />
+            </RelativeLayout>
+
+            <View style="@style/style_authorization_item_line"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_place_building"
+                style="@style/style_authorization_item_bg">
+
+                <TextView
+                    android:id="@+id/tv_place_building_txt"
+                    style="@style/style_authorization_item_txt"
+                    android:text="@string/place_building"/>
+
+                <ImageView
+                    android:id="@+id/iv_place_building_icon"
+                    style="@style/style_authorization_item_right_icon"
+
+                    />
+
+                <EditText
+                    android:id="@+id/et_place_building"
+                    style="@style/style_authorization_item_edit"
+                    android:layout_toLeftOf="@id/iv_place_building_icon"
+                    android:layout_toRightOf="@+id/tv_place_building_txt"
+                    android:focusable="false"
+                    android:hint="@string/please_select_building"
+
+                    />
+            </RelativeLayout>
+
+            <View style="@style/style_authorization_item_line"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_element_number"
+                style="@style/style_authorization_item_bg">
+
+                <TextView
+                    android:id="@+id/tv_element_number_txt"
+                    style="@style/style_authorization_item_txt"
+                    android:text="@string/element_number"/>
+
+                <ImageView
+                    android:id="@+id/iv_element_number_icon"
+
+                    style="@style/style_authorization_item_right_icon"
+
+                    />
+
+                <EditText
+                    android:id="@+id/et_element_number"
+                    style="@style/style_authorization_item_edit"
+                    android:layout_toLeftOf="@id/iv_element_number_icon"
+                    android:layout_toRightOf="@+id/tv_element_number_txt"
+                    android:focusable="false"
+                    android:hint="@string/please_select_element"
+
+                    />
+            </RelativeLayout>
+
+            <View style="@style/style_authorization_item_line"/>
+
+            <RelativeLayout style="@style/style_authorization_item_bg">
+
+                <TextView
+                    android:id="@+id/tv_doorplate_number_txt"
+                    style="@style/style_authorization_item_txt"
+                    android:text="@string/doorplate_number"/>
+
+                <ImageView
+                    android:id="@+id/iv_doorplate_number_icon"
+                    style="@style/style_authorization_item_right_icon"
+                    android:visibility="invisible"
+
+                    />
+
+                <EditText
+                    android:id="@+id/et_doorplate_number"
+                    style="@style/style_authorization_item_edit"
+                    android:layout_toLeftOf="@id/iv_doorplate_number_icon"
+                    android:layout_toRightOf="@+id/tv_doorplate_number_txt"
+                    android:hint="@string/doorplate_example"
+
+                    />
+            </RelativeLayout>
+
+            <View style="@style/style_authorization_item_line"/>
+
+            <RelativeLayout style="@style/style_authorization_item_bg">
+
+                <TextView
+                    android:id="@+id/tv_identity_card_number_txt"
+                    style="@style/style_authorization_item_txt"
+                    android:text="@string/identity_card_number"/>
+
+                <ImageView
+                    android:id="@+id/iv_identity_card_number_icon"
+                    style="@style/style_authorization_item_right_icon"
+                    android:visibility="invisible"
+
+                    />
+
+                <EditText
+                    android:id="@+id/et_identity_card_number"
+                    style="@style/style_authorization_item_edit"
+                    android:layout_alignBaseline="@+id/tv_identity_card_number_txt"
+
+                    android:layout_alignBottom="@+id/tv_identity_card_number_txt"
+                    android:layout_toRightOf="@+id/tv_identity_card_number_txt"
+                    android:hint="@string/please_input_identity_card_number"/>
+            </RelativeLayout>
+
+            <View style="@style/style_authorization_item_line"/>
+
+            <RelativeLayout
+                android:id="@+id/relativelayout_phone_identify"
+                style="@style/style_authorization_item_bg">
+
+                <TextView
+                    android:id="@+id/tv_obligate_phone_number_txt"
+                    style="@style/style_authorization_item_txt"
+                    android:text="@string/obligate_phone_number"/>
+
+                <ImageView
+                    android:id="@+id/iv_obligate_phone_number_icon"
+                    style="@style/style_authorization_item_right_icon"
+                    android:visibility="invisible"
+
+                    />
+
+                <EditText
+                    android:id="@+id/et_obligate_phone_number"
+                    style="@style/style_authorization_item_edit"
+                    android:layout_toLeftOf="@id/iv_obligate_phone_number_icon"
+                    android:layout_toRightOf="@+id/tv_obligate_phone_number_txt"
+                    android:hint="@string/please_input_phone_number"
+
+                    />
+
+            </RelativeLayout>
+
+            <View style="@style/style_authorization_item_line"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top10dp">
+
+                <TextView
+                    android:id="@+id/tv_upload_face_photo_txt"
+                    android:layout_width="@dimen/margin60dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:text="@string/upload_face_photo"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"/>
+
+                <ImageView
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:background="@drawable/shape_author_upload_bg"
+                    android:id="@+id/iv_upload_picture"
+                    android:layout_width="@dimen/margin150dp"
+                    android:layout_height="@dimen/margin150dp"
+                    android:layout_marginLeft="@dimen/margin15dp"
+                    android:layout_toRightOf="@id/tv_upload_face_photo_txt"
+                    android:scaleType="center"
+                    android:src="@mipmap/authorization_upload_photo"/>
+            </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/btn_start_identify"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginBottom="@dimen/margin20dp"
+                android:layout_marginLeft="@dimen/margin40dp"
+                android:layout_marginRight="@dimen/margin40dp"
+                android:layout_marginTop="@dimen/margin30dp"
+                android:background="@drawable/shape_meaterial_button_bg"
+                android:gravity="center"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                android:textSize="13sp"/>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

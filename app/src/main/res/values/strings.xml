@@ -1,0 +1,78 @@
+<resources>
+    <!--<string name="app_name">Show生活</string>-->
+    <!--<string name="app_name">群迈科技</string>-->
+    <!--<string name="app_name">华夏生活</string>-->
+    <string name="app_name">南湖公馆</string>
+    <string name="main_home_txt">首页</string>
+    <string name="main_ownercircle_txt">业主圈</string>
+    <string name="main_serve_txt">服务</string>
+    <string name="main_store_txt">商城</string>
+    <string name="main_personalcenter_txt">个人中心</string>
+    <string name="main_mine_txt">我的</string>
+    <string name="main_tltle_right_release_txt">发布</string>
+    <string name="mine_material_write">资料填写</string>
+    <string name="tenement_paythefees">物业缴费</string>
+    <string name="park_paythefees">停车缴费</string>
+    <string name="main_notfindTitle">没有找到标题为vg_title</string>
+
+    <!--业主圈-->
+    <string name="owner_circle">业主圈</string>
+    <string name="questions_answers">问答区</string>
+    <string name="active_area">活动区</string>
+    <string name="owner_edit_dynamic_hint">请输入要发布的内容</string>
+    <string name="edit_dynamic_alert">你输入的字数已经超过了限制！</string>
+    <string name="content_cannot_empty">发布的内容不能为空</string>
+    <string name="ownercircle_open">展开</string>
+    <string name="ownercircle_close">收起</string>
+    <string name="footprint_report">回复 %1$s</string>
+    <!--图片查看-->
+    <string name="image_pager_left_clock_rotate">向左</string>
+    <string name="image_pager_right_clock_rotate">向右</string>
+    <string name="image_pager_rotate">旋转</string>
+    <string name="image_pager_ok">确定</string>
+    <string name="image_pager_cancel">取消</string>
+    <string name="image_pager_delete">删除</string>
+    <string name="image_pager_change">更换</string>
+    <string name="toast_tips">请至少选择一张图片</string>
+
+    <!--刷新-->
+    <string name="listview_header_hint_normal">下拉刷新</string>
+    <string name="listview_header_hint_release">释放立即刷新</string>
+    <string name="listview_loading">正在加载...</string>
+    <string name="nomore_loading">没有数据了</string>
+    <string name="refreshing">正在刷新...</string>
+    <string name="refresh_done">刷新完成</string>
+    <string name="listview_header_last_time">上次更新时间：</string>
+    <string name="link_error">网络错误</string>
+
+    <!-- time- -->
+    <string name="year">年</string>
+    <string name="timeutility_year">年前</string>
+    <string name="timeutility_month">月前</string>
+    <string name="timeutility_day">天前</string>
+    <string name="timeutility_hour">小时前</string>
+    <string name="timeutility_min">分钟前</string>
+    <string name="timeutility_sec">秒前</string>
+    <string name="timeutility_justnow">刚刚</string>
+    <string name="timeutility_yesterday">昨天</string>
+    <string name="timeutility_the_day_before_yesterday">前天</string>
+    <string name="timeutility_today">今天</string>
+    <string name="timeutility_date_format">M月d日 HH：mm</string>
+    <string name="timeutility_year_format">yyyy年 M月d日 HH：mm</string>
+    <string name="delete">删除</string>
+    <string name="cancels">取消</string>
+    <string name="send">发送</string>
+    <string name="clear_empty">清空</string>
+
+    <string name="start_time">开始时间\u0020:\u0020</string>
+    <string name="address">地址\u0020:\u0020</string>
+    <string name="linkman">联系人\u0020:\u0020</string>
+    <string name="already_join_count">已参加人数\u0020:\u0020</string>
+    <string name="contact_way">联系方式\u0020:\u0020</string>
+    <string name="introduce">活动内容介绍\u0020:\u0020</string>
+    <string name="goodsdetail_notcargo">当前商品无货,请重写选择规格</string>
+    <string name="goodsdetail_notcargo_selected">当前商品无货</string>
+    <string name="goodsdetail_please_select_spec">请选择商品规格</string>
+    <string name="no_permission">暂无权限，请进行资料认证！</string>
+
+</resources>

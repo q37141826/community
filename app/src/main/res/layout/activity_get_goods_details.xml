@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_get_goods_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:fitsSystemWindows="true"
+    tools:context="com.qixiu.intelligentcommunity.mvp.view.activity.home.get_goods.GetGoodsDetailsActivity">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <LinearLayout
+        android:layout_below="@id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin15dp"
+        android:paddingRight="@dimen/margin15dp"
+        android:paddingTop="@dimen/margin28dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/text_forhead"
+                android:text="物品名称 ：" />
+
+            <TextView
+                android:id="@+id/textView_goodsName"
+                style="@style/normol_text_style" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin22dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/text_forhead"
+                android:text="上门时间 ：" />
+
+            <TextView
+                android:id="@+id/textView_getGoodsTime"
+                style="@style/normol_text_style"
+                android:textColor="@color/text_color" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin22dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/textView_getAlready"
+                style="@style/text_forhead"
+                android:text="已收件 "
+                android:textColor="@color/red" />
+
+        </LinearLayout>
+
+        <Button
+            android:visibility="gone"
+            android:text="确认收件"
+            android:background="@drawable/sharp_background_darkgrey"
+            android:textColor="@color/white"
+            android:layout_marginRight="@dimen/margin30dp"
+            android:layout_marginLeft="@dimen/margin30dp"
+            android:layout_marginTop="@dimen/margin120dp"
+            android:id="@+id/btn_confirmGetGoods"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin35dp" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="styles_shopcar_item_edit">
+        <item name="android:layout_height">@dimen/margin30dp</item>
+
+
+    </style>
+
+    <style name="styles_shopcar_item_edit_tv" parent="styles_shopcar_item_edit">
+        <item name="android:layout_width">@dimen/margin30dp</item>
+        <item name="android:textColor">@color/font_grey</item>
+        <item name="android:background">@drawable/shape_shopcar_item_edit_bg</item>
+
+
+    </style>
+</resources>

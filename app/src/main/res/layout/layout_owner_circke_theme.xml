@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/margin_12"
+        android:paddingRight="@dimen/margin_12">
+
+        <com.qixiu.intelligentcommunity.widget.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/height"
+            android:layout_height="@dimen/height"
+            android:layout_marginRight="@dimen/margin_8"
+            android:src="@mipmap/avatar_default"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/iv_avatar"
+            android:gravity="center"
+            android:text="没穿秋裤"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_16"
+            />
+    </RelativeLayout>
+
+    <com.qixiu.intelligentcommunity.widget.TimeLineContentTextView
+        android:id="@+id/tv_report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="10dp"
+        android:lineSpacingExtra="2dip"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_size_14"/>
+
+    <LinearLayout
+        android:id="@+id/ll_memory_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <com.qixiu.intelligentcommunity.widget.ExpandableTextView
+            android:id="@+id/etv_weibo_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:animDuration="200"
+            app:collapseDrawable="@mipmap/footprint_timeline_close"
+            app:collapseText="@string/ownercircle_close"
+            app:expandDrawable="@mipmap/footprint_timeline_open"
+            app:expandText="@string/ownercircle_open"
+            app:maxCollapsedLines="4">
+
+            <com.qixiu.intelligentcommunity.widget.TimeLineContentTextView
+                android:id="@id/expandable_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="2dip"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_14"/>
+
+            <TextView
+                android:id="@id/expand_collapse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|bottom"
+                android:layout_marginTop="4dp"
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/memory_url_text_color"
+                android:textSize="@dimen/font_size_14"/>
+        </com.qixiu.intelligentcommunity.widget.ExpandableTextView>
+
+        <com.qixiu.intelligentcommunity.widget.TimeLineImageView
+            android:id="@+id/tl_iv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height"
+        android:paddingLeft="@dimen/margin_12"
+        android:paddingRight="@dimen/margin_12">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="6小时"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_deltete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@+id/tv_time"
+            android:gravity="center"
+            android:text="删除"
+            android:textSize="14sp"/>
+
+        <com.qixiu.intelligentcommunity.widget.OnlyClickCheckBox
+            android:id="@+id/btn_like"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/bg_footprint_like_selector"
+            android:button="@null"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/btn_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@mipmap/icon_comment"/>
+    </RelativeLayout>
+</LinearLayout>

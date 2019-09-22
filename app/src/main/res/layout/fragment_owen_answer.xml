@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:segmentedgroup="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <com.qixiu.intelligentcommunity.widget.SegmentedGroup
+            android:id="@+id/rg_footprint"
+            android:layout_width="@dimen/margin300dp"
+            android:layout_height="@dimen/margin30dp"
+            android:layout_marginLeft="@dimen/margin12dp"
+            android:layout_marginRight="@dimen/margin12dp"
+            android:layout_marginTop="@dimen/margin17dp"
+            android:layout_marginBottom="@dimen/margin7dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            segmentedgroup:sc_border_width="1dp"
+            segmentedgroup:sc_corner_radius="@dimen/margin5dp">
+
+            <RadioButton
+                android:id="@+id/rb_owner_whole_answer"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="全部"
+                android:textColor="#969696"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rb_owner_my_answer"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="我的"
+                android:textColor="#969696"
+                android:textSize="15sp" />
+
+        </com.qixiu.intelligentcommunity.widget.SegmentedGroup>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_marginTop="@dimen/margin10dp"
+            android:id="@+id/swiprefresh_anser_all"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView
+                android:id="@+id/recyclerview_owen_anserall"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView>
+            >
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/imageView_nothing"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/kongbaiye2x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

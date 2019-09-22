@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.qixiu.intelligentcommunity.widget.SegmentedGroup
+            android:id="@+id/rg_footprint"
+            android:layout_width="@dimen/margin300dp"
+            android:layout_height="@dimen/margin30dp"
+            android:layout_marginLeft="@dimen/margin12dp"
+            android:layout_marginRight="@dimen/margin12dp"
+            android:layout_marginTop="@dimen/margin17dp"
+            android:layout_marginBottom="@dimen/margin7dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            segmentedgroup:sc_border_width="1dp"
+            segmentedgroup:sc_corner_radius="@dimen/margin3dp">
+
+            <RadioButton
+                android:id="@+id/rb_owner_whole_owen"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="全部"
+                android:textColor="@drawable/nav_radio_text_color"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rb_owner_my_owen"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="我的"
+                android:textColor="@drawable/nav_radio_text_color"
+                android:textSize="15sp" />
+
+        </com.qixiu.intelligentcommunity.widget.SegmentedGroup>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/margin10dp"
+        android:id="@+id/relativeLayout_owen_forTrance"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></RelativeLayout>
+</LinearLayout>

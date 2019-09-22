@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_check_where"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+   >
+
+   <RelativeLayout
+       android:id="@+id/vg_title"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"></RelativeLayout>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/vg_title"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:id="@+id/relativelaout_all"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="40dp"
+           >
+
+            <RelativeLayout
+                android:id="@+id/relativelaout_belowme"
+                android:layout_width="match_parent"
+                android:layout_height="110dp">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/tomyright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    app:cardCornerRadius="5dp">
+
+                    <ImageView
+                        android:id="@+id/imageView_checkwhere"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerVertical="true" />
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tomyright1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_toRightOf="@+id/tomyright"
+                    android:text="物流状态 :"
+                    android:textColor="@color/font_grey" />
+
+                <TextView
+                    android:id="@+id/textView_tranceportState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_toRightOf="@+id/tomyright1"
+                    android:text="未签收"
+                   />
+
+                <TextView
+                    android:id="@+id/belowme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tomyright1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/tomyright"
+                    android:text="快递名称 :"
+                    android:textColor="@color/font_grey" />
+
+                <TextView
+                    android:id="@+id/textView_tranceportName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView_tranceportState"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/tomyright1" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/belowme"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/tomyright"
+                    android:text="快递单号 :"
+                    android:textColor="@color/font_grey" />
+
+                <TextView
+                    android:id="@+id/textView_tranceportId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/belowme"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/tomyright1" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_belowme"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/relativelaout_belowme"
+                android:background="@color/divider_color_e0"
+                android:layerType="software"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/textView_trancemessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_belowme"
+                android:layout_margin="20dp"
+                android:text="物流信息" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleView_checktrance"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/textView_trancemessage"></android.support.v7.widget.RecyclerView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativelayout_nothing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/vg_title"
+        android:layout_marginBottom="@dimen/margin30dp"
+        android:layout_marginLeft="@dimen/margin15dp"
+        android:layout_marginRight="@dimen/margin15dp"
+        android:layout_marginTop="@dimen/margin10dp"
+
+        android:background="@drawable/background_corp_white"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imageView_check_nothing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/kongbaiye2x" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

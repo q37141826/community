@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_give_tip_actvity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:fitsSystemWindows="true"
+    tools:context="com.qixiu.intelligentcommunity.mvp.view.activity.home.get_goods.GiveTipActvity">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <LinearLayout
+        android:layout_below="@id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin15dp"
+        android:paddingRight="@dimen/margin15dp"
+        android:paddingTop="@dimen/margin28dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/text_forhead"
+                android:text="金    额 : " />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:hint="0.00"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/edittext_howmuchTip"
+                    style="@style/edit_text_input01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_marginTop="@dimen/margin5dp"
+                    style="@style/style_horizontal_line"
+                    android:layout_below="@+id/edittext_howmuchTip"
+                    android:background="@color/divider_color_e0"></View>
+                <TextView
+                    android:text="元"
+                    android:layout_alignParentRight="true"
+                    style="@style/normol_text_style" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/textView_show_bold"
+            android:layout_marginTop="@dimen/margin56dp"
+            android:gravity="center"
+            android:text="¥0.00"
+            android:textStyle="bold"
+            android:textColor="@color/font_grey"
+            android:textSize="38sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_giveTip"
+            android:background="@drawable/sharp_background_darkgrey"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:text="赛钱打赏"
+            android:layout_marginTop="@dimen/margin60dp"
+            android:layout_marginRight="@dimen/margin30dp"
+            android:layout_marginLeft="@dimen/margin30dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin35dp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

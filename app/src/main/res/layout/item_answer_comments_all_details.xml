@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin0.5dp"
+        android:layout_marginLeft="@dimen/margin15dp"
+        android:layout_marginRight="@dimen/margin10dp"
+        android:background="@color/theme_color"></View>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_comments_answerdetails"
+        android:layout_marginTop="@dimen/margin10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="@dimen/margin80dp"
+            android:layout_height="@dimen/margin60dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circuler_head_answer_comments_details"
+                android:layout_width="@dimen/margin35dp"
+                android:layout_height="@dimen/margin35dp" />
+
+            <TextView
+                android:textColor="@color/font_grey"
+                android:id="@+id/textView_nickname_answer_details_comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxEms="10"
+                android:singleLine="true"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView_comments_main_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/font_grey" />
+
+            <TextView
+                android:layout_marginTop="@dimen/margin10dp"
+                android:id="@+id/textView_time_comments_answer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/yancy_grey500" />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_marginTop="@dimen/margin10dp"
+                android:id="@+id/recyclerView_comments_details_inner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

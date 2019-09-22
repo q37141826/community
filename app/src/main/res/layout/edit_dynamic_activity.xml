@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/theme_color"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include layout="@layout/layout_title"></include>
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                >
+
+                <EditText
+                    android:id="@+id/et_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="@string/owner_edit_dynamic_hint"
+                    android:maxLength="250"
+                    android:padding="10dp"
+                    android:textColorHint="@color/back_9"
+                    android:textSize="@dimen/owner_edit_dynamic_text"/>
+
+                <TextView
+                    android:id="@+id/tv_dynamic_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_10"
+                    android:gravity="right"
+                    android:textColor="@color/black_c"
+                    android:textSize="13sp"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_9"
+                    android:scrollbars="none">
+                </android.support.v7.widget.RecyclerView>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_send"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginBottom="@dimen/margin40dp"
+
+                android:layout_marginLeft="@dimen/margin50dp"
+                android:layout_marginRight="@dimen/margin50dp"
+
+                android:layout_marginTop="@dimen/margin40dp"
+                android:background="@drawable/edit_dynamic_release_bj"
+                android:text="确定"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+
+

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_suggestion_committing"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.qixiu.intelligentcommunity.mvp.view.activity.mine.myprofile.SuggestionCommittingActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_title_suggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tomyright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin15dp"
+            android:layout_marginTop="@dimen/margin50dp"
+            android:text="意见内容："
+            android:textColor="@color/font_grey"
+            android:textSize="15sp" />
+
+        <EditText
+            android:padding="@dimen/margin5dp"
+            android:background="@drawable/sharp_background_line_grey"
+            android:id="@+id/edittext_sugesstion"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin150dp"
+            android:layout_marginLeft="@dimen/margin5dp"
+            android:layout_marginRight="@dimen/margin18dp"
+            android:layout_marginTop="@dimen/margin40dp"
+            android:layout_toRightOf="@id/tomyright"
+            android:gravity="top"
+            android:hint="有您的建议我们会做得更好"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_confirm_suggestion"
+            android:layout_marginTop="@dimen/margin20dp"
+            android:background="@drawable/shape_meaterial_button_bg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:layout_below="@+id/edittext_sugesstion"
+            android:layout_marginLeft="@dimen/margin60dp"
+            android:layout_marginRight="@dimen/margin60dp"
+            android:text="确定"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</LinearLayout>

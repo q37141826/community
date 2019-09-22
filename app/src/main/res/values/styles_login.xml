@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 第三方登陆平台的文本样式-->
+    <style name="style_login_platform_txt">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">bottom|center</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:drawablePadding">@dimen/margin10dp</item>
+
+        <item name="android:checkable">true</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <!--登陆，注册输入框前文本样式-->
+    <style name="style_login_input_txt">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:drawablePadding">@dimen/margin5dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <!--登陆，注册输入框样式-->
+    <style name="style_login_input_edit">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/margin5dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textCursorDrawable">@drawable/shape_editcursor</item>
+        <item name="android:background">@null</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_marginRight">@dimen/margin5dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--登陆，注册 LOGO图片的样式设置-->
+    <style name="style_login_regist_logo_iv">
+        <item name="android:layout_width">@dimen/margin100dp</item>
+        <item name="android:layout_height">@dimen/margin100dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">@dimen/margin50dp</item>
+        <!--<item name="android:src">@mipmap/login_logo</item>-->
+        <item name="android:src">@mipmap/app_icon</item>
+    </style>
+    <!--登陆，注册后面的半透明背景样式-->
+    <style name="style_login_regist_input_bg">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">@dimen/margin34dp</item>
+        <item name="android:layout_marginLeft">@dimen/margin50dp</item>
+        <item name="android:layout_marginRight">@dimen/margin50dp</item>
+        <item name="android:background">@drawable/shape_login_input_bg</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">@dimen/margin15dp</item>
+        <item name="android:paddingRight">@dimen/margin15dp</item>
+        <item name="android:paddingTop">@dimen/margin7dp</item>
+        <item name="android:paddingBottom">@dimen/margin7dp</item>
+    </style>
+
+    <style name="style_login_regist_input_bg_single">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/margin40dp</item>
+        <item name="android:paddingTop">@dimen/margin5dp</item>
+        <item name="android:paddingBottom">@dimen/margin5dp</item>
+    </style>
+
+    <style name="style_login_regist_line" parent="style_horizontal_line">
+        <item name="android:layout_marginRight">@dimen/margin5dp</item>
+        <item name="android:layout_marginLeft">@dimen/margin15dp</item>
+        <item name="android:background">@color/white</item>
+
+    </style>
+
+    <style name="style_login_regist_confirm">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/margin30dp</item>
+        <item name="android:layout_marginRight">@dimen/margin50dp</item>
+        <item name="android:layout_marginLeft">@dimen/margin50dp</item>
+        <item name="android:layout_marginTop">@dimen/margin35dp</item>
+        <item name="android:background">@drawable/shape_login_input_bg</item>
+        <item name="android:gravity">center</item>
+
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+
+    </style>
+
+
+    <style name="style_login_regist_clean_input_rl">
+        <item name="android:layout_width">@dimen/margin25dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_alignParentRight">true</item>
+
+
+    </style>
+
+    <style name="style_login_regist_clean_input_iv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/margin5dp</item>
+
+        <item name="android:src">@mipmap/edit_show_clean</item>
+        <item name="android:layout_alignParentRight">true</item>
+
+        <item name="android:layout_centerVertical">true</item>
+
+
+    </style>
+
+    <style name="black_backgroud">
+        <item name="android:background">@drawable/sharp_background_black</item>
+       <item name="android:paddingLeft">@dimen/margin10dp</item>
+        <item name="android:paddingRight">@dimen/margin10dp</item>
+        <item name="android:paddingTop">@dimen/margin4dp</item>
+        <item name="android:paddingBottom">@dimen/margin4dp</item>
+    </style>
+
+</resources>

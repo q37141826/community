@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="style_event_txt">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:textColor">@color/yancy_grey600</item>
+        <item name="android:layout_marginTop">@dimen/margin8dp</item>
+        <item name="android:layout_marginLeft">@dimen/margin12dp</item>
+        <item name="android:layout_marginRight">@dimen/margin12dp</item>
+    </style>
+</resources>

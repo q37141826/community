@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="txt_E5E5E5">#E5E5E5</color>
+    <color name="theme_color">#4C7FFE</color>
+    <color name="txt_f2f2f2">#f2f2f2</color>
+    <color name="bg_828282">#828282</color>
+    <color name="blue">#03A9F4</color>
+    <color name="transparent">#00000000</color>
+    <color name="back_dark_grey">#505050</color>
+    <color name="home_back">#4C7FFE</color>
+    <color name="back_9">#4C7FFE</color>
+    <color name="txt_E9E9E9">#E9E9E9</color>
+    <color name="txt_8a8a8a">#8a8a8a</color>
+    <color name="txt_8d8d8d">#8D8D8D</color>
+    <color name="txt_B0B0B0">#B0B0B0</color>
+
+    <!--业主圈-->
+    <color name="edit_dynamic_release_btn">@color/theme_color</color>
+    <color name="black_c">#cccccc</color>
+    <color name="module_pressed_color">#f3f3f3</color>
+    <color name="tab_text_hover">#16b7e4</color>
+    <color name="black_0">#000000</color>
+    <color name="gray">#AFAFAF</color>
+    <color name="black5">#8f8f8f</color>
+    <color name="EE">#EEEEEE</color>
+    <color name="A5">#A5A5A5</color>
+    <color name="F2">#F2F2F2</color>
+    <color name="F1F2F2">#F1F2F2</color>
+    <color name="FCFCFC">#FCFCFC</color>
+    <color name="FBFBFB">#FBFBFB</color>
+    <color name="text_color">#969696</color>
+    <color name="nav_radio_button_unselected_color">@android:color/transparent</color>
+    <color name="default_clickable_color">#cccccc</color>
+    <color name="memory_url_text_color">#16b7e5</color>
+    <color name="divider_color_e0">#e0e0e0</color>
+    <color name="praise_item_default">#333333</color>
+    <color name="praise_item_selector_default">#cccccc</color>
+    <color name="praise_item">#8290AF</color>
+    <color name="blue_text">#16B7E4</color>
+    <color name="text_color_ed">#ededed</color>
+    <color name="color_split_line_cccccc">#cccccc</color>
+    <color name="hint_color_normol">#a9a9a9</color>
+    <color name="backgroundColor">#6bc8f2</color>
+
+    <color name="font_grey">#505050</color>
+    <color name="back_grey">#eeeeee</color>
+    <color name="mydark_grey">#999999</color>
+
+    <color name="background_gray">#f7f7f7</color>
+    <color name="txt_737373">#737373</color>
+    <color name="txt_DBDBDB">#DBDBDB</color>
+    <color name="txt_1EBF62">#1EBF62</color>
+    <color name="txt_01C956">#01C956</color>
+    <color name="txt_FD5865">#FD5865</color>
+    <color name="txt_fbcd50">#fbcd50</color>
+    <color name="txt_8D8D8D">#8d8d8d</color>
+    <color name="txt_BDBDBD">#bdbdbd</color>
+    <color name="txt_4D4D4D">#4d4d4d</color>
+    <color name="font_A8A8A8">#A8A8A8</color>
+    <color name="txt_e5e5e5">#e5e5e5</color>
+    <color name="weixin_textback">#f0eff4</color>
+    <color name="txt_ff706c">#ff706c</color>
+    <color name="textColor">#686868</color>
+    <color name="lineColor">#EDEDED</color>
+    <color name="txt_f6f6f6">#f6f6f6</color>
+    <color name="txt_cfcfcf">#cfcfcf</color>
+    <color name="F5F5F5">#f5f5f5</color>
+    <color name="E2EEFF">#E2EEFF</color>
+    <color name="txt_505050">#505050</color>
+    <color name="diliver_505050">#F8F9FC</color>
+    <color name="home_notice_bg_color">#35D4D3</color>
+    <color name="text_littie_grey">#9EAAB4</color>
+    <color name="home_news_bg_color">#977BF6</color>
+
+</resources>

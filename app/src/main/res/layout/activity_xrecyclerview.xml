@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:id="@+id/relativeLayout_xrecyclerview_father"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/vg_title"
+        android:background="@color/white"
+        android:paddingTop="@dimen/margin5dp">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swiprefresh_xrecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView
+                android:id="@+id/recyclerview_xrecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/imageView_nothing"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/kongbaiye2x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativelayout_myorder"
+    android:layout_width="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textView_order_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/recycleView_myoreder_inner"
+        android:layout_margin="10dp"
+        android:text="交易完成"
+        android:textColor="@color/red"
+        android:textSize="12sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleView_myoreder_inner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"></android.support.v7.widget.RecyclerView>
+
+
+    <LinearLayout
+        android:id="@+id/layout_belowme2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/recycleView_myoreder_inner"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <Button
+
+            android:id="@+id/btn_giveComments"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_margin="3dp"
+            android:background="@drawable/sharp_background_line_blue"
+            android:text="立即评价"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_deleteOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_margin="3dp"
+            android:background="@drawable/sharp_background_line_blue"
+            android:text="删除订单"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_payThisOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_margin="3dp"
+            android:background="@drawable/sharp_background_line_blue"
+            android:text="立即支付"
+            android:textColor="@color/red"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_notice_send"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_margin="3dp"
+            android:background="@drawable/sharp_background_line_blue"
+            android:text="提醒发货"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_checkwhere_list"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_margin="3dp"
+            android:background="@drawable/sharp_background_line_blue"
+            android:text="查看物流"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_getConform_list"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_margin="3dp"
+            android:background="@drawable/sharp_background_line_blue"
+            android:text="确认收货"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/layout_belowme2"
+        android:background="@color/lineColor"></View>
+</RelativeLayout>

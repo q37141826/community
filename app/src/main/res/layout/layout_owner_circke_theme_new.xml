@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/margin_12"
+        android:paddingRight="@dimen/margin_12">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circular_head_owen_all"
+            android:layout_width="@dimen/margin30dp"
+            android:layout_height="@dimen/margin30dp"
+            android:layout_marginRight="@dimen/margin_8"
+            android:src="@mipmap/avatar_default"/>
+
+        <TextView
+            android:id="@+id/textView_nickname_owen_all"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/circular_head_owen_all"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_14"
+            />
+    </RelativeLayout>
+
+    <com.qixiu.intelligentcommunity.widget.TimeLineContentTextView
+        android:maxEms="200"
+        android:maxLength="201"
+        android:ellipsize="end"
+        android:id="@+id/tv_content_owen_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin12dp"
+        android:layout_marginRight="@dimen/margin12dp"
+        android:layout_marginTop="@dimen/margin4dp"
+        android:lineSpacingExtra="@dimen/margin2dp"
+        android:textColor="@color/yancy_grey500"
+        android:textSize="@dimen/font_size_12"/>
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/ll_memory_content"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<com.qixiu.intelligentcommunity.widget.ExpandableTextView-->
+            <!--android:id="@+id/etv_weibo_content"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:animDuration="200"-->
+            <!--app:collapseDrawable="@mipmap/footprint_timeline_close"-->
+            <!--app:collapseText="@string/ownercircle_close"-->
+            <!--app:expandDrawable="@mipmap/footprint_timeline_open"-->
+            <!--app:expandText="@string/ownercircle_open"-->
+            <!--app:maxCollapsedLines="4">-->
+
+            <!--<com.qixiu.intelligentcommunity.widget.TimeLineContentTextView-->
+                <!--android:id="@id/expandable_text"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:lineSpacingExtra="2dip"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="@dimen/font_size_14"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@id/expand_collapse"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="left|bottom"-->
+                <!--android:layout_marginTop="4dp"-->
+                <!--android:drawablePadding="4dp"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:textColor="@color/memory_url_text_color"-->
+                <!--android:textSize="@dimen/font_size_14"/>-->
+        <!--</com.qixiu.intelligentcommunity.widget.ExpandableTextView>-->
+
+        <!--<com.qixiu.intelligentcommunity.widget.TimeLineImageView-->
+            <!--android:id="@+id/tl_iv"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"/>-->
+    <!--</LinearLayout>-->
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginLeft="@dimen/margin10dp"
+        android:layout_marginRight="@dimen/margin10dp"
+        android:id="@+id/recyclerview_owen_owenpic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin10dp"
+        android:layout_height="@dimen/margin40dp"
+        android:layout_marginLeft="@dimen/margin12dp"
+        android:layout_marginRight="@dimen/margin12dp">
+
+        <TextView
+            android:textColor="@color/yancy_grey700"
+            android:layout_centerVertical="true"
+            android:id="@+id/tv_time_owen_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="6小时"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:textColor="@color/font_grey"
+            android:id="@+id/tv_deltete_owen_all"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@+id/tv_time_owen_all"
+            android:gravity="center"
+            android:text="     删除"
+            android:textSize="13sp"/>
+
+        <ImageView
+            android:id="@+id/btn_like_owen_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/btn_comment_owen_all"
+            android:layout_centerVertical="true"
+           android:layout_marginRight="@dimen/margin30dp"
+            android:background="@mipmap/icon_not_praise"
+            android:button="@null"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/btn_comment_owen_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin10dp"
+            android:drawableLeft="@mipmap/icon_comment"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/theme_color"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include layout="@layout/layout_title"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin30dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_apply_name_txt"
+                android:layout_width="@dimen/margin55dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:text="姓       名 :"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_12"/>
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_apply_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:layout_toRightOf="@id/tv_apply_name_txt"
+                android:background="@drawable/shape_apply_iput_bg"
+                android:hint="请输入您的真实姓名"
+                android:paddingBottom="@dimen/margin4dp"
+                android:paddingLeft="@dimen/margin2dp"
+                android:paddingRight="@dimen/margin2dp"
+                android:paddingTop="@dimen/margin5dp"
+                android:singleLine="true"
+                android:textColorHint="@color/black_c"
+                android:textSize="12sp"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_clean_apply_name"
+                android:layout_width="@dimen/margin25dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/et_apply_name"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/et_apply_name"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/edit_show_clean"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin30dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_apply_contactway"
+                android:layout_width="@dimen/margin55dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:inputType="text"
+                android:text="联系方式 :"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_12"/>
+
+            <android.support.v7.widget.AppCompatEditText
+
+                android:id="@+id/et_apply_way"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:layout_toRightOf="@id/tv_apply_contactway"
+                android:background="@drawable/shape_apply_iput_bg"
+                android:hint="请输入新的电话号码"
+                android:inputType="phone"
+                android:paddingBottom="@dimen/margin4dp"
+                android:paddingLeft="@dimen/margin2dp"
+                android:paddingRight="@dimen/margin2dp"
+                android:paddingTop="@dimen/margin5dp"
+                android:singleLine="true"
+                android:textColorHint="@color/black_c"
+                android:textSize="12sp"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_clean_apply_way"
+                android:layout_width="@dimen/margin25dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/et_apply_way"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/et_apply_way"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/edit_show_clean"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/bt_apply_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin30dp"
+            android:layout_marginLeft="@dimen/margin50dp"
+            android:layout_marginRight="@dimen/margin50dp"
+            android:layout_marginTop="@dimen/margin80dp"
+            android:background="@drawable/edit_dynamic_release_bj"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+</LinearLayout>

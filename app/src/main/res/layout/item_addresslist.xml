@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="@drawable/sharp_background_line"
+    android:orientation="vertical">
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin0.5dp"
+        android:background="@color/divider_color_e0"></View>
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@color/font_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收货人：" />
+
+            <TextView
+                android:textColor="@color/font_grey"
+
+                android:id="@+id/textView_getgoodspeople_addresslist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XXX" />
+
+            <TextView
+                android:textColor="@color/font_grey"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="     电话：" />
+
+            <TextView
+                android:textColor="@color/font_grey"
+
+                android:id="@+id/textView_getgoodsphone_addresslist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XXX" />
+
+        </LinearLayout>
+
+        <TextView
+            android:textColor="@color/font_grey"
+            android:id="@+id/textView_getgoodsaddress_addresslist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:singleLine="false"
+            android:text="xxx" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <RadioButton
+                android:button="@null"
+                android:id="@+id/radiobtn_addressselect"
+                android:layout_width="@dimen/margin15dp"
+                android:layout_height="@dimen/margin15dp"
+                android:background="@drawable/radio_selector" />
+
+            <TextView
+                android:textColor="@color/font_grey"
+                android:id="@+id/textview_isdefultaddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/radiobtn_addressselect"
+                android:text="设为默认" />
+
+            <ImageView
+                android:id="@+id/imageView_edit_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@+id/imageView_deleteaddress"
+                android:src="@mipmap/edit_grey2x" />
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/imageView_deleteaddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/delete2x" />
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

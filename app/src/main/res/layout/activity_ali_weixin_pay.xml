@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ali_weixin_pay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.qixiu.intelligentcommunity.mvp.view.activity.home.AliWeixinPayActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_title_aliweixinpay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:text="支付方式:"
+            android:textColor="@color/font_grey" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_weixinpay"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/sharp_background_grey"
+            android:elevation="5dp">
+
+            <ImageView
+                android:id="@+id/imageView_weixinicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/weixin_notselected" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/imageView_weixinicon"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/yancy_grey500"
+                    android:id="@+id/textView_weixinpay001"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="微信支付" />
+
+                <TextView
+                    android:textColor="@color/yancy_grey500"
+                    android:id="@+id/textView_weixinpay002"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="WeChat Pay" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView_weixinpay_selection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:background="@mipmap/not_selected" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_alipay"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/sharp_background_grey"
+            android:elevation="5dp">
+
+            <ImageView
+                android:id="@+id/imageView_ali_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/weixin_notselected" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/imageView_ali_icon"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/yancy_grey500"
+                    android:id="@+id/textView_ali_001"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="支付宝支付" />
+
+                <TextView
+                    android:textColor="@color/yancy_grey500"
+                    android:id="@+id/textView_ali_002"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Pay treasure to pay" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView_alipay_selection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:background="@mipmap/not_selected" />
+
+        </RelativeLayout>
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <TextView
+               android:layout_toLeftOf="@+id/textView_money_howmuch"
+               android:layout_marginTop="40dp"
+               android:text="合计缴费："
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginRight="15dp"
+                android:text="¥"
+                android:id="@+id/textView_money_howmuch"
+                android:layout_marginTop="40dp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/yancy_red400"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+       </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/btn_confirm_pay"
+            android:textColor="@color/white"
+            android:background="@drawable/sharp_background_darkgrey"
+            android:layout_marginTop="150dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="确认支付"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+</LinearLayout>

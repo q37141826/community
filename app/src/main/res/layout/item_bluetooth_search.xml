@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:textColor="@color/font_grey"
+        android:id="@+id/textViewBlueToothName"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin40dp" />
+    <TextView
+        android:textColor="@color/font_grey"
+        android:id="@+id/textViewBlueToothAddress"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin40dp" />
+    <TextView
+        android:visibility="gone"
+        android:textColor="@color/font_grey"
+        android:id="@+id/textViewBlueToothDiscrib"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin40dp" />
+    <View
+        android:background="@color/lineColor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin1dp"></View>
+</LinearLayout>

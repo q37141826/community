@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/ll_store_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin45dp"
+   >
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/et_store_title"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin30dp"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_search_bg"
+            android:drawableLeft="@mipmap/search_icon"
+            android:drawablePadding="@dimen/margin6dp"
+            android:gravity="center_vertical"
+            android:hint="请输入关键字"
+            android:padding="@dimen/margin3dp"
+            android:textColorHint="@color/home_back"
+            android:textSize="13sp"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_shopcar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/margin12dp"
+                android:src="@mipmap/shopcar_white"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--浮动-->
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_marginRight="@dimen/margin10dp"
+            android:background="@color/white"
+            android:elevation="5dp">
+
+            <com.jude.rollviewpager.RollPagerView
+                android:id="@+id/roll_view_pager_home"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin180dp"
+                app:rollviewpager_play_delay="3000"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin120dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerviewHomeStoreClassify"
+                android:layout_marginTop="@dimen/margin80dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+<!--            <LinearLayout-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/margin80dp">-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/ll_dressup"-->
+<!--                    style="@style/styles_store_class_ll"-->
+<!--                    >-->
+
+<!--                    <ImageView-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:id="@+id/iv_dressup"-->
+<!--                        style="@style/styles_store_class_iv"-->
+<!--                        />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_dressup"-->
+<!--                        style="@style/styles_store_class_tv"-->
+
+<!--                        android:text="穿衣打扮"-->
+<!--                        />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/ll_bag"-->
+<!--                    style="@style/styles_store_class_ll">-->
+
+<!--                    <ImageView-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:id="@+id/iv_bag"-->
+<!--                        style="@style/styles_store_class_iv"-->
+<!--                        />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_bag"-->
+<!--                        style="@style/styles_store_class_tv"-->
+
+<!--                        android:text="时尚包包"-->
+
+<!--                        />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/ll_leatherboot"-->
+<!--                    style="@style/styles_store_class_ll">-->
+
+<!--                    <ImageView-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:id="@+id/iv_leatherboot"-->
+<!--                        style="@style/styles_store_class_iv"-->
+<!--                        />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_leatherboot"-->
+<!--                        style="@style/styles_store_class_tv"-->
+
+<!--                        android:text="新款皮靴"-->
+
+<!--                        />-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="@dimen/margin20dp"-->
+<!--                android:layout_marginTop="@dimen/margin25dp">-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/ll_shorts"-->
+<!--                    style="@style/styles_store_class_ll">-->
+
+<!--                    <ImageView-->
+<!--                        android:scaleType="centerCrop"-->
+
+<!--                        android:id="@+id/iv_shorts"-->
+<!--                        style="@style/styles_store_class_iv"-->
+<!--                        />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_shorts"-->
+<!--                        style="@style/styles_store_class_tv"-->
+
+<!--                        android:text="运动短裤"-->
+
+<!--                        />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/ll_equally"-->
+<!--                    style="@style/styles_store_class_ll">-->
+
+<!--                    <ImageView-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:id="@+id/iv_equally"-->
+<!--                        style="@style/styles_store_class_iv"-->
+<!--                        />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_equally"-->
+<!--                        style="@style/styles_store_class_tv"-->
+
+<!--                        android:text="明星同款"-->
+
+<!--                        />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/ll_all"-->
+<!--                    style="@style/styles_store_class_ll">-->
+
+<!--                    <ImageView-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:id="@+id/iv_all"-->
+<!--                        style="@style/styles_store_class_iv"-->
+<!--                        android:src="@mipmap/all_calssify"-->
+<!--                        />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_all"-->
+<!--                        style="@style/styles_store_class_tv"-->
+
+<!--                        android:text="全部分类"-->
+
+<!--                        />-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin3dp"
+                android:background="@color/lineColor"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+
+
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rl_hot_goods"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/margin7dp"
+                    android:paddingTop="@dimen/margin13dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="热销商品"
+                        android:textColor="@color/font_grey"
+                        android:textSize="14sp"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_show_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="@dimen/margin7dp"
+                    android:paddingTop="@dimen/margin13dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="查看更多"
+                        android:textColor="@color/txt_8a8a8a"
+                        android:textSize="12sp"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

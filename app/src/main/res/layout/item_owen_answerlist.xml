@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+>
+        <LinearLayout
+            android:orientation="vertical"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_marginLeft="@dimen/margin15dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:maxEms="11"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:id="@+id/textView_title_owen_answerlist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin40dp"
+                    android:gravity="center"
+
+                    android:text="标题"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textView_title_time_answerlist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin40dp"
+                    android:textColor="@color/black"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center" />
+            </RelativeLayout>
+
+            <View
+                android:layout_marginLeft="@dimen/margin15dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin0.5dp"
+                android:background="@color/FBFBFB"></View>
+
+            <TextView
+                android:layout_marginLeft="@dimen/margin15dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:maxEms="200"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:id="@+id/textView_content_anserlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:text="正文"
+                android:textColor="@color/yancy_grey500"
+                android:textSize="12sp" />
+
+            <RelativeLayout
+                android:layout_marginLeft="@dimen/margin15dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp">
+
+                <ImageView
+                    android:scaleType="centerCrop"
+                    android:id="@+id/imageView_anserlist01"
+                    android:layout_width="@dimen/screenwith_forthper"
+                    android:layout_height="@dimen/screenwith_forthper"
+                    android:layout_margin="@dimen/margin5dp"
+                    android:background="@color/white"
+                    android:elevation="@dimen/margin5dp" />
+
+                <ImageView
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/imageView_anserlist02"
+                    android:layout_width="@dimen/screenwith_forthper"
+                    android:layout_height="@dimen/screenwith_forthper"
+                    android:layout_margin="@dimen/margin5dp"
+                    android:background="@color/white"
+                    android:elevation="@dimen/margin5dp" />
+
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/imageView_anserlist03"
+                    android:layout_width="@dimen/screenwith_forthper"
+                    android:layout_height="@dimen/screenwith_forthper"
+                    android:layout_margin="@dimen/margin5dp"
+                    android:background="@color/white"
+                    android:elevation="@dimen/margin5dp" />
+                <TextView
+                    android:textSize="25sp"
+                    android:text="+6"
+                    android:gravity="center"
+                    android:textColor="@color/yancy_grey500"
+                    android:id="@+id/textView_leavepic_num"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:elevation="@dimen/margin5dp"
+                    android:layout_margin="@dimen/margin5dp"
+                    android:layout_width="@dimen/screenwith_forthper"
+                    android:layout_height="@dimen/screenwith_forthper" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginLeft="@dimen/margin15dp"
+                android:layout_marginTop="@dimen/margin4dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circular_head_anserlist"
+                    android:layout_width="@dimen/margin25dp"
+                    android:layout_height="@dimen/margin25dp"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/textView_nickname_anserlist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin5dp"
+                    android:layout_toRightOf="@+id/circular_head_anserlist" />
+
+                <TextView
+                    android:id="@+id/textView_delete_answer_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin20dp"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/textView_nickname_anserlist"
+                    android:text="删除" />
+
+                <ImageView
+                    android:id="@+id/imageView_comments_answerlist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/icon_comment" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    <View
+        android:background="@color/lineColor"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin3dp"></View>
+</LinearLayout>

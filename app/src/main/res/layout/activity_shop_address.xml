@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_shop_address"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:fitsSystemWindows="true"
+
+  >
+
+ <RelativeLayout
+     android:id="@+id/vg_title"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"></RelativeLayout>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_below="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/inmy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+        <TextView
+            android:visibility="gone"
+            android:background="@mipmap/kongbaiye2x"
+            android:gravity="center"
+            android:id="@+id/textView_ishaving_address"
+            android:layout_centerInParent="true"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swiprefresh_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+             >
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycleView_getgoodz_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+
+        </RelativeLayout>
+        <!--<ImageView-->
+            <!--android:id="@+id/imageView_address_head"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="12dp"-->
+            <!--android:scaleType="centerCrop"-->
+            <!--android:src="@drawable/juanlian3x" />-->
+
+        <Button
+            android:id="@+id/btn_add_newAddress"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/margin40dp"
+            android:background="@drawable/sharp_background_darkgrey"
+            android:text="添加新地址"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+</RelativeLayout>

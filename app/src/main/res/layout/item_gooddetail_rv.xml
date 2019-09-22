@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin10dp">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+
+        android:id="@+id/civ_usericon"
+        android:layout_width="@dimen/margin40dp"
+        android:layout_height="@dimen/margin40dp"
+       />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/civ_usericon"
+        android:layout_marginLeft="@dimen/margin7dp"
+        android:layout_toRightOf="@id/civ_usericon"
+        android:text=""
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/tv_comment_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tv_username"
+        android:layout_below="@+id/tv_username"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:layout_toRightOf="@+id/civ_usericon"
+        android:text=""
+        android:textColor="@color/font_A8A8A8"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/tv_spec_key_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_comment_date"
+        android:layout_marginLeft="@dimen/margin10dp"
+        android:layout_toRightOf="@+id/tv_comment_date"
+        android:text=""
+        android:textColor="@color/font_A8A8A8"
+        android:textSize="13sp"/>
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_color"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignTop="@id/tv_color_txt"-->
+    <!--android:layout_marginLeft="3dp"-->
+    <!--android:layout_toRightOf="@id/tv_color_txt"-->
+    <!--android:text=""-->
+    <!--android:textColor="@color/font_A8A8A8"-->
+    <!--android:textSize="15sp"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_size_txt"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignTop="@id/tv_color"-->
+    <!--android:layout_marginLeft="5dp"-->
+    <!--android:layout_toRightOf="@id/tv_color"-->
+    <!--android:text=""-->
+    <!--android:textColor="@color/font_A8A8A8"-->
+    <!--android:textSize="15sp"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_size"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignTop="@id/tv_size_txt"-->
+    <!--android:layout_marginLeft="3dp"-->
+    <!--android:layout_toRightOf="@id/tv_size_txt"-->
+    <!--android:text=""-->
+    <!--android:textColor="@color/font_A8A8A8"-->
+    <!--android:textSize="15sp"/>-->
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/civ_usericon"
+        android:layout_marginTop="@dimen/margin10dp"
+        android:text=""
+        android:textColor="@color/font_A8A8A8"
+        android:textSize="13sp"/>
+
+    <com.qixiu.intelligentcommunity.mvp.view.widget.NoScrollGridView
+        android:id="@+id/gv_gooddetail_comment_picture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_content"
+        android:layout_marginTop="@dimen/margin10dp"
+        android:horizontalSpacing="@dimen/margin10dp"
+        android:numColumns="4"
+        android:scrollbars="none"
+        android:verticalSpacing="@dimen/margin10dp">
+
+    </com.qixiu.intelligentcommunity.mvp.view.widget.NoScrollGridView>
+</RelativeLayout>

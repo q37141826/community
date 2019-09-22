@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="styles_store_class_tv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin15dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">15dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/txt_8a8a8a</item>
+
+    </style>
+
+    <style name="styles_store_class_iv">
+        <item name="android:layout_width">@dimen/margin30dp</item>
+        <item name="android:layout_height">@dimen/margin30dp</item>
+    </style>
+
+    <style name="styles_store_class_ll">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+
+    </style>
+
+    <style name="styles_store_item_tv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/txt_8a8a8a</item>
+        <item name="android:layout_marginLeft">@dimen/margin3dp</item>
+        <item name="android:layout_marginRight">@dimen/margin3dp</item>
+
+    </style>
+
+    <style name="styles_storemore_rl">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="styles_storemore_tv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/home_back</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="styles_storemore_line">
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@color/font_grey</item>
+        <item name="android:textColor">@color/home_back</item>
+        <item name="android:layout_height">@dimen/margin1dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+
+    </style>
+
+</resources>

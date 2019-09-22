@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_message_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".mvp.view.activity.mine.messagelist.MessageListActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_titile_messagelist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <ImageView
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/kongbaiye2x"
+            android:id="@+id/imageView_back_messagelist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swiprefresh_messagelist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView
+            android:layout_marginTop="10dp"
+            android:id="@+id/recyclerview_messagelist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/font_grey"></View>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        app:cardCornerRadius="4dp">
+
+        <ImageView
+            android:id="@+id/imageView_orderIcon"
+            android:layout_width="75dp"
+            android:layout_height="75dp" />
+    </android.support.v7.widget.CardView>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@+id/cardview"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_goodsContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5px"
+            android:text="订单商品简介"
+            android:textColor="@color/dark_gray" />
+
+        <TextView
+            android:id="@+id/textView_goodsDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5px"
+            android:text="商品规格介绍"
+            android:textColor="@color/font_grey" />
+
+        <TextView
+            android:id="@+id/textView_goodsPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5px"
+            android:text="商品价格"
+            android:textColor="@color/red" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView_goodsCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:text="X 数量" />
+
+</RelativeLayout>

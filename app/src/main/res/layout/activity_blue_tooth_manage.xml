@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="@color/theme_color"
+    tools:context="com.qixiu.intelligentcommunity.mvp.view.activity.home.BlueToothManageActivity">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:paddingLeft="@dimen/margin10dp"
+            android:id="@+id/refreshBluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:gravity="center_vertical"
+            android:text="附近的门禁,点击刷新" />
+        <View
+            android:background="@color/lineColor"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1dp"></View>
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+</LinearLayout>

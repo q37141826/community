@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+    >
+
+    <android.support.v4.widget.SwipeRefreshLayout
+
+        android:id="@+id/srl_storeclassify"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/rl_storeclassify"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+
+        android:id="@+id/ll_search_tag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="相关发现"
+            android:textSize="15sp"/>
+
+        <GridView
+            android:id="@+id/gv_store_search"
+            android:layout_width="wrap_content"
+            android:layout_height="139dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="10dp"
+            android:horizontalSpacing="30dp"
+            android:numColumns="3"
+            android:scrollbars="none"
+            android:verticalSpacing="10dp"></GridView>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_nodata_showbg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/search_nodata"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>

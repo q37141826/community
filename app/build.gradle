@@ -1,0 +1,146 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'android-apt'
+//apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-android'
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.qixiu.nanhu"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 119
+        versionName '1.1.9'
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+        ndk {
+            //增加这个主要是限制只能有这几个so库的文件夹，否则莫名其妙出现其它的文件夹导致报错
+            abiFilters "armeabi", "armeabi-v7a", "x86"
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "dd6e88cf0ab7961ab615dd2f", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default" //暂时填写默认值即可.
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            jniDebuggable false
+            renderscriptDebuggable false
+            zipAlignEnabled true
+        }
+    }
+    signingConfigs {
+        debug {
+            storeFile file('qixiu.jks')
+            storePassword "qixiu888"
+            keyAlias "qixiu"
+            keyPassword "qixiu888"
+        }
+        release {
+            storeFile file('qixiu.jks')
+            storePassword "qixiu888"
+            keyAlias "qixiu"
+            keyPassword "qixiu888"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    buildToolsVersion '27.0.2'
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    //    compile 'com.jakewharton:butterknife:8.4.0'
+    //    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    implementation 'com.jakewharton:butterknife:8.6.0'
+    annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"
+    //这个是升级到gradle4.0以后需要的注解依赖，黄油刀所需
+    implementation 'com.android.support:support-v4:26.0.1'
+    implementation 'com.android.support:appcompat-v7:26.0.1'
+    implementation 'junit:junit:4.12'
+    //multidex，解决方法64K问题
+    implementation 'com.android.support:multidex:1.0.1'
+    implementation 'com.android.support:recyclerview-v7:26.0.1'
+    implementation 'de.hdodenhof:circleimageview:2.0.0'
+    implementation 'com.android.support:design:26.0.1'
+    implementation 'com.android.support:cardview-v7:26.0.1'
+    //切割用黄油刀
+    //    compile 'com.jakewharton:butterknife:6.1.0'
+    //图片选择器
+    implementation 'me.iwf.photopicker:PhotoPicker:0.9.5@aar'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    //轮播图
+    implementation 'com.jude:rollviewpager:1.4.6'
+    //网络框架
+    compile files('libs/okhttputils-2_6_2.jar')
+    implementation 'com.squareup.okhttp3:okhttp:3.6.0'
+    //图片加载框架
+    compile files('libs/glide-3.7.0.jar')
+    implementation 'com.yancy.imageselector:imageselector:1.3.3'
+    implementation 'com.google.code.gson:gson:2.8.0'
+    implementation files('libs/httpclient-4.2.5.jar')
+    implementation files('libs/httpcore-4.2.4.jar')
+    //eventbus
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    //QQ原生的社会化分享
+    implementation files('libs/mta-sdk-1.6.2.jar')
+    implementation files('libs/open_sdk_r5781.jar')
+    //社会化分享
+    implementation files('libs/MobCommons-2017.0412.1554.jar')
+    implementation files('libs/MobTools-2017.0412.1554.jar')
+    //ShareSDK
+    implementation files('libs/ShareSDK-Wechat-Moments-2.8.3.jar')
+    implementation files('libs/ShareSDK-Wechat-Favorite-2.8.3.jar')
+    implementation files('libs/ShareSDK-Wechat-Core-2.8.3.jar')
+    implementation files('libs/ShareSDK-Wechat-2.8.3.jar')
+    implementation files('libs/ShareSDK-QZone-2.8.3.jar')
+    implementation files('libs/ShareSDK-SinaWeibo-2.8.3.jar')
+    implementation files('libs/ShareSDK-QQ-2.8.3.jar')
+    implementation files('libs/ShareSDK-Core-2.8.3.jar')
+    implementation files('libs/MobTools-2017.0412.1554.jar')
+    implementation files('libs/MobCommons-2017.0412.1554.jar')
+    //微信支付
+    implementation files('libs/libammsdk.jar')
+    //支付宝支付
+    implementation files('libs/alipaySingle-20170510.jar')
+    //极光推送用的下面的网络框架
+    implementation 'com.squareup.retrofit2:retrofit:2.2.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
+    implementation 'cn.jiguang:jpush:2.2.0'
+    implementation 'com.clj.fastble:FastBleLib:1.1.1'
+    implementation files('libs/annotations.jar')
+    implementation files('libs/sun.misc.BASE64Decoder.jar')
+    implementation 'com.zhy:flowlayout-lib:1.0.3'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'io.reactivex:rxjava:1.1.6'
+    implementation 'top.zibin:Luban:1.0.9'
+    //生成json
+    implementation 'com.alibaba:fastjson:1.2.32'
+    //xutils
+    implementation 'org.xutils:xutils:3.3.34'
+    //
+    implementation 'com.yanzhenjie:album:2.0.0'
+    implementation 'com.yanzhenjie:permission:1.0.7'
+}

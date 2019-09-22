@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_my_points_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.qixiu.intelligentcommunity.mvp.view.activity.mine.MyPointsListActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin15dp">
+
+        <TextView
+            android:id="@+id/textView_isGainOrPayPoints"
+            style="@style/normol_text_style"
+            android:text="积分获取" />
+
+        <TextView
+            android:id="@+id/textView_time"
+            android:layout_alignParentRight="true"
+            style="@style/normol_text_style"
+            android:textColor="@color/text_color" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/margin15dp"
+        android:paddingRight="@dimen/margin15dp">
+
+        <TextView
+            android:id="@+id/textView_gameName"
+            android:textColor="@color/text_color"
+            style="@style/normol_text_style"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/textView_points"
+            android:layout_alignParentRight="true"
+            style="@style/normol_text_style"
+            android:textColor="@color/textColor" />
+    </RelativeLayout>
+    <View
+        android:layout_marginTop="@dimen/margin5dp"
+        style="@style/line_grey_horizental"
+        ></View>
+</LinearLayout>

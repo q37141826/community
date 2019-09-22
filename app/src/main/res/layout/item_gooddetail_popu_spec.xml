@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_gooddetail_popu_spec_name"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:textColor="@color/textColor"
+        android:text=""
+        android:textSize="13sp"/>
+
+    <com.qixiu.intelligentcommunity.mvp.view.widget.NoScrollGridView
+        android:id="@+id/gv_gooddetail_popu_spec"
+        android:layout_marginRight="20dp"
+        android:stretchMode="columnWidth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_gooddetail_popu_spec_name"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/tv_gooddetail_popu_spec_name"
+        android:horizontalSpacing="10dp"
+        android:numColumns="3"
+        android:scrollbars="none"
+        android:verticalSpacing="10dp"></com.qixiu.intelligentcommunity.mvp.view.widget.NoScrollGridView>
+</RelativeLayout>

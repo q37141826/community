@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/relativeLayout_mypop_for_input"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+    >
+
+    <ScrollView
+        android:id="@+id/framelayout_inputPop_Dismiss"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_input_pop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:padding="@dimen/margin5dp">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/edittext_input_pop"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin32dp"
+            android:layout_marginBottom="@dimen/margin5dp"
+            android:layout_marginRight="@dimen/margin5dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_comment_input_bg"
+            android:hint="评论..."
+            android:maxLength="100"
+            android:paddingLeft="@dimen/margin10dp"
+            android:textSize="13sp"
+            />
+
+        <TextView
+            android:id="@+id/btn_input_pop"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin27dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/margin5dp"
+            android:layout_toRightOf="@id/edittext_input_pop"
+            android:background="@drawable/shape_comment_bt_bg"
+            android:gravity="center"
+            android:paddingLeft="@dimen/margin10dp"
+            android:paddingRight="@dimen/margin10dp"
+            android:text="取消"
+            android:textColor="@color/font_grey"
+            android:textSize="@dimen/font_size_13"/>
+    </LinearLayout>
+
+
+</LinearLayout>

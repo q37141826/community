@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_answer_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.qixiu.intelligentcommunity.mvp.view.activity.ownercircle.AnswerDetailsActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_titile_answer_details"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin50dp"></RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:paddingTop="@dimen/margin15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/margin15dp"
+                android:paddingRight="@dimen/margin15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin40dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circuler_head_answerdetails"
+                        android:layout_width="@dimen/margin30dp"
+                        android:layout_height="@dimen/margin30dp"
+                        android:layout_centerVertical="true" />
+
+                    <TextView
+                        android:textColor="@color/font_grey"
+                        android:id="@+id/textView_nickname_answer_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin10dp"
+                        android:layout_toRightOf="@+id/circuler_head_answerdetails" />
+
+                    <TextView
+                        android:id="@+id/textView_time_answer_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/margin10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/textView_title_answer_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxEms="20"
+                        android:singleLine="true"
+                        android:text="标题"
+                        android:textColor="@color/font_grey"
+                        android:textSize="15sp" />
+                    <ImageView
+                        android:visibility="gone"
+                        android:id="@+id/imageView_delete_answer_details_delete"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/delete2x"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin0.5dp"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:background="@color/lineColor"></View>
+
+                <TextView
+                    android:id="@+id/textView_content_answer_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:ellipsize="end"
+                    android:maxEms="200"
+                    android:maxLength="200"
+                    android:text="正文"
+                    android:textColor="@color/yancy_grey500" />
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="地址:"
+                        android:textColor="@color/yancy_grey500" />
+
+                    <TextView
+                        android:id="@+id/textView_address_answer_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="联系人:"
+                        android:textColor="@color/yancy_grey500" />
+
+                    <TextView
+                        android:id="@+id/textView_connector_answer_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="联系方式:"
+                        android:textColor="@color/yancy_grey500" />
+
+                    <TextView
+                        android:id="@+id/textView_phone_answer_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin10dp" />
+
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerview_pic_answer_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"></android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin3dp"
+                android:layout_marginTop="@dimen/margin15dp"
+                android:background="@color/lineColor"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:paddingLeft="@dimen/margin15dp"
+                android:paddingRight="@dimen/margin15dp">
+
+                <TextView
+                    android:textColor="@color/font_grey"
+                    android:text="回答区"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true" />
+                <ImageView
+                    android:id="@+id/imageView_comments_answerdetails"
+                    android:src="@mipmap/icon_comment"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView_commentss_answerdetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

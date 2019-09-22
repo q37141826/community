@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin12dp"
+        android:layout_marginRight="@dimen/margin12dp"
+        android:layout_marginTop="@dimen/margin15dp">
+
+        <TextView
+            android:id="@+id/tv_event_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_event_detail_title_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin0.5dp"
+            android:layout_below="@id/tv_event_detail_title"
+            android:layout_marginTop="@dimen/margin6dp"
+            android:background="@color/txt_E9E9E9"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_event_detail_date"
+        style="@style/style_event_txt"
+        android:text="开始时间 : "
+        />
+
+    <TextView
+        android:id="@+id/tv_event_detail_address"
+        style="@style/style_event_txt"
+        android:text="地址 : "
+        />
+
+    <TextView
+        android:id="@+id/tv_event_detail_linkman"
+        style="@style/style_event_txt"
+        android:text="联系人 : "
+        />
+
+    <TextView
+        android:id="@+id/tv_event_detail_alreadycount"
+        style="@style/style_event_txt"
+        android:text="已参加人数 :"
+        />
+
+    <TextView
+        android:id="@+id/tv_event_detail_way"
+        style="@style/style_event_txt"
+        android:text="联系方式 : "
+        />
+
+    <TextView
+        android:id="@+id/tv_event_detail_introduce"
+        style="@style/style_event_txt"
+        android:text="活动内容介绍 : "
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_event_detail_imgs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin12dp"
+        android:layout_marginRight="@dimen/margin12dp"
+        android:layout_marginTop="@dimen/margin8dp"
+
+        />
+
+    <View
+
+        android:layout_width="match_parent"
+
+        android:layout_height="@dimen/margin4dp"
+        android:layout_marginTop="@dimen/margin13dp"
+        android:background="@color/EE"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin12dp"
+        android:layout_marginRight="@dimen/margin12dp"
+        android:layout_marginTop="@dimen/margin10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="回答区"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_eventdetail_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:drawableLeft="@mipmap/icon_comment"
+            android:textSize="12sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin3dp"
+            android:layout_below="@+id/tv_eventdetail_comment"
+            android:layout_marginTop="@dimen/margin8dp"
+            android:background="@color/FBFBFB"/>
+    </RelativeLayout>
+</LinearLayout>

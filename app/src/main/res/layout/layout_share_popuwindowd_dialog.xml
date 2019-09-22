@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/framelayout_sharesdk"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/bg_transparent">
+
+    <LinearLayout
+        android:id="@+id/ll_share_community"
+        android:background="@drawable/dialog_shape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/imageView_share_sinna"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/weibo_detail"
+                android:gravity="center"
+                android:text="微博"
+                android:textColor="@color/dark_gray"
+            />
+
+
+
+            <TextView
+                android:id="@+id/imageView_share_weichat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/weixin_detail"
+                android:gravity="center"
+                android:text="微信"
+                android:textColor="@color/dark_gray" />
+
+            <TextView
+                android:id="@+id/imageView_share_weichatcore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/friend_detail"
+                android:gravity="center"
+                android:text="朋友圈"
+                android:textColor="@color/dark_gray" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/dialog_shape"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+
+            <TextView
+                android:id="@+id/imageView_share_qq"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/qq_detail"
+                android:gravity="center"
+                android:text="QQ"
+                android:textColor="@color/dark_gray" />
+
+            <TextView
+                android:id="@+id/imageView_share_qzon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/share_inter"
+                android:gravity="center"
+                android:text="QQ空间"
+                android:textColor="@color/dark_gray" />
+
+
+
+            <TextView
+                android:id="@+id/imageView_share_clibord"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/icon_copy"
+                android:gravity="center"
+                android:text="复制链接"
+                android:textColor="@color/dark_gray" />
+        </LinearLayout>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_close"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/dialog_shape"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/dark_gray" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="10dp">
+
+    <EditText
+        android:layout_marginTop="5dp"
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg"
+        android:enabled="true"
+        android:gravity="top"
+        android:hint="商品满足您的期待吗？说说您的使用心得吧......."
+        android:inputType="textMultiLine"
+        android:maxLines="10"
+        android:minLines="8"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:scrollbars="none"
+        android:textSize="15sp"
+
+        />
+
+    <com.qixiu.intelligentcommunity.mvp.view.widget.NoScrollGridView
+        android:layout_below="@+id/et_content"
+        android:id="@+id/gv_evluateorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:horizontalSpacing="5dp"
+        android:numColumns="4"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="5dp"></com.qixiu.intelligentcommunity.mvp.view.widget.NoScrollGridView>
+
+    <Button
+        android:layout_marginBottom="@dimen/margin50dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bt_submit_comment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin35dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/sharp_background_darkgrey"
+        android:text="提交评价"
+        android:textColor="@color/white"/>
+</RelativeLayout>

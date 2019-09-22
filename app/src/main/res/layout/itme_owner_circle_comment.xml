@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qixiu.intelligentcommunity.widget.TimeLineContentTextView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                               android:id="@+id/tv_comment"
+                                                               android:layout_width="match_parent"
+                                                               android:layout_height="wrap_content"
+                                                               android:lineSpacingMultiplier="1.1"
+                                                               android:paddingBottom="2dp"
+                                                               android:paddingTop="2dp"
+                                                               android:textColor="@color/black"
+                                                               android:textSize="@dimen/font_size_14"/>

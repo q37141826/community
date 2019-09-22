@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_onekey_call_bean"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.qixiu.intelligentcommunity.mvp.view.activity.mine.myprofile.OnekeyCallActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_title_onekeycall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swiprefresh_onkey_call"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView
+            android:id="@+id/recyclerview_onkeycall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"></com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/imageView_kongbai_onekeycall"
+            android:src="@mipmap/kongbaiye2x"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</LinearLayout>

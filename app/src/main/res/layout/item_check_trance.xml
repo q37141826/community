@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <RelativeLayout
+            android:id="@+id/tomyright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView_isselected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/circle_selected"/>
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/imageView_isselected"
+                android:layout_centerHorizontal="true"
+                android:background="@color/green" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:textSize="13sp"
+            android:id="@+id/textView_content_checkwhere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/tomyright" />
+
+        <TextView
+            android:textSize="13sp"
+            android:id="@+id/textView_time_chechwhere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_content_checkwhere"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/tomyright" />
+
+    </RelativeLayout>
+
+</LinearLayout>

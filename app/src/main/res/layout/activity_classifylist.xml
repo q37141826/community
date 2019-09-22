@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/theme_color"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <RelativeLayout
+            android:id="@+id/belowme"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin59dp">
+           <ImageView
+               android:id="@+id/imageViewServicePhone"
+               android:src="@mipmap/servicephone2x"
+               android:scaleType="center"
+               android:layout_centerVertical="true"
+               android:layout_width="@dimen/margin40dp"
+               android:layout_height="@dimen/margin40dp"></ImageView>
+            <EditText
+                android:clickable="true"
+                android:id="@+id/edittextSearchGoods"
+                android:textColor="@color/font_grey"
+                android:textSize="12sp"
+                android:hint="请输入关键字"
+                android:drawablePadding="@dimen/margin10dp"
+                android:background="@drawable/edit_bg"
+                android:paddingLeft="@dimen/margin11dp"
+                android:drawableLeft="@mipmap/search_icon"
+                android:layout_marginRight="@dimen/margin40dp"
+                android:layout_marginLeft="@dimen/margin40dp"
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin28dp"></EditText>
+            <ImageView
+                android:id="@+id/imageViewTicket"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/shopcar_grey"
+                android:scaleType="center"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/margin40dp"
+                android:layout_height="@dimen/margin40dp"></ImageView>
+        </RelativeLayout>
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_below="@+id/belowme"
+            android:id="@+id/srl_classifylist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerview_classify_menu"
+                    android:layout_width="@dimen/margin100dp"
+                    android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+                <com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView
+                    android:id="@+id/rv_classifylist"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"></com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView>
+                
+            </LinearLayout>
+        
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <ImageView
+            android:id="@+id/iv_nodata_showbg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/kongbaiye2x"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

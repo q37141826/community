@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user_identity">用户身份 :</string>
+    <string name="user_name">用户姓名 :</string>
+    <string name="place_plot">所在小区 :</string>
+    <string name="place_periods">所在期数 :</string>
+    <string name="place_building">所在楼栋 :</string>
+    <string name="element_number">单元号码 :</string>
+    <string name="doorplate_number">门牌号码 :</string>
+    <string name="identity_card_number">身份证号 :</string>
+    <string name="obligate_phone_number">预留手机号 :</string>
+
+
+    <string name="please_select_identity">请选择身份</string>
+    <string name="please_write_username">请填写新的真实姓名</string>
+    <string name="please_select_plot">请选择小区名称</string>
+    <string name="please_select_periods">请选择期数</string>
+    <string name="please_select_building">请选择楼栋</string>
+    <string name="please_select_element">请选择单元</string>
+    <string name="doorplate_example">例: 401</string>
+    <string name="please_input_identity_card_number">请输入您的真实身份证号</string>
+    <string name="please_input_phone_number">请输入您的手机号码</string>
+    <string name="upload_face_photo">上传人脸正面照:</string>
+    <string name="submit">提交</string>
+    <string name="not_content">请填写内容</string>
+
+
+</resources>

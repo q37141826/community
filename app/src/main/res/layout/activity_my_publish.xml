@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_my_publish"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/theme_color"
+    tools:context="com.qixiu.intelligentcommunity.mvp.view.activity.mine.myprofile.MyPublishActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_title_myPublish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tablelayout_myPublish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relativeLayout_title_myPublish"></android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager_myPublish"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tablelayout_myPublish"></android.support.v4.view.ViewPager>
+</RelativeLayout>

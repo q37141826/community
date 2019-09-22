@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:zhy="http://schemas.android.com/apk/res-auto"
+              android:background="@color/theme_color"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/vg_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            >
+
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="0dp"
+                android:paddingRight="@dimen/margin5dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:layout_weight="1"
+                android:textColorHint="@color/home_back"
+                android:hint="请输入关键字"
+                android:background="@null"
+                android:drawableLeft="@mipmap/search_icon"
+                android:drawablePadding="@dimen/margin5dp"
+                android:singleLine="true"
+                android:textSize="13sp"/>
+
+            <View
+                android:layout_width="@dimen/margin0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/theme_color"/>
+
+            <TextView
+                android:id="@+id/tv_search"
+                android:layout_width="@dimen/margin70dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/font_grey"
+                android:text="搜索"
+                android:textSize="@dimen/margin13dp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin0.5dp"
+            android:background="@color/theme_color"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:visibility="gone"
+                android:id="@+id/srl_storesearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView
+                    android:id="@+id/rl_storesearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"></com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView>
+
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+            <LinearLayout
+
+                android:id="@+id/ll_search_tag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="相关发现"
+                    android:textColor="@color/font_grey"
+                    android:textSize="15sp"/>
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:id="@+id/tfl_lately_visit"
+
+                    style="@style/style_tagflow"
+                    zhy:max_select="-1">
+                </com.zhy.view.flowlayout.TagFlowLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_nodata_showbg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/kongbaiye2x"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>
