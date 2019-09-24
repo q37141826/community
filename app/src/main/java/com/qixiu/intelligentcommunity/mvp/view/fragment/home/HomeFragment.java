@@ -49,6 +49,7 @@ import com.qixiu.intelligentcommunity.mvp.beans.C_CodeBean;
 import com.qixiu.intelligentcommunity.mvp.beans.bluetooth.BluetoothMatchBean;
 import com.qixiu.intelligentcommunity.mvp.beans.home.HomeBean;
 import com.qixiu.intelligentcommunity.mvp.beans.home.HomeHotGoodsBean;
+import com.qixiu.intelligentcommunity.mvp.beans.home.HomeNoticeBean;
 import com.qixiu.intelligentcommunity.mvp.beans.home.NewsStateBean;
 import com.qixiu.intelligentcommunity.mvp.beans.store.StoreBean;
 import com.qixiu.intelligentcommunity.mvp.model.home_modle.HomeSelectorModle;
@@ -155,6 +156,10 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
     //头部隐藏的线程对象、
     private VisbleRunnable runnable;
     private RollPagerView roll_user_selector;
+    private TextView textViewNoticeMsg;
+    private TextView textViewNoticeDate;
+    private TextView textViewNews;
+    private TextView textViewNewsDate;
 
     public void setBlueToothIntf(MainBlueToothIntf blueToothIntf) {
         this.blueToothIntf = blueToothIntf;
@@ -201,14 +206,21 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
         });
         //头部滚动图
         requestHeadBanner();
+        requestNoticeData();
+    }
+
+    private void requestNoticeData() {
+        Map<String, String> map = new HashMap<>();
+        map.put("uid", Preference.get(ConstantString.USERID, ""));
+        mOkHttpRequestModel.okhHttpPost(ConstantUrl.homeNoticeUrl, map, new HomeNoticeBean());
     }
 
     private void requestHeadBanner() {
-        Map<String,String> map =new HashMap<>();
-        map.put("uid",Preference.get(ConstantString.USERID,"1"));
-        map.put("pageNo",pageNo+"");
-        map.put("pageSize",pageSize + "");
-        mOkHttpRequestModel.okhHttpPost(ConstantUrl.homeUrl,map,new HomeBean());
+        Map<String, String> map = new HashMap<>();
+        map.put("uid", Preference.get(ConstantString.USERID, "1"));
+        map.put("pageNo", pageNo + "");
+        map.put("pageSize", pageSize + "");
+        mOkHttpRequestModel.okhHttpPost(ConstantUrl.homeUrl, map, new HomeBean());
     }
 
     private void setGameCenter() {
@@ -337,8 +349,8 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
         View headView = View.inflate(getContext(), R.layout.home_fragment_head, null);
         initHeadView(headView);
         recyclerview_home_hot_goods.addHeaderView(headView);
-        RecyclerView.LayoutManager manager= new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        XrecyclerViewUtil.setXrecyclerView(recyclerview_home_hot_goods,this,getContext(),false,1,manager);
+        RecyclerView.LayoutManager manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        XrecyclerViewUtil.setXrecyclerView(recyclerview_home_hot_goods, this, getContext(), false, 1, manager);
         recyclerview_home_hot_goods.setLoadingMoreProgressStyle(ProgressStyle.BallClipRotate);
 
         recyclerview_home_hot_goods.setAdapter(mStoreAdapter);
@@ -357,7 +369,7 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
         mZProgressHUD.setMessage("扫描中");
         imageView_commnityManager_home = (ImageView) view.findViewById(R.id.imageView_commnityManager_home);
         imageView_game_home = (ImageView) view.findViewById(R.id.imageView_game_home);
-        mImageView_onkeyOpen =  view.findViewById(R.id.imageView_onkeyOpen);
+        mImageView_onkeyOpen = view.findViewById(R.id.imageView_onkeyOpen);
         mImageView_notice_home = view.findViewById(R.id.imageView_notice_home);
         mImageView_news_home = view.findViewById(R.id.imageView_news_home);
         mImageView_event_home = (ImageView) view.findViewById(R.id.imageView_event_home);
@@ -377,6 +389,15 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerview_event_home.setLayoutManager(manager);
+        initNotice(view);
+    }
+
+    private void initNotice(View view) {
+        textViewNoticeMsg = view.findViewById(R.id.textViewNoticeMsg);
+        textViewNoticeDate = view.findViewById(R.id.textViewNoticeDate);
+        textViewNews = view.findViewById(R.id.textViewNews);
+        textViewNewsDate = view.findViewById(R.id.textViewNewsDate);
+
     }
 
     private void initSevice(View view) {
@@ -394,8 +415,8 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
         roll_view_pager_home = (RollPagerView) view.findViewById(R.id.roll_view_pager_home);
         roll_user_selector = (RollPagerView) view.findViewById(R.id.roll_user_selector);
         roll_view_pager_home.setHintView(new ColorPointHintView(getActivity(), getResources().getColor(R.color.white), getResources().getColor(R.color.theme_color)));
-        ColorPointHintView colorPointHintView= new ColorPointHintView(getActivity(), getResources().getColor(R.color.white), getResources().getColor(R.color.theme_color));
-        LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,Util.dip2px(getContext(),2));
+        ColorPointHintView colorPointHintView = new ColorPointHintView(getActivity(), getResources().getColor(R.color.white), getResources().getColor(R.color.theme_color));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, Util.dip2px(getContext(), 2));
         colorPointHintView.setLayoutParams(layoutParams);
         roll_user_selector.setHintView(colorPointHintView);
 //        roll_view_pager_home.setHintView(new IconHintView(getActivity(),(R.mipmap.circle_white2x),(R.mipmap.tuoyuan_white2x)));
@@ -403,18 +424,18 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
     }
 
     private void initSelectorSetting() {
-        UserSelectorAdapter userSelectorAdapter=new UserSelectorAdapter(roll_user_selector);
+        UserSelectorAdapter userSelectorAdapter = new UserSelectorAdapter(roll_user_selector);
         roll_user_selector.setAdapter(userSelectorAdapter);
-        String firstPage[]={"物业缴费","在线报修","求助帮忙","服务定制"};
-        String secondPage[]={"二手市场","邻里议事厅","房产租赁","停车缴费"};
-        int firstPageRes[] ={R.mipmap.home_wuyepay2x,R.mipmap.home_repair2x,R.mipmap.home_help2x,R.mipmap.home_service2x,};
-        int secondPageRes[] ={R.mipmap.home_secondhandmarket2x,R.mipmap.home_neibor_discussing2x,R.mipmap.home_house_lend2x,
+        String firstPage[] = {"物业缴费", "在线报修", "求助帮忙", "服务定制"};
+        String secondPage[] = {"二手市场", "邻里议事厅", "房产租赁", "停车缴费"};
+        int firstPageRes[] = {R.mipmap.home_wuyepay2x, R.mipmap.home_repair2x, R.mipmap.home_help2x, R.mipmap.home_service2x,};
+        int secondPageRes[] = {R.mipmap.home_secondhandmarket2x, R.mipmap.home_neibor_discussing2x, R.mipmap.home_house_lend2x,
                 R.mipmap.home_car_pay2x,};
-        List<List<Parcelable>>  selectorDatas=new ArrayList<>();
-        List<Parcelable> datapage01=new ArrayList<>();
-        List<Parcelable> datapage02=new ArrayList<>();
-        putSelectortData(firstPage,firstPageRes,datapage01);
-        putSelectortData(secondPage,secondPageRes,datapage02);
+        List<List<Parcelable>> selectorDatas = new ArrayList<>();
+        List<Parcelable> datapage01 = new ArrayList<>();
+        List<Parcelable> datapage02 = new ArrayList<>();
+        putSelectortData(firstPage, firstPageRes, datapage01);
+        putSelectortData(secondPage, secondPageRes, datapage02);
         selectorDatas.add(datapage01);
         selectorDatas.add(datapage02);
         userSelectorAdapter.refreshData(selectorDatas);
@@ -422,7 +443,7 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
 
     private void putSelectortData(String[] firstPage, int[] firstPageRes, List<Parcelable> data) {
         for (int i = 0; i < firstPage.length; i++) {
-            HomeSelectorModle homeSelectorModle=new HomeSelectorModle(firstPage[i],firstPageRes[i]);
+            HomeSelectorModle homeSelectorModle = new HomeSelectorModle(firstPage[i], firstPageRes[i]);
             data.add(homeSelectorModle);
         }
     }
@@ -481,44 +502,56 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
             }
         }
 
-        if(data instanceof HomeBean){
-                final HomeBean homeBean = (HomeBean) data;
+        if (data instanceof HomeBean) {
+            final HomeBean homeBean = (HomeBean) data;
 //                    ToastUtil.showToast(getContext(), homeBean.getM());
-                images.clear();
-                for (int j = 0; j < homeBean.getO().size(); j++) {
-                    images.add(ConstantUrl.hostImageurl + homeBean.getO().get(j).getAd_code());
-                }
-                //加载活动图
-                eventAdapter.refreshData(homeBean.getE());
-                roll_view_pager_home.setAdapter(new TestNormalAdapter(images, getContext()));//// TODO: 2017/6/16 放入网络数据
-                //轮播图
-                mHomeAdvAdapter = new ImageUrlAdapter(roll_view_pager_home);//这里互相设置
-                roll_view_pager_home.setAdapter(mHomeAdvAdapter);//// TODO: 2017/6/16 放入网络数据
-                //轮播点击跳转
-                roll_view_pager_home.setOnItemClickListener(new OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position) {
-                        String url = homeBean.getO().get(position).getAd_link();
-                        if (TextUtils.isEmpty(url)) {
-                            url = "www.baidu.com";
-                        }
-                        Intent intent = new Intent(getContext(), BrowserInnerActivity.class);
-                        intent.putExtra("url", url);
-                        intent.putExtra("title", "详情");
-                        if (!url.contains("/")) {
-                            return;
-                        }
-                        getContext().startActivity(intent);
+            images.clear();
+            for (int j = 0; j < homeBean.getO().size(); j++) {
+                images.add(ConstantUrl.hostImageurl + homeBean.getO().get(j).getAd_code());
+            }
+            //加载活动图
+            eventAdapter.refreshData(homeBean.getE());
+            roll_view_pager_home.setAdapter(new TestNormalAdapter(images, getContext()));//// TODO: 2017/6/16 放入网络数据
+            //轮播图
+            mHomeAdvAdapter = new ImageUrlAdapter(roll_view_pager_home);//这里互相设置
+            roll_view_pager_home.setAdapter(mHomeAdvAdapter);//// TODO: 2017/6/16 放入网络数据
+            //轮播点击跳转
+            roll_view_pager_home.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(int position) {
+                    String url = homeBean.getO().get(position).getAd_link();
+                    if (TextUtils.isEmpty(url)) {
+                        url = "www.baidu.com";
                     }
-                });
-                disposeAdv(images);
-                //设置活动图进度条和监听事件
+                    Intent intent = new Intent(getContext(), BrowserInnerActivity.class);
+                    intent.putExtra("url", url);
+                    intent.putExtra("title", "详情");
+                    if (!url.contains("/")) {
+                        return;
+                    }
+                    getContext().startActivity(intent);
+                }
+            });
+            disposeAdv(images);
+            //设置活动图进度条和监听事件
 //                setEventProgress();
-                swip_home.setRefreshing(false);
+            swip_home.setRefreshing(false);
         }
 
         swip_home.setRefreshing(false);
         recyclerview_home_hot_goods.loadMoreComplete();
+
+        if (data instanceof HomeNoticeBean) {
+            HomeNoticeBean homeNoticeBean = (HomeNoticeBean) data;
+            setNoticeData(homeNoticeBean);
+        }
+    }
+
+    private void setNoticeData(HomeNoticeBean homeNoticeBean) {
+        textViewNoticeMsg.setText(homeNoticeBean.getO().getNotice_one().getTitle());
+        textViewNoticeDate.setText(homeNoticeBean.getO().getNotice_one().getAddtime_desc());
+        textViewNews.setText(homeNoticeBean.getO().getNews_one().getTitle());
+        textViewNewsDate.setText(homeNoticeBean.getO().getNews_one().getAddtime_desc());
     }
 
     @Override

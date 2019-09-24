@@ -235,12 +235,16 @@
                         android:layout_height="@dimen/margin22dp"
                         android:layout_width="@dimen/margin61dp"></TextView>
                     <TextView
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:layout_marginTop="@dimen/margin9dp"
                         android:id="@+id/textViewNoticeMsg"
                         android:textColor="@color/praise_item_default"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"></TextView>
                     <TextView
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:id="@+id/textViewNoticeDate"
                         android:layout_marginTop="@dimen/margin5dp"
                         android:textColor="@color/text_littie_grey"
@@ -265,12 +269,16 @@
                         android:layout_height="@dimen/margin22dp"
                         android:layout_width="@dimen/margin61dp"></TextView>
                     <TextView
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:layout_marginTop="@dimen/margin9dp"
                         android:id="@+id/textViewNews"
                         android:textColor="@color/praise_item_default"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"></TextView>
                     <TextView
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:id="@+id/textViewNewsDate"
                         android:layout_marginTop="@dimen/margin5dp"
                         android:textColor="@color/text_littie_grey"
@@ -298,12 +306,19 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:clipChildren="false">
-
+                <View
+                    android:layout_marginLeft="@dimen/margin15dp"
+                    android:layout_marginTop="@dimen/margin14dp"
+                    android:background="@color/theme_color"
+                    android:layout_width="@dimen/margin3dp"
+                    android:layout_height="@dimen/margin15dp"
+                    ></View>
                 <TextView
+                    android:layout_marginLeft="@dimen/margin23dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin10dp"
-                    android:text="活动专区"
+                    android:layout_marginTop="@dimen/margin12dp"
+                    android:text="活动报名"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -378,15 +393,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white">
-
+                <View
+                    android:layout_marginLeft="@dimen/margin15dp"
+                    android:layout_marginTop="@dimen/margin14dp"
+                    android:background="@color/theme_color"
+                    android:layout_width="@dimen/margin3dp"
+                    android:layout_height="@dimen/margin15dp"
+                    ></View>
                 <TextView
-                    android:textColor="@color/font_grey"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin10dp"
-                    android:layout_marginTop="@dimen/margin15dp"
+                    android:layout_marginLeft="@dimen/margin23dp"
+                    android:layout_marginTop="@dimen/margin12dp"
                     android:text="热销商品"
-                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
                    />
 
                 <ImageView

@@ -313,4 +313,7 @@ public class ConstantUrl {
     public static String homeHotShopUrl = hosturl + "api/Shop/indexd";
     public static String versionTag;
     public static String versionUrl = hosturl + "api/Personal/vivt";
+
+    //首页通知
+   public static  String homeNoticeUrl= hosturl+"api/Certification/noticesIndex";
 }
