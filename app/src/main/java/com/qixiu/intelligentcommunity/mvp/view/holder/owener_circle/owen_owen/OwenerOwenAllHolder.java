@@ -94,7 +94,7 @@ public class OwenerOwenAllHolder extends RecyclerBaseHolder<OwenCircleAllBean.OB
 
     @Override
     public void bindHolder(final int position) {
-        Glide.with(mContext).load(mData.getUids().getHead()).into(circular_head_owen_all);
+        Glide.with(mContext).load(mData.getUids().getHead().startsWith("http") ? mData.getUids().getHead() : ConstantUrl.hosturl + mData.getUids().getHead()).into(circular_head_owen_all);
         textView_nickname_owen_all.setText(mData.getUids().getNickname());
         tv_content_owen_all.setText(mData.getContent().replace("\n", "  "));
         tv_time_owen_all.setText(mData.getAddtime());
@@ -288,7 +288,7 @@ public class OwenerOwenAllHolder extends RecyclerBaseHolder<OwenCircleAllBean.OB
                         if (baseBean.getC() == 1) {
 //                            //刷新局部的数据
 //                            getItemNewData();
-                            getItemNewData(FEED_COMMENRT,position);
+                            getItemNewData(FEED_COMMENRT, position);
                         }
                         ToastUtil.showToast(mContext, baseBean.getM());
                         pop_feedback.dismissWindow();
@@ -313,7 +313,7 @@ public class OwenerOwenAllHolder extends RecyclerBaseHolder<OwenCircleAllBean.OB
             public void onResponse(String s, int i) {
                 ToastUtil.showToast(mContext, GetGson.parseMessageBean(s).getM());
 //                //刷新局部的数据
-          getItemNewData(COMMENT,position);
+                getItemNewData(COMMENT, position);
             }
         });
     }
@@ -359,7 +359,7 @@ public class OwenerOwenAllHolder extends RecyclerBaseHolder<OwenCircleAllBean.OB
                 asyncTask.execute();
                 MessageBean messageBean = GetGson.parseMessageBean(s);
                 ToastUtil.showToast(mContext, messageBean.getM());
-                getItemNewData(ZAN,position);
+                getItemNewData(ZAN, position);
             }
         });
 
@@ -440,7 +440,7 @@ public class OwenerOwenAllHolder extends RecyclerBaseHolder<OwenCircleAllBean.OB
 //                    }
 //                    adapterCommments.notifyDataSetChanged();
 //                    refreshListenner.OnRefresh(mData, position);
-                    getItemNewData(DELETE_COMMENTS,position);
+                    getItemNewData(DELETE_COMMENTS, position);
                 }
                 ToastUtil.showToast(mContext, baseBean.getM());
             }

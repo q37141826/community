@@ -55,7 +55,7 @@ import static com.qixiu.intelligentcommunity.R.id.et_login_password;
 import static com.qixiu.intelligentcommunity.R.id.et_login_phone;
 
 /**
- * Created by Administrator on 2017/6/14 0014.
+ * Created by Administrator on 2017/6/14 0014.  测试13397184320  123456789
  */
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener, TextWatcherAdapterInterface, View.OnFocusChangeListener, PlatformLoginEngine.PlatformResultListener, OnDialogDismiss {
