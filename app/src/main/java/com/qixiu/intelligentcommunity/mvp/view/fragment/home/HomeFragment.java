@@ -160,6 +160,8 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
     private TextView textViewNoticeDate;
     private TextView textViewNews;
     private TextView textViewNewsDate;
+    private TextView textViewMoreEvent;
+    private TextView textViewMoreGoods;
 
     public void setBlueToothIntf(MainBlueToothIntf blueToothIntf) {
         this.blueToothIntf = blueToothIntf;
@@ -375,7 +377,8 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
         mImageView_event_home = (ImageView) view.findViewById(R.id.imageView_event_home);
         recyclerview_event_home = (RecyclerView) view.findViewById(R.id.recyclerview_event_home);
         linearlayout_onkeyCall = (LinearLayout) view.findViewById(R.id.linearlayout_onkeyCall);
-
+        textViewMoreEvent = view.findViewById(R.id.textViewMoreEvent);
+        textViewMoreGoods = view.findViewById(R.id.textViewMoreGoods);
         //社区业务板块
         initSevice(view);
 
@@ -464,7 +467,10 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
         mTv_second_hand_market.setOnClickListener(this);
         mTv_houseproperty_lease.setOnClickListener(this);
         mImageView_event_home.setOnClickListener(this);
+        mImageView_event_home.setOnClickListener(this);
         imageView_hotgoods.setOnClickListener(this);
+        textViewMoreEvent.setOnClickListener(this);
+        textViewMoreGoods.setOnClickListener(this);
     }
 
     @Override
@@ -601,6 +607,7 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
                 break;
 
             case R.id.imageView_event_home:
+            case R.id.textViewMoreEvent:
                 if (Preference.get(ConstantString.UTYPE, "").equals(4 + "")) {
                     ToastUtil.toast(R.string.no_permission);
                     return;
@@ -694,6 +701,7 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
                 startActivity(gameManager);
                 break;
             case R.id.imageView_hotgoods:
+            case R.id.textViewMoreGoods:
                 Bundle bundle1 = new Bundle();
                 ((MainActivity) getContext()).swtichToFragment(((MainActivity) getContext()).getFootView(3), bundle1);
                 break;

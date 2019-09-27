@@ -11,6 +11,7 @@ import com.qixiu.intelligentcommunity.constants.ConstantUrl;
 import com.qixiu.intelligentcommunity.constants.IntentDataKeyConstant;
 import com.qixiu.intelligentcommunity.mvp.beans.BaseBean;
 import com.qixiu.intelligentcommunity.mvp.view.activity.base.BaseActivity;
+import com.qixiu.intelligentcommunity.mvp.view.activity.mine.ChangePasswordActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.mine.LoginActivity;
 import com.qixiu.intelligentcommunity.mvp.view.widget.titleview.TitleView;
 import com.qixiu.intelligentcommunity.utlis.CommonUtils;
@@ -27,6 +28,7 @@ import okhttp3.Call;
 public class SettingActivity extends BaseActivity implements View.OnClickListener {
     private RelativeLayout relativeLayout_clean_setting, relativeLayout_feed_back_setting, relativeLayout_title_setting;
     private Button btn_out_login;
+    private RelativeLayout relativeLayout_changePswd;
 
     @Override
     protected void onInitData() {
@@ -38,6 +40,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         relativeLayout_title_setting = (RelativeLayout) findViewById(R.id.relativeLayout_title_setting);
         relativeLayout_feed_back_setting = (RelativeLayout) findViewById(R.id.relativeLayout_feed_back_setting);
         relativeLayout_clean_setting = (RelativeLayout) findViewById(R.id.relativeLayout_clean_setting);
+        relativeLayout_changePswd = (RelativeLayout) findViewById(R.id.relativeLayout_changePswd);
         btn_out_login = (Button) findViewById(R.id.btn_out_login);
         initTitle();
         initclick();
@@ -46,6 +49,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private void initclick() {
         relativeLayout_feed_back_setting.setOnClickListener(this);
         relativeLayout_clean_setting.setOnClickListener(this);
+        relativeLayout_changePswd.setOnClickListener(this);
         btn_out_login.setOnClickListener(this);
     }
 
@@ -77,6 +81,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             case R.id.relativeLayout_feed_back_setting:
                 CommonUtils.startIntent(this, SuggestionCommittingActivity.class);
                 break;
+            case R.id.relativeLayout_changePswd:
+                CommonUtils.startIntent(this, ChangePasswordActivity.class);
+                break;
             case R.id.btn_out_login:
                 OutLogin();
                 break;
@@ -100,7 +107,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                         Preference.putBoolean(ConstantString.IS_FIRST_LOGIN, true);
                         CommonUtils.startIntent(SettingActivity.this, LoginActivity.class);
                         SettingActivity.this.finish();
-                        Intent intent=new Intent();
+                        Intent intent = new Intent();
                         intent.setAction(IntentDataKeyConstant.BROADCAST_MAIN_FINISH);
                         sendBroadcast(intent);
                     }

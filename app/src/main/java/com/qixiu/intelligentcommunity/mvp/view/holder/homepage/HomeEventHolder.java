@@ -39,6 +39,8 @@ public class HomeEventHolder extends RecyclerBaseHolder<HomeBean.EBean> {
             Glide.with(mContext).load(ConstantUrl.hostImageurl + mData.getImgs().get(0)).placeholder(R.mipmap.loading).dontAnimate().into(imageView_event_home_item);
         }
         textView_title_event_item.setText(mData.getTitle());
+        textView_event_state_item.setText(mData.getAddtime_desc());
+
         BaseActivity activity = (BaseActivity) mContext;
 //        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(activity.windowWith -3*ArshowContextUtil.dp2px(7), activity.windowWith /2-3*ArshowContextUtil.dp2px(7)/2);
 //        params.addRule(RelativeLayout.CENTER_IN_PARENT);
@@ -49,16 +51,16 @@ public class HomeEventHolder extends RecyclerBaseHolder<HomeBean.EBean> {
 //        RelativeLayout.LayoutParams paramsOut = new RelativeLayout.LayoutParams(activity.windowWith , activity.windowWith/2);
 //        relativeLayout_event_item.setLayoutParams(paramsOut);
 //        relativeLayout_event_item.setBackgroundResource(R.mipmap.loukong);
-        switch (mData.getState()) {
-            case 0:
-                textView_event_state_item.setText("活动未开始");
-                break;
-            case 1:
-                textView_event_state_item.setText("活动开始");
-                break;
-            case 2:
-                textView_event_state_item.setText("活动结束");
-                break;
-        }
+//        switch (mData.getState()) {
+//            case 0:
+//                textView_event_state_item.setText("活动未开始");
+//                break;
+//            case 1:
+//                textView_event_state_item.setText("活动开始");
+//                break;
+//            case 2:
+//                textView_event_state_item.setText("活动结束");
+//                break;
+//        }
     }
 }

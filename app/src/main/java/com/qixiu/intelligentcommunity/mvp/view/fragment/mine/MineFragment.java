@@ -33,6 +33,7 @@ import com.qixiu.intelligentcommunity.mvp.view.activity.mine.myprofile.OnekeyCal
 import com.qixiu.intelligentcommunity.mvp.view.activity.mine.myprofile.SettingActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.store.StoreActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.store.StoreShopCarActivity;
+import com.qixiu.intelligentcommunity.mvp.view.activity.store.classify.StoreAllClassifyActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.store.order.MyOrderActivity;
 import com.qixiu.intelligentcommunity.mvp.view.fragment.base.BaseFragment;
 import com.qixiu.intelligentcommunity.utlis.CommonUtils;
@@ -236,7 +237,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
             case R.id.relativeGotoSuperMarket:
                 // TODO: 2019/9/15 这个地方要跳住哪哪里
-                CommonUtils.startIntent(getContext(), StoreActivity.class);
+                CommonUtils.startIntent(getContext(), StoreAllClassifyActivity.class);
                 break;
 
             case R.id.relativeGotoGameCenter:

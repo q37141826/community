@@ -305,7 +305,7 @@ public class ShareLikeEngine implements OnClickListener, IUiListener {
             if (!TextUtils.isEmpty(imageUrl)) {
                 sp.setImageUrl(imageUrl);
             } else {
-                Bitmap bitmap = BitmapDecodeUtil.decodeBitmap(BaseApplication.getContext(), R.mipmap.share_image);
+                Bitmap bitmap = BitmapDecodeUtil.decodeBitmap(BaseApplication.getContext(), R.mipmap.app_icon);
                 sp.setImageData(bitmap);
             }
         }

@@ -124,6 +124,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         textView_forgetpassword = (TextView) findViewById(R.id.textView_forgetpassword);
         mRl_goto_regist = findViewById(R.id.rl_goto_regist);
         mEt_login_phone = (EditText) findViewById(et_login_phone);
+        mEt_login_phone = (EditText) findViewById(et_login_phone);
 
         mEt_login_password = (EditText) findViewById(et_login_password);
         mRl_clean_input_phone = findViewById(R.id.rl_clean_input_phone);

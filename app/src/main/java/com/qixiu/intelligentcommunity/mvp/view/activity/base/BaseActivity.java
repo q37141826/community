@@ -47,6 +47,7 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import butterknife.ButterKnife;
+import cn.jpush.android.api.JPushInterface;
 import okhttp3.Call;
 
 /**
@@ -237,6 +238,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         IntentFilter intentFilter = new IntentFilter("com.qixiu.example.broadcast.normal");
         intentFilter.setPriority(600);
         registerReceiver(receiver, intentFilter);
+        JPushInterface.onResume(this);
     }
 
     @Override
@@ -250,6 +252,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         unregisterReceiver(receiver);
+        JPushInterface.onPause(this);
+
     }
 
     protected abstract void onInitData();

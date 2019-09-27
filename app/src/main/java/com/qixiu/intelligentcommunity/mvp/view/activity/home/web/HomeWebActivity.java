@@ -58,7 +58,7 @@ public class HomeWebActivity extends WebActivity {
             }
             String stringExtra = getIntent().getStringExtra(IntentDataKeyConstant.WEB_URL_KEY);
             //  mShareLikeEngine.releaseShareData(this, shareIconUrl, "华夏生活欢迎您", stringExtra);
-            mShareLikeEngine.shareSdkShare(null, null, stringExtra, Wechat.NAME, R.string.app_name+"欢迎您", false);
+            mShareLikeEngine.shareSdkShare(null, null, stringExtra, Wechat.NAME, getContext().getString(R.string.app_name)+"欢迎您", false);
         } else {
             Intent intent = new Intent(this, HomeWebDetailActivity.class);
             intent.putExtra(IntentDataKeyConstant.JSINTERFACEINFO_KEY, mJsInterfaceInfo);

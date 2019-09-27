@@ -29,7 +29,7 @@ public class GoodDetailActivity extends NewTitleActivity implements View.OnClick
 
         mTitleView.setRightTextVisible(View.VISIBLE);
         mTitleView.setTitle("商品详情");
-        mTitleView.setRightImage(R.mipmap.shopcar_icon);
+        mTitleView.setRightImage(R.mipmap.shopcar_white);
         mTitleView.setRightListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

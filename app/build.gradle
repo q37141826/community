@@ -24,8 +24,8 @@ android {
         }
         manifestPlaceholders = [
                 JPUSH_PKGNAME: applicationId,
-                JPUSH_APPKEY : "dd6e88cf0ab7961ab615dd2f", //JPush上注册的包名对应的appkey.
-                JPUSH_CHANNEL: "developer-default" //暂时填写默认值即可.
+                JPUSH_APPKEY : "8b3a9b0be96599876b1ef012", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "default_developer" //暂时填写默认值即可.
         ]
     }
     buildTypes {
@@ -143,4 +143,5 @@ dependencies {
     //
     implementation 'com.yanzhenjie:album:2.0.0'
     implementation 'com.yanzhenjie:permission:1.0.7'
+//    implementation project(path: ':jpush')
 }

@@ -209,6 +209,7 @@
                 android:background="@color/lineColor"></View>
 
             <RelativeLayout
+                android:paddingBottom="@dimen/margin10dp"
                 android:layout_width="match_parent"
 
 
@@ -218,11 +219,14 @@
                     android:id="@+id/rl_hot_goods"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/margin7dp"
+                    android:paddingLeft="@dimen/margin15dp"
                     android:paddingTop="@dimen/margin13dp">
-
+                    <View
+                        android:background="@color/theme_color"
+                        android:layout_width="@dimen/margin3dp"
+                        android:layout_height="@dimen/margin15dp"></View>
                     <TextView
-
+                        android:layout_marginLeft="@dimen/margin10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="热销商品"
@@ -239,9 +243,10 @@
                     android:paddingTop="@dimen/margin13dp">
 
                     <TextView
+                        android:drawableRight="@mipmap/homejiantou3x"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="查看更多"
+                        android:text="更多"
                         android:textColor="@color/txt_8a8a8a"
                         android:textSize="12sp"/>
 

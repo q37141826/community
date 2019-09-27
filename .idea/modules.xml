@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/community.iml" filepath="$PROJECT_DIR$/community.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/community-app.iml" filepath="$PROJECT_DIR$/app/community-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jpush/jpush.iml" filepath="$PROJECT_DIR$/jpush/jpush.iml" />
       <module fileurl="file://$PROJECT_DIR$/zhanqiaozongyuan-community-master-community.iml" filepath="$PROJECT_DIR$/zhanqiaozongyuan-community-master-community.iml" />
     </modules>
   </component>

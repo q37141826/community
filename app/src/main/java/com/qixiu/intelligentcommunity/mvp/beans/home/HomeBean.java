@@ -77,6 +77,16 @@ public class HomeBean  extends BaseBean<List<HomeBean.OBean>> {
 
         private int id;
         private String title;
+
+        public String getAddtime_desc() {
+            return addtime_desc;
+        }
+
+        public void setAddtime_desc(String addtime_desc) {
+            this.addtime_desc = addtime_desc;
+        }
+
+        private String addtime_desc;
         private int state;
         private List<String> imgs;
 

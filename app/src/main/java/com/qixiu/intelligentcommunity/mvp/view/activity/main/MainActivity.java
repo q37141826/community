@@ -42,6 +42,7 @@ import com.qixiu.intelligentcommunity.constants.IntentRequestCodeConstant;
 import com.qixiu.intelligentcommunity.constants.StringConstants;
 import com.qixiu.intelligentcommunity.constants.permission.PermissionCollectConstants;
 import com.qixiu.intelligentcommunity.engine.BluetoothEngine;
+import com.qixiu.intelligentcommunity.engine.jpush.JpushEngine;
 import com.qixiu.intelligentcommunity.listener.MainBlueToothIntf;
 import com.qixiu.intelligentcommunity.listener.OnClickSwitchListener;
 import com.qixiu.intelligentcommunity.mvp.beans.C_CodeBean;
@@ -131,8 +132,8 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
         getIshaveMessage();
         if (hasPermission(photoPermission)) {
             VersionCheckUtil.checkVersion(this);
+            JpushEngine.initJPush(getContext());
         }
-
     }
 
     private void initBluetoothInfo() {

@@ -325,13 +325,22 @@
                     android:text="活动报名"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
-
+                <TextView
+                    android:id="@+id/textViewMoreEvent"
+                    android:layout_toLeftOf="@+id/imageView_event_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin12dp"
+                    android:text="更多"
+                    android:textColor="@color/txt_DBDBDB"
+                    android:textSize="16sp" />
                 <ImageView
+                    android:layout_marginRight="@dimen/margin10dp"
+                    android:layout_marginTop="@dimen/margin16dp"
                     android:id="@+id/imageView_event_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_margin="@dimen/margin10dp"
                     android:src="@mipmap/homejiantou3x" />
 
                 <!--<android.support.v4.view.ViewPager-->
@@ -404,6 +413,7 @@
                     android:layout_width="@dimen/margin3dp"
                     android:layout_height="@dimen/margin15dp"
                     ></View>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -413,7 +423,15 @@
                     android:textColor="@color/black"
                     android:textSize="16sp"
                    />
-
+                <TextView
+                    android:id="@+id/textViewMoreGoods"
+                    android:layout_toLeftOf="@+id/imageView_hotgoods"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin12dp"
+                    android:text="更多"
+                    android:textColor="@color/txt_DBDBDB"
+                    android:textSize="16sp" />
                 <ImageView
                     android:id="@+id/imageView_hotgoods"
                     android:layout_width="wrap_content"

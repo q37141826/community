@@ -28,8 +28,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="10dp"
-                android:paddingTop="18dp">
+                android:paddingBottom="@dimen/margin10dp"
+                android:paddingTop="@dimen/margin18dp">
 
                 <include layout="@layout/layout_owner_circke_theme_new" />
 
