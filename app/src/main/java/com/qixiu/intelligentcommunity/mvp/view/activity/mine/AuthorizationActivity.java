@@ -127,6 +127,7 @@ public class AuthorizationActivity extends NewTitleActivity implements OKHttpUIU
     private IntelligentTextWatcher mObligatePhoneTextWatcher;
     private OKHttpRequestModel okmodel;
     private ZProgressHUD zProgressHUD;
+
     @Override
     public void onClick(View view) {
         PopoItemBean bean;
@@ -245,6 +246,7 @@ public class AuthorizationActivity extends NewTitleActivity implements OKHttpUIU
                 mapNotice.put("utype", "请选择身份");
                 mapNotice.put("hnum", "请填写门牌号");
                 mapNotice.put("reserv_phone", "请填写预留电话");
+                mapNotice.put("phone", "请填写预留电话");
                 mapNotice.put("true_name", "请填写真实姓名");
                 mapNotice.put("idcard", "请填写身份证号码");
                 mapNotice.put("face_img", "请传入正脸照");
@@ -276,8 +278,7 @@ public class AuthorizationActivity extends NewTitleActivity implements OKHttpUIU
         //
         String true_name = mEt_user_name.getText().toString();
         //获取手机设备号
-        TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-        String device = tm.getDeviceId();
+        String device = deviceId;
         final Map<String, String> map = new HashMap<>();
         try {
             if (putKeyValueToMap(map, "phone", phone, true)) {
@@ -357,7 +358,10 @@ public class AuthorizationActivity extends NewTitleActivity implements OKHttpUIU
     //进行参数填写的判断
     private boolean putKeyValueToMap(Map<String, String> map, String key, String value, boolean IS_NECESSARY) {
         if (IS_NECESSARY && value.equals("")) {
-            ToastUtil.showToast(this, mapNotice.get(key));
+            try {
+                ToastUtil.toast(mapNotice.get(key));
+            } catch (Exception e) {
+            }
             return true;
         }
         if (!value.equals("")) {
@@ -409,7 +413,7 @@ public class AuthorizationActivity extends NewTitleActivity implements OKHttpUIU
 
     @Override
     protected void onInitView() {
-       zProgressHUD=new ZProgressHUD(this);
+        zProgressHUD = new ZProgressHUD(this);
         super.onInitView();
 //        if (ib_back != null) {
 //            ib_back.setVisibility(View.GONE);
@@ -808,7 +812,7 @@ public class AuthorizationActivity extends NewTitleActivity implements OKHttpUIU
 
     @Override
     public void onError(Call call, Exception e, int i) {
-        if(zProgressHUD!=null){
+        if (zProgressHUD != null) {
             zProgressHUD.dismiss();
         }
     }
@@ -816,7 +820,7 @@ public class AuthorizationActivity extends NewTitleActivity implements OKHttpUIU
     @Override
     public void onFailure(C_CodeBean c_codeBean) {
         ToastUtil.showToast(this, c_codeBean.getM());
-        if(zProgressHUD!=null){
+        if (zProgressHUD != null) {
             zProgressHUD.dismiss();
         }
     }

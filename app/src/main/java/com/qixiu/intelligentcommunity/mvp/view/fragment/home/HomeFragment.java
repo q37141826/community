@@ -63,6 +63,8 @@ import com.qixiu.intelligentcommunity.mvp.view.activity.home.web.HomeWebActivity
 import com.qixiu.intelligentcommunity.mvp.view.activity.main.MainActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.ownercircle.OwnerEventDetailActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.store.GoodDetailActivity;
+import com.qixiu.intelligentcommunity.mvp.view.activity.store.StoreMoreActivity;
+import com.qixiu.intelligentcommunity.mvp.view.activity.store.classify.StoreClassifyListActivity;
 import com.qixiu.intelligentcommunity.mvp.view.adapter.home.EventAdapter;
 import com.qixiu.intelligentcommunity.mvp.view.adapter.home.TestNormalAdapter;
 import com.qixiu.intelligentcommunity.mvp.view.adapter.store.StoreAdapter;
@@ -702,8 +704,11 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
                 break;
             case R.id.imageView_hotgoods:
             case R.id.textViewMoreGoods:
-                Bundle bundle1 = new Bundle();
-                ((MainActivity) getContext()).swtichToFragment(((MainActivity) getContext()).getFootView(3), bundle1);
+//                Bundle bundle1 = new Bundle();
+                Intent intent =new Intent();
+                intent.putExtra(IntentDataKeyConstant.ID,IntentDataKeyConstant.GOODES_DEFULT_ID);
+                CommonUtils.startIntent(getContext(), StoreClassifyListActivity.class);
+//                ((MainActivity) getContext()).swtichToFragment(((MainActivity) getContext()).getFootView(3), bundle1);
                 break;
         }
     }

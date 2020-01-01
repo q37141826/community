@@ -48,6 +48,7 @@ import java.util.Map;
 import okhttp3.Call;
 
 import static com.qixiu.intelligentcommunity.R.id.iv_nodata_showbg;
+import static com.qixiu.intelligentcommunity.R.id.middle;
 import static com.qixiu.intelligentcommunity.R.id.pushPrograssBar;
 
 /**
@@ -60,7 +61,7 @@ public class StoreClassifyListActivity extends NewTitleActivity implements XRecy
     private SwipeRefreshLayout mSrl_classifylist;
     private StoreClassifyListAdapter mStoreClassifyListAdapter;
     boolean isMore;
-    private String mId;
+    private String mId=IntentDataKeyConstant.GOODES_DEFULT_ID;
     private OKHttpRequestModel mOkHttpRequestModel;
     private BaseParameter mBaseParameter;
     private ImageView mIv_nodata_showbg;
@@ -74,14 +75,14 @@ public class StoreClassifyListActivity extends NewTitleActivity implements XRecy
     @Override
     protected void onInitData() {
         mId = getIntent().getStringExtra(IntentDataKeyConstant.ID);
-
-
+        if(mId==null){
+            mId=IntentDataKeyConstant.GOODES_DEFULT_ID;
+        }
         mOkHttpRequestModel = new OKHttpRequestModel(this);
 
         mBaseParameter = new BaseParameter();
         mBaseParameter.setPageSize(10);
         requestMenue();
-        requestData();
         //作为分类列表时，需要在声明周期方法中做数据的初始化，搜索列表不需要
         //   filterReuqestData();
 
@@ -242,7 +243,12 @@ public class StoreClassifyListActivity extends NewTitleActivity implements XRecy
                     itemBean.setSelected(true);
                 }
             }
+            if(IntentDataKeyConstant.GOODES_DEFULT_ID.equals(mId)){
+                storeClassItemBean.getO().getCate().get(0).setSelected(true);
+                mId= storeClassItemBean.getO().getCate().get(0).getId();
+            }
             storeClassifuMenuAdapter.refreshData(storeClassItemBean.getO().getCate());
+            requestData();
         }
     }
 

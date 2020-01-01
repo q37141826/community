@@ -69,7 +69,7 @@ public class StoreMoreActivity extends NewTitleActivity implements XRecyclerView
     protected void onInitViewNew() {
 
         mZProgressHUD = new ZProgressHUD(this);
-        mTitleView.setTitle("商城");
+        mTitleView.setTitle("商超");
         mTitleView.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

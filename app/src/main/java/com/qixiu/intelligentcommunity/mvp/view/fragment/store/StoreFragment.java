@@ -42,6 +42,7 @@ import com.qixiu.intelligentcommunity.mvp.view.adapter.store.StoreClassifyAdapte
 import com.qixiu.intelligentcommunity.mvp.view.adapter.store.StoreClassifyAdapterNew;
 import com.qixiu.intelligentcommunity.mvp.view.adapter.store.classify.StoreAllClassifyAdapter;
 import com.qixiu.intelligentcommunity.mvp.view.fragment.base.BaseFragment;
+import com.qixiu.intelligentcommunity.mvp.view.itemdecoration.DashlineItemDivider;
 import com.qixiu.intelligentcommunity.mvp.view.itemdecoration.DiyDividerItemDecoration;
 import com.qixiu.intelligentcommunity.mvp.view.widget.my_alterdialog.ArshowContextUtil;
 import com.qixiu.intelligentcommunity.mvp.view.widget.rollpage.ImageUrlAdapter;
@@ -163,7 +164,6 @@ public class StoreFragment extends BaseFragment implements XRecyclerView.Loading
         mRv_storelist.setAdapter(mStoreAdapter);
         mStoreAdapter.setOnItemClickListener(this);
         initStoreTitleView(storeHeadView);
-
     }
 
     private void initStoreTitleView(View storeHeadView) {
@@ -228,7 +228,7 @@ public class StoreFragment extends BaseFragment implements XRecyclerView.Loading
 //                break;
 
             case R.id.rl_show_more:
-                Intent showMoreIntent = new Intent(getActivity(), StoreMoreActivity.class);
+                Intent showMoreIntent = new Intent(getActivity(), StoreClassifyListActivity.class);
                 startActivity(showMoreIntent);
                 break;
             case R.id.rl_shopcar:

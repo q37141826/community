@@ -68,7 +68,7 @@ public class StoreSearchListActivity extends NewTitleActivity implements TagFlow
     @Override
     protected void onInitViewNew() {
         mZProgressHUD = new ZProgressHUD(this);
-        mTitleView.setTitle("商城");
+        mTitleView.setTitle("商超");
         mTitleView.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

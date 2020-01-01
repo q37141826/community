@@ -100,6 +100,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             DEVICE_ID = tm.getDeviceId();
         } catch (Exception e) {
         }
+        if(null==DEVICE_ID){
+            DEVICE_ID="";
+        }
         VersionCheckUtil.checkVersion(this);
     }
 

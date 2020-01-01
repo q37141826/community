@@ -17,6 +17,8 @@ import com.qixiu.intelligentcommunity.constants.StringConstants;
 import com.qixiu.intelligentcommunity.mvp.model.home_modle.HomeSelectorModle;
 import com.qixiu.intelligentcommunity.mvp.view.activity.home.WuyePayActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.home.web.HomeWebActivity;
+import com.qixiu.intelligentcommunity.mvp.view.activity.main.ServiceActivity;
+import com.qixiu.intelligentcommunity.mvp.view.fragment.serve.ServeFragment;
 import com.qixiu.intelligentcommunity.utlis.CommonUtils;
 import com.qixiu.intelligentcommunity.utlis.DrawableUtils;
 import com.qixiu.intelligentcommunity.utlis.Preference;
@@ -147,7 +149,7 @@ public class UserSelectorAdapter extends LoopPagerAdapter {
                 return;
             }
             if (firstPage[3].equals(text)) {
-
+                CommonUtils.startIntent(context, ServiceActivity.class);
                 return;
             }
             if (secondPage[0].equals(text)) {

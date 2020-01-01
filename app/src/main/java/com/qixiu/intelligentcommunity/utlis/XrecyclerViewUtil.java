@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.qixiu.intelligentcommunity.mvp.view.adapter.base.RecyclerBaseAdapter;
 import com.qixiu.intelligentcommunity.mvp.view.itemdecoration.SpaceItemsDecoration;
+import com.qixiu.intelligentcommunity.mvp.view.itemdecoration.SpaceItemsDecorationColor;
 import com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
@@ -23,13 +24,29 @@ public class XrecyclerViewUtil {
         if (listenner != null) {
             recyclerView.setLoadingListener(listenner);
         }
-        recyclerView.addItemDecoration(new SpaceItemsDecoration(declorLineHeight));
+        SpaceItemsDecoration spaceItemsDecoration = new SpaceItemsDecoration(declorLineHeight);
+        recyclerView.addItemDecoration(spaceItemsDecoration);
         if (manager == null) {
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
         } else {
             recyclerView.setLayoutManager(manager);
         }
     }
+
+    public static void setXrecyclerView(XRecyclerView recyclerView, XRecyclerView.LoadingListener listenner, Context context, boolean IS_USE_REFRESH, RecyclerView.LayoutManager manager) {
+        recyclerView.setPullRefreshEnabled(IS_USE_REFRESH);
+        if (listenner != null) {
+            recyclerView.setLoadingListener(listenner);
+        }
+        SpaceItemsDecorationColor spaceItemsDecoration = new SpaceItemsDecorationColor(1);
+        recyclerView.addItemDecoration(spaceItemsDecoration);
+        if (manager == null) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        } else {
+            recyclerView.setLayoutManager(manager);
+        }
+    }
+
 
     public static void stopXrecyclerRefreshLoading(XRecyclerView recyclerView){
         recyclerView.loadMoreComplete();

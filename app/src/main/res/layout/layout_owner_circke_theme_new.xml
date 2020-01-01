@@ -38,7 +38,7 @@
         android:id="@+id/tv_content_owen_all"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin12dp"
+        android:layout_marginLeft="@dimen/margin50dp"
         android:layout_marginRight="@dimen/margin12dp"
         android:layout_marginTop="@dimen/margin4dp"
         android:lineSpacingExtra="@dimen/margin2dp"
@@ -90,7 +90,7 @@
             <!--android:layout_marginTop="10dp"/>-->
     <!--</LinearLayout>-->
     <android.support.v7.widget.RecyclerView
-        android:layout_marginLeft="@dimen/margin10dp"
+        android:layout_marginLeft="@dimen/margin50dp"
         android:layout_marginRight="@dimen/margin10dp"
         android:id="@+id/recyclerview_owen_owenpic"
         android:layout_width="wrap_content"
@@ -103,6 +103,7 @@
         android:layout_marginRight="@dimen/margin12dp">
 
         <TextView
+            android:layout_marginLeft="@dimen/margin50dp"
             android:textColor="@color/yancy_grey700"
             android:layout_centerVertical="true"
             android:id="@+id/tv_time_owen_all"

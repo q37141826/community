@@ -4,9 +4,9 @@
     <!--<string name="app_name">华夏生活</string>-->
     <string name="app_name">南湖公馆</string>
     <string name="main_home_txt">首页</string>
-    <string name="main_ownercircle_txt">业主圈</string>
+    <string name="main_ownercircle_txt">邻里圈</string>
     <string name="main_serve_txt">服务</string>
-    <string name="main_store_txt">商城</string>
+    <string name="main_store_txt">商超</string>
     <string name="main_personalcenter_txt">个人中心</string>
     <string name="main_mine_txt">我的</string>
     <string name="main_tltle_right_release_txt">发布</string>

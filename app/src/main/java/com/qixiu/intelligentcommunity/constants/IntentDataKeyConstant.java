@@ -5,7 +5,7 @@ package com.qixiu.intelligentcommunity.constants;
  */
 
 public class IntentDataKeyConstant {
-
+    public static final String GOODES_DEFULT_ID="ID";
 
 
     public static final String AID = "aid";

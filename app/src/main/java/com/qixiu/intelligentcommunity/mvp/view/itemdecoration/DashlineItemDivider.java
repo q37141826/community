@@ -33,7 +33,7 @@ public class DashlineItemDivider extends RecyclerView.ItemDecoration {
             //绘制虚线
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.STROKE);
-            paint.setColor(parent.getContext().getResources().getColor(R.color.green));
+            paint.setColor(parent.getContext().getResources().getColor(R.color.diliver_505050));
             Path path = new Path();
             path.moveTo(left, top);
             path.lineTo(right, top);

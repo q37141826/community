@@ -220,7 +220,7 @@
                 android:layout_height="@dimen/margin106dp">
                 <LinearLayout
                     android:id="@+id/imageView_notice_home"
-                    android:paddingLeft="@dimen/margin24dp"
+                    android:paddingLeft="@dimen/margin15dp"
                     android:layout_centerVertical="true"
                     android:background="@mipmap/home_noticebg2x"
                     android:layout_alignParentLeft="true"
@@ -257,7 +257,7 @@
                 <LinearLayout
                     android:id="@+id/imageView_news_home"
                     android:background="@mipmap/home_newsbg2x"
-                    android:paddingLeft="@dimen/margin35dp"
+                    android:paddingLeft="@dimen/margin25dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:orientation="vertical"
@@ -310,38 +310,44 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:clipChildren="false">
-                <View
-                    android:layout_marginLeft="@dimen/margin15dp"
-                    android:layout_marginTop="@dimen/margin14dp"
-                    android:background="@color/theme_color"
-                    android:layout_width="@dimen/margin3dp"
-                    android:layout_height="@dimen/margin15dp"
-                    ></View>
-                <TextView
-                    android:layout_marginLeft="@dimen/margin23dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin12dp"
-                    android:text="活动报名"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-                <TextView
-                    android:id="@+id/textViewMoreEvent"
-                    android:layout_toLeftOf="@+id/imageView_event_home"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin12dp"
-                    android:text="更多"
-                    android:textColor="@color/txt_DBDBDB"
-                    android:textSize="16sp" />
-                <ImageView
-                    android:layout_marginRight="@dimen/margin10dp"
-                    android:layout_marginTop="@dimen/margin16dp"
-                    android:id="@+id/imageView_event_home"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:src="@mipmap/homejiantou3x" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp">
+                    <View
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin15dp"
+                        android:background="@color/theme_color"
+                        android:layout_width="@dimen/margin3dp"
+                        android:layout_height="@dimen/margin15dp"
+                        ></View>
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin23dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="活动报名"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/textViewMoreEvent"
+                        android:layout_toLeftOf="@+id/imageView_event_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="更多"
+                        android:textColor="@color/txt_DBDBDB"
+                        android:textSize="16sp" />
+                    <ImageView
+                        android:layout_marginRight="@dimen/margin10dp"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/imageView_event_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@mipmap/homejiantou3x" />
+                </RelativeLayout>
+
+
 
                 <!--<android.support.v4.view.ViewPager-->
                 <!--android:clipChildren="false"-->
@@ -353,10 +359,11 @@
 
                 <!--因为是横向滑动的，所以把这个设置成宽度自适应-->
                 <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="@dimen/margin55dp"
                     android:id="@+id/recyclerview_event_home"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/imageView_event_home"></android.support.v7.widget.RecyclerView>
+                   ></android.support.v7.widget.RecyclerView>
 
                 <LinearLayout
                     android:id="@+id/linearlayout_progress_circle"
@@ -399,16 +406,16 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/margin3dp"
-                android:background="@color/lineColor"></View>
+                android:layout_height="@dimen/margin10dp"
+                android:background="@color/diliver_505050"></View>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/margin55dp"
                 android:background="@color/white">
                 <View
                     android:layout_marginLeft="@dimen/margin15dp"
-                    android:layout_marginTop="@dimen/margin14dp"
+                    android:layout_centerVertical="true"
                     android:background="@color/theme_color"
                     android:layout_width="@dimen/margin3dp"
                     android:layout_height="@dimen/margin15dp"
@@ -418,7 +425,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin23dp"
-                    android:layout_marginTop="@dimen/margin12dp"
+                    android:layout_centerVertical="true"
                     android:text="热销商品"
                     android:textColor="@color/black"
                     android:textSize="16sp"
@@ -428,7 +435,7 @@
                     android:layout_toLeftOf="@+id/imageView_hotgoods"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin12dp"
+                    android:layout_centerVertical="true"
                     android:text="更多"
                     android:textColor="@color/txt_DBDBDB"
                     android:textSize="16sp" />
@@ -438,7 +445,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/margin10dp"
-                    android:layout_marginTop="@dimen/margin15dp"
+                    android:layout_centerVertical="true"
                     android:src="@mipmap/homejiantou3x" />
 
                 <!--<android.support.v7.widget.RecyclerView-->

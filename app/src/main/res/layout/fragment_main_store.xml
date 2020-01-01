@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-
               android:layout_height="match_parent"
               android:orientation="vertical">
 
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <com.qixiu.intelligentcommunity.mvp.view.widget.VerticalSwipeRefreshLayout
         android:id="@+id/srl_store"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView
             android:id="@+id/rv_storelist"
             android:layout_width="match_parent"
@@ -18,6 +16,6 @@
             >
         </com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView>
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </com.qixiu.intelligentcommunity.mvp.view.widget.VerticalSwipeRefreshLayout>
 
 </LinearLayout>

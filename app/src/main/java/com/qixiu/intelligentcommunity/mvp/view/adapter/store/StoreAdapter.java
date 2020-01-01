@@ -31,10 +31,11 @@ public class StoreAdapter extends RecyclerBaseAdapter {
     public Object createViewHolder(View itemView, Context context, int viewType) {
 
         StaggeredGridLayoutManager.LayoutParams layoutParams = (StaggeredGridLayoutManager.LayoutParams) itemView.getLayoutParams();
-        layoutParams.leftMargin = ArshowContextUtil.dp2px(6);
-        layoutParams.topMargin = ArshowContextUtil.dp2px(10);
-        layoutParams.rightMargin = ArshowContextUtil.dp2px(6);
         itemView.setLayoutParams(layoutParams);
+        itemView.setPadding(ArshowContextUtil.dp2px(7),
+                ArshowContextUtil.dp2px(10),
+                ArshowContextUtil.dp2px(7),0
+        );
         return new StoreHolder(itemView, context, this);
     }
 

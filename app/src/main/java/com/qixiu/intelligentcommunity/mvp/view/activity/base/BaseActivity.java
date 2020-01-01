@@ -211,14 +211,25 @@ public abstract class BaseActivity extends AppCompatActivity {
         mSupportFragmentManager = getSupportFragmentManager();
         onInitView();
         onInitData();
+        if(hasPermission(Manifest.permission.READ_PHONE_STATE)){
+            getDeviceId();
+        }else {
+            hasRequse(1,Manifest.permission.READ_PHONE_STATE);
+        }
+        setScreenOrentation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        AppManager.getAppManager().addActivity(this);
+        Log.e("where",this.getClass().getSimpleName());
+    }
+
+    protected  void getDeviceId(){
         try {
             TelephonyManager tm = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
             deviceId = tm.getDeviceId();
         } catch (Exception e) {
         }
-        setScreenOrentation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        AppManager.getAppManager().addActivity(this);
-        Log.e("where",this.getClass().getSimpleName());
+        if(null==deviceId){
+            deviceId="";
+        }
     }
 
     @Override
@@ -477,6 +488,9 @@ public abstract class BaseActivity extends AppCompatActivity {
            initWhenHasPermissions();
         }else {
             initWhenReuqestPermisssionFailed();
+        }
+        if(hasPermission(Manifest.permission.READ_PHONE_STATE)){
+            getDeviceId();
         }
     }
 
