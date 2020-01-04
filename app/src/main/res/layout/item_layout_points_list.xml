@@ -16,7 +16,7 @@
         <TextView
             android:id="@+id/textView_isGainOrPayPoints"
             style="@style/normol_text_style"
-            android:text="积分获取" />
+            android:text="魔豆获取" />
 
         <TextView
             android:id="@+id/textView_time"

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import com.qixiu.intelligentcommunity.application.BaseApplication;
 import com.qixiu.intelligentcommunity.utlis.ArshowLog;
+import com.qixiu.intelligentcommunity.utlis.DeviceIdUtil;
+
 import java.util.Set;
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.TagAliasCallback;
@@ -46,12 +48,12 @@ public class JpushEngine {
     public static String getMachineCode() {
 
         final TelephonyManager tm = (TelephonyManager) BaseApplication.getContext().getSystemService(Context.TELEPHONY_SERVICE);
-        final String tmDevice, tmSerial, tmPhone, androidId;
-        tmDevice = "" + tm.getDeviceId();
-//        tmSerial = "" + tm.getSimSerialNumber();
-//        androidId = "" + android.provider.Settings.Secure.getString(BaseApplication.getContext().getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
-//        UUID deviceUuid = new UUID(androidId.hashCode(), ((long) tmDevice.hashCode() << 32) | tmSerial.hashCode());
-//        String uniqueId = deviceUuid.toString();
+         String tmDevice;
+        try {
+            tmDevice = "" + tm.getDeviceId();
+        }catch (Exception e){
+            tmDevice = DeviceIdUtil.getDeviceId();
+        }
         return tmDevice;
     }
 

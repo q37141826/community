@@ -130,7 +130,7 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
                     ToastUtil.toast(R.string.phone_notnull);
                     return;
                 }
-                if(!CommonUtils.isMobileNO(mEt_retist_phone.getText().toString())){
+                if (!CommonUtils.isMobileNO(mEt_retist_phone.getText().toString())) {
                     ToastUtil.toast("手机号格式不正确");
                     return;
                 }
@@ -138,7 +138,7 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
                     ToastUtil.toast(R.string.checkcode_notnull);
                     return;
                 }
-                if(verify_id==null||TextUtils.isEmpty(verify_id)){
+                if (verify_id == null || TextUtils.isEmpty(verify_id)) {
                     ToastUtil.toast("请先发送验证码");
                     return;
                 }
@@ -147,11 +147,11 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
                     ToastUtil.toast(R.string.pasword_notnull);
                     return;
                 }
-                if ((mEt_regist_password.getText().toString()).length()<6) {
+                if ((mEt_regist_password.getText().toString()).length() < 6) {
                     ToastUtil.toast("请输入长度为6-16的密码");
                     return;
                 }
-                if ((mEt_regist_password.getText().toString()).length()>16) {
+                if ((mEt_regist_password.getText().toString()).length() > 16) {
                     ToastUtil.toast("密码不超过16位字符");
                     return;
                 }
@@ -183,14 +183,14 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
                 try {
                     MessageBean messageBean = GetGson.parseMessageBean(s);
                     ToastUtil.showToast(getApplicationContext(), messageBean.getM());
-                    if(messageBean.getC()==0){
+                    if (messageBean.getC() == 0) {
                         return;
                     }
                     Bundle bundle = new Bundle();
                     bundle.putString("phone", mEt_retist_phone.getText().toString());
                     bundle.putString("password", MD5Util.MD5(mEt_regist_password.getText().toString()));
-                    Preference.put(ConstantString.PHONE,mEt_retist_phone.getText().toString());
-                    Preference.put(ConstantString.PASSWORD,MD5Util.MD5(mEt_regist_password.getText().toString()));
+                    Preference.put(ConstantString.PHONE, mEt_retist_phone.getText().toString());
+                    Preference.put(ConstantString.PASSWORD, MD5Util.MD5(mEt_regist_password.getText().toString()));
                     CommonUtils.startIntent(RegisterActivity.this, AuthorizationActivity.class, bundle, 100);
                 } catch (Exception e) {
 

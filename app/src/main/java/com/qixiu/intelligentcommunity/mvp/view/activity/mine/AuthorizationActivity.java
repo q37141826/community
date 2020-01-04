@@ -174,6 +174,9 @@ public class AuthorizationActivity extends NewTitleActivity implements OKHttpUIU
                     bean.setText(estates.get(i));
                     list.add(bean);
                 }
+                if(estates.size()==0){
+                    getEstatData();
+                }
                 pop = new MyPopForSelect(list, R.layout.layout_popupwindow_selected, this, mEt_place_plot, new MyPopForSelect.Pop_itemSelectListener() {
                     @Override
                     public void getSelectedString(PopoItemBean data) {

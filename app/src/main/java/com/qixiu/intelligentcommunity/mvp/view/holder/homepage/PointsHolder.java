@@ -30,10 +30,10 @@ public class PointsHolder extends RecyclerBaseHolder<PointsDetailsBean.OBean.Lis
             PointsDetailsBean.OBean.ListBean bean = (PointsDetailsBean.OBean.ListBean) mData;
             String fuhao="-";
             if (bean.getInter_type() == 1) {
-                textView_isGainOrPayPoints.setText("积分获取");
+                textView_isGainOrPayPoints.setText("魔豆获取");
                 fuhao="+";
             } else {
-                textView_isGainOrPayPoints.setText("积分支出");
+                textView_isGainOrPayPoints.setText("魔豆支出");
                 fuhao="-";
             }
             textView_time.setText(bean.getAddtime());

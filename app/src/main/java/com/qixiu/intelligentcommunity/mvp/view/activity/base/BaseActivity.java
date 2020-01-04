@@ -40,6 +40,7 @@ import com.qixiu.intelligentcommunity.mvp.beans.login.SendCodeBean;
 import com.qixiu.intelligentcommunity.mvp.view.activity.mine.LoginActivity;
 import com.qixiu.intelligentcommunity.utlis.AppManager;
 import com.qixiu.intelligentcommunity.utlis.CommonUtils;
+import com.qixiu.intelligentcommunity.utlis.DeviceIdUtil;
 import com.qixiu.intelligentcommunity.utlis.GetGson;
 import com.qixiu.intelligentcommunity.utlis.Preference;
 import com.qixiu.intelligentcommunity.utlis.ToastUtil;
@@ -60,7 +61,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private FragmentTransaction mFragmentTransaction;
     protected FragmentManager mSupportFragmentManager;
     protected String[] photoPermission = {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.INTERNET,Manifest.permission.READ_PHONE_STATE};
+            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.INTERNET, Manifest.permission.READ_PHONE_STATE};
 
     public int windowHeight, windowWith;
     private Toolbar toolbar;
@@ -211,25 +212,24 @@ public abstract class BaseActivity extends AppCompatActivity {
         mSupportFragmentManager = getSupportFragmentManager();
         onInitView();
         onInitData();
-        if(hasPermission(Manifest.permission.READ_PHONE_STATE)){
+        if (hasPermission(Manifest.permission.READ_PHONE_STATE)) {
             getDeviceId();
-        }else {
-            hasRequse(1,Manifest.permission.READ_PHONE_STATE);
+        } else {
+            hasRequse(1, Manifest.permission.READ_PHONE_STATE);
         }
         setScreenOrentation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         AppManager.getAppManager().addActivity(this);
-        Log.e("where",this.getClass().getSimpleName());
+        Log.e("where", this.getClass().getSimpleName());
     }
 
-    protected  void getDeviceId(){
+    protected void getDeviceId() {
         try {
             TelephonyManager tm = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
             deviceId = tm.getDeviceId();
+            DeviceIdUtil.saveDeviceId(deviceId);
         } catch (Exception e) {
         }
-        if(null==deviceId){
-            deviceId="";
-        }
+        deviceId = DeviceIdUtil.getDeviceId();
     }
 
     @Override
@@ -275,10 +275,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract int getLayoutResource();
 
 
-    Button codeText;
+    TextView codeText;
     public Timer timer;
 
-    public void sendCode(String phone, Context context, String type, Button codeText) {
+    public void sendCode(String phone, Context context, String type, TextView codeText) {
         this.codeText = codeText;
 //        String token = MD5Util.getToken(ConstantUrl.SendCodeTag);
         //3表示是验证码登录
@@ -432,8 +432,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /*
-* 退出方法结尾
-* */
+     * 退出方法结尾
+     * */
     //推送强制退出登录的方法
     private void OutLogin(final Context context) {
         View contentView = View.inflate(context, R.layout.popwindow_exit, null);
@@ -484,30 +484,30 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(hasPermission(permissions)){
-           initWhenHasPermissions();
-        }else {
+        if (hasPermission(permissions)) {
+            initWhenHasPermissions();
+        } else {
             initWhenReuqestPermisssionFailed();
         }
-        if(hasPermission(Manifest.permission.READ_PHONE_STATE)){
+        if (hasPermission(Manifest.permission.READ_PHONE_STATE)) {
             getDeviceId();
         }
     }
 
-    public   void initWhenReuqestPermisssionFailed(){
+    public void initWhenReuqestPermisssionFailed() {
 
-    };
-
+    }
 
 
     public void initWhenHasPermissions() {
 
     }
 
-    public Context getContext(){
+    public Context getContext() {
         return this;
     }
-    public Activity getActivity(){
+
+    public Activity getActivity() {
         return this;
     }
 }

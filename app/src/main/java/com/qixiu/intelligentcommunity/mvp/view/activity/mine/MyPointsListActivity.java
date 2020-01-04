@@ -80,7 +80,7 @@ public class MyPointsListActivity extends NewTitleActivity implements OKHttpUIUp
         adapter = new PointsAdapter();
         recyclerview_points.setAdapter(adapter);
         getdata();
-        mTitleView.setTitle("积分明细");
+        mTitleView.setTitle("魔豆明细");
         mTitleView.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -49,7 +49,6 @@ import okhttp3.Call;
 
 import static com.qixiu.intelligentcommunity.R.id.iv_nodata_showbg;
 import static com.qixiu.intelligentcommunity.R.id.middle;
-import static com.qixiu.intelligentcommunity.R.id.pushPrograssBar;
 
 /**
  * Created by Administrator on 2017/8/25 0025.

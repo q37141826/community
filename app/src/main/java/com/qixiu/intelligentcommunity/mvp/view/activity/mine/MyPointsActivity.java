@@ -33,14 +33,14 @@ public class MyPointsActivity extends NewTitleActivity implements OKHttpUIUpdata
     private LinearLayout  linearlayout_goto_game;
     @Override
     protected void onInitData() {
-        mTitleView.setTitle("我的积分");
+        mTitleView.setTitle("我的魔豆");
         mTitleView.setBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        mTitleView.setRightText("积分明细");
+        mTitleView.setRightText("魔豆明细");
         mTitleView.setRightTextVisible(View.VISIBLE);
         mTitleView.setRightListener(new View.OnClickListener() {
             @Override

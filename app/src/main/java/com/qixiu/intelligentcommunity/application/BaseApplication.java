@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.support.v4.app.ActivityCompat;
+import android.text.LoginFilter;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.qixiu.intelligentcommunity.engine.jpush.JpushEngine;
 import com.qixiu.intelligentcommunity.mvp.view.activity.mine.LoginActivity;
+import com.qixiu.intelligentcommunity.utlis.LoginUtils;
 import com.qixiu.intelligentcommunity.utlis.Preference;
 import com.qixiu.intelligentcommunity.utlis.XutilsModel;
 
@@ -68,7 +70,9 @@ public class BaseApplication extends MultiDexApplication {
             ShareSDK.initSDK(getContext());
         } catch (Exception e) {
         }
-
+        if(LoginUtils.isLogined()){
+            JpushEngine.initJPush(getContext());
+        }
         XutilsModel.initXutil(this);
     }
 

@@ -32,7 +32,9 @@ import com.qixiu.intelligentcommunity.mvp.view.activity.main.MainActivity;
 import com.qixiu.intelligentcommunity.mvp.view.widget.loading.ZProgressHUD;
 import com.qixiu.intelligentcommunity.mvp.view.widget.loading.ZProgressHUD.OnDialogDismiss;
 import com.qixiu.intelligentcommunity.utlis.CommonUtils;
+import com.qixiu.intelligentcommunity.utlis.DeviceIdUtil;
 import com.qixiu.intelligentcommunity.utlis.GetGson;
+import com.qixiu.intelligentcommunity.utlis.LoginUtils;
 import com.qixiu.intelligentcommunity.utlis.MD5Util;
 import com.qixiu.intelligentcommunity.utlis.Preference;
 import com.qixiu.intelligentcommunity.utlis.ToastUtil;
@@ -76,7 +78,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     String register_type = "";
     //需要保护的点击事件装入集合
     List<View> listClick = new ArrayList<>();
-    String permissions[] = { Manifest.permission.READ_EXTERNAL_STORAGE,
+    String permissions[] = {Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE};
     //判断是否从第三方登录返回
     private boolean IS_FROM_APP = false;
@@ -100,9 +102,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             DEVICE_ID = tm.getDeviceId();
         } catch (Exception e) {
         }
-        if(null==DEVICE_ID){
-            DEVICE_ID="";
-        }
+        DEVICE_ID = DeviceIdUtil.getDeviceId();
         VersionCheckUtil.checkVersion(this);
     }
 
@@ -406,6 +406,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                     saverUserMessage(loginBean);
                     Preference.putBoolean("IS_FROM_APP", true);
                     Preference.put(ConstantString.HEAD, loginBean.getO().getHead() + ".jpg");
+                    LoginUtils. saveLoginData(s);
 //                    ToastUtil.showToast(getBaseContext(), loginBean.getM());
                     CommonUtils.startIntent(getApplicationContext(), MainActivity.class);
                     //初始化极光推送
@@ -450,7 +451,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     @Subscribe
     public void onEventReceived(PermissionNotice notice) {
-        hasRequse(1,permissions);
+        hasRequse(1, permissions);
     }
 
     @Override
@@ -465,7 +466,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         super.initWhenReuqestPermisssionFailed();
         finish();
     }
-
 
 
 }

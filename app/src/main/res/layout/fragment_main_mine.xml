@@ -113,7 +113,7 @@
                 android:drawablePadding="@dimen/top7dp"
                 android:drawableTop="@mipmap/my_points2x"
                 android:gravity="center_horizontal"
-                android:text="我的积分" />
+                android:text="我的魔豆" />
 
         </RelativeLayout>
 
@@ -181,7 +181,7 @@
                 <TextView
                     android:layout_marginTop="@dimen/margin33dp"
                     android:layout_marginLeft="@dimen/margin53dp"
-                    android:text="赢积分、话费"
+                    android:text="赢魔豆、话费"
                     android:textSize="12sp"
                     android:textColor="@color/text_littie_grey"
                     android:layout_width="wrap_content"
