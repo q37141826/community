@@ -1,9 +1,13 @@
 package com.qixiu.intelligentcommunity.mvp.model.request;
 
 import android.text.TextUtils;
+import android.util.Log;
 
+import com.qixiu.intelligentcommunity.constants.ConstantString;
 import com.qixiu.intelligentcommunity.mvp.beans.BaseBean;
 import com.qixiu.intelligentcommunity.mvp.model.request.parameter.OKHttpRequestParameter;
+import com.qixiu.intelligentcommunity.utlis.LogUtil;
+import com.qixiu.intelligentcommunity.utlis.LoginUtils;
 import com.qixiu.intelligentcommunity.utlis.MD5Util;
 import com.qixiu.intelligentcommunity.utlis.SplitStringUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -13,12 +17,14 @@ import com.zhy.http.okhttp.builder.PostFormBuilder;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by Administrator on 2017/4/11 0011.
  */
 
 public class OKHttpRequestModel<T> {
+    public static final String TAG = "OKHttpRequestModel";
     private final OKHttpUIUpdataListener mOkHttpUIUpdataListener;
 
     public OKHttpRequestModel(OKHttpUIUpdataListener<T> okHttpUIUpdataListener) {
@@ -32,6 +38,7 @@ public class OKHttpRequestModel<T> {
 
 
     }
+
     public void okhHttpPost(String url, Map<String, String> map, final BaseBean<T> baseBean, Map<String, File> mapFiles, boolean isToken) {
 
         Map<String, String> paramenterStringMap = new HashMap<>();
@@ -81,7 +88,6 @@ public class OKHttpRequestModel<T> {
 
 
     public void okhHttpPost(String url, Map<String, String> map, final BaseBean<T> baseBean, boolean isToken) {
-
         Map<String, String> paramenterStringMap = new HashMap<>();
         if (map != null) {
             paramenterStringMap.putAll(map);
@@ -93,6 +99,14 @@ public class OKHttpRequestModel<T> {
 
         }
         baseBean.setUrl(url);
+        if(LogUtil.isDebug){
+            Set<String> strings = map.keySet();
+            StringBuffer stringBuffer = new StringBuffer("");
+            for (String key : strings) {
+                stringBuffer.append(key+":  "+map.get(key).toString()+"\n");
+            }
+            Log.d(TAG, "okhHttpPost: "+stringBuffer.toString());
+        }
         OKHttpExecutor.okHttpExecut(baseBean, OKHttpRequestParameter.addStringParameter(builder, paramenterStringMap), mOkHttpUIUpdataListener);
     }
 

@@ -18,6 +18,8 @@ import android.text.format.Time;
 import android.util.Base64;
 import android.util.Log;
 
+import com.qixiu.intelligentcommunity.application.BaseApplication;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;

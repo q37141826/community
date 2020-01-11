@@ -27,7 +27,7 @@ import cn.sharesdk.framework.ShareSDK;
 public class BaseApplication extends MultiDexApplication {
     private static BaseApplication app;
     private static Context mContext;
-
+    public static  String defualtPath;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -42,6 +42,11 @@ public class BaseApplication extends MultiDexApplication {
         app = this;
         mContext = this;
         initSdk();
+        setDefaultPath();
+    }
+
+    private void setDefaultPath() {
+        defualtPath = getExternalCacheDir().getPath();
     }
 
     public static BaseApplication getApp() {

@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.qixiu.intelligentcommunity.constants.ConstantString;
 import com.qixiu.intelligentcommunity.constants.IntentDataKeyConstant;
 import com.qixiu.intelligentcommunity.constants.StringConstants;
 import com.qixiu.intelligentcommunity.listener.rv_adapter.OnRecyclerItemListener;
@@ -84,7 +85,6 @@ public abstract class UploadPictureActivity extends TitleActivity implements OnR
         if (!TextUtils.isEmpty(uid)) {
             mMap.put(IntentDataKeyConstant.UID_KEY, uid);
         }
-
         final StringBuffer images = new StringBuffer();
         try {
             PictureCut.CompressImage.callBase64s(selectPhotos, this, new PictureCut.CompressImage.ImageCallBackBase64s() {

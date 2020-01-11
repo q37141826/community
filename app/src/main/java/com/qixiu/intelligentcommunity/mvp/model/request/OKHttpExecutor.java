@@ -5,6 +5,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.qixiu.intelligentcommunity.mvp.beans.BaseBean;
 import com.qixiu.intelligentcommunity.mvp.beans.C_CodeBean;
+import com.qixiu.intelligentcommunity.utlis.LogUtil;
 import com.zhy.http.okhttp.builder.OkHttpRequestBuilder;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -47,7 +48,9 @@ public class OKHttpExecutor {
 
         @Override
         public void onResponse(String s, int i) {
-            Log.d("data",s);
+            if(LogUtil.isDebug){
+                Log.d(OKHttpRequestModel.TAG,s);
+            }
             OKHttpUIUpdataListener okHttpUIUpdataListener = mOkHttpUIUpdataListenerWeakReference.get();
             if (okHttpUIUpdataListener != null && baseBean != null) {
                 Gson gson = new Gson();
