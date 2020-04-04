@@ -91,6 +91,8 @@ public class OKHttpRequestModel<T> {
         Map<String, String> paramenterStringMap = new HashMap<>();
         if (map != null) {
             paramenterStringMap.putAll(map);
+        } else {
+            map = new HashMap<>();
         }
         PostFormBuilder builder = OkHttpUtils.post().url(url);
         if (isToken && !TextUtils.isEmpty(url)) {
@@ -99,13 +101,13 @@ public class OKHttpRequestModel<T> {
 
         }
         baseBean.setUrl(url);
-        if(LogUtil.isDebug){
+        if (LogUtil.isDebug) {
             Set<String> strings = map.keySet();
             StringBuffer stringBuffer = new StringBuffer("");
             for (String key : strings) {
-                stringBuffer.append(key+":  "+map.get(key).toString()+"\n");
+                stringBuffer.append(key + ":  " + map.get(key).toString() + "\n");
             }
-            Log.d(TAG, "okhHttpPost: "+stringBuffer.toString());
+            Log.d(TAG, "okhHttpPost: " + stringBuffer.toString());
         }
         OKHttpExecutor.okHttpExecut(baseBean, OKHttpRequestParameter.addStringParameter(builder, paramenterStringMap), mOkHttpUIUpdataListener);
     }

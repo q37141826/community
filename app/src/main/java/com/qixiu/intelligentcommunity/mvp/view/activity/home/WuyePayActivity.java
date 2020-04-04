@@ -208,7 +208,7 @@ public class WuyePayActivity extends BaseActivity implements View.OnClickListene
         }
         OKHttpRequestModel model = new OKHttpRequestModel(this);
         Map<String, String> map = new HashMap<>();
-        map.put("uid",Preference.get(ConstantString.USERID, ""));//// TODO: 2017/6/27以后改为  Preference.get(ConstantString.USERID, "")
+        map.put("uid",Preference.get(ConstantString.USERID, ""));
         map.put("type", type + "");
         map.put("cost_type", cost_type + "");
         map.put("money",money);

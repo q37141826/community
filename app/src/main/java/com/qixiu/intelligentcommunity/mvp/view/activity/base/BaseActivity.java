@@ -69,6 +69,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     BroadcastReceiver receiver;
     public String deviceId;
 
+    public boolean isPaused() {
+        return isPaused;
+    }
+
+    private boolean isPaused;
+
     //检查权限
     public boolean hasPermission(String... permission) {
         for (String permissiom : permission) {
@@ -234,6 +240,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        isPaused = false;
         super.onResume();
         //注册广播接受者
         receiver = new BroadcastReceiver() {
@@ -261,10 +268,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
+        isPaused = true;
         super.onPause();
         unregisterReceiver(receiver);
         JPushInterface.onPause(this);
-
     }
 
     protected abstract void onInitData();

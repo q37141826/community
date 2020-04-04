@@ -56,6 +56,7 @@ import com.qixiu.intelligentcommunity.mvp.model.home_modle.HomeSelectorModle;
 import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpRequestModel;
 import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpUIUpdataListener;
 import com.qixiu.intelligentcommunity.mvp.view.activity.home.BlueToothManageActivity;
+import com.qixiu.intelligentcommunity.mvp.view.activity.home.NewWuyePayActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.home.WuyePayActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.home.get_goods.GetGoodsActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.home.web.BrowserInnerActivity;
@@ -587,7 +588,7 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
                     ToastUtil.toast(R.string.no_permission);
                     return;
                 }
-                CommonUtils.startIntent(getContext(), WuyePayActivity.class, bundle);
+                CommonUtils.startIntent(getContext(), NewWuyePayActivity.class, bundle);
                 break;
             case R.id.textView_carPay:
                 if (Preference.get(ConstantString.UTYPE, "").equals(4 + "")) {
@@ -595,7 +596,7 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
                     return;
                 }
                 bundle.putString("titile", "停车缴费");
-                CommonUtils.startIntent(getContext(), WuyePayActivity.class, bundle);
+                CommonUtils.startIntent(getContext(), NewWuyePayActivity.class, bundle);
                 break;
             case R.id.tv_neighborhood:
                 if (Preference.get(ConstantString.UTYPE, "").equals(4 + "")) {

@@ -15,6 +15,7 @@ import com.qixiu.intelligentcommunity.constants.ConstantString;
 import com.qixiu.intelligentcommunity.constants.IntentDataKeyConstant;
 import com.qixiu.intelligentcommunity.constants.StringConstants;
 import com.qixiu.intelligentcommunity.mvp.model.home_modle.HomeSelectorModle;
+import com.qixiu.intelligentcommunity.mvp.view.activity.home.NewWuyePayActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.home.WuyePayActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.home.web.HomeWebActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.main.ServiceActivity;
@@ -123,7 +124,7 @@ public class UserSelectorAdapter extends LoopPagerAdapter {
                     ToastUtil.toast(R.string.no_permission);
                     return;
                 }
-                CommonUtils.startIntent(context, WuyePayActivity.class, bundle);
+                CommonUtils.startIntent(context, NewWuyePayActivity.class, bundle);
                 return;
             }
             if (firstPage[1].equals(text)) {
