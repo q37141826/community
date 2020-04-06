@@ -16,13 +16,13 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/back_grey"
-        android:layout_below="@+id/vg_title">
+        android:layout_below="@+id/vg_title"
+        android:background="@color/back_grey">
 
         <LinearLayout
-            android:layout_marginTop="@dimen/margin7dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin7dp"
             android:orientation="vertical">
 
             <LinearLayout style="@style/new_wuye">
@@ -98,6 +98,7 @@
                     android:text="缴费信息"></TextView>
 
                 <RelativeLayout
+                    android:id="@+id/rl_pay_how_long"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/margin48dp"
                     android:paddingLeft="@dimen/margin15dp"
@@ -180,12 +181,13 @@
                         android:text="是"></TextView>
 
                     <ImageButton
+                        android:background="@color/white"
+                        android:id="@+id/ivbtn_yes"
                         android:layout_width="@dimen/margin19dp"
                         android:layout_height="@dimen/margin19dp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="@dimen/margin73dp"
-                        android:src="@drawable/radio_selector"></ImageButton>
+                        android:layout_marginRight="@dimen/margin73dp"></ImageButton>
 
                     <View style="@style/new_wuye_item_line"></View>
 
@@ -197,11 +199,12 @@
                         android:text="否"></TextView>
 
                     <ImageButton
+                        android:background="@color/white"
+                        android:id="@+id/ivbtn_no"
                         android:layout_width="@dimen/margin19dp"
                         android:layout_height="@dimen/margin19dp"
                         android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/radio_selector"></ImageButton>
+                        android:layout_centerVertical="true"></ImageButton>
 
                 </RelativeLayout>
 
@@ -274,22 +277,24 @@
             style="@style/new_wuye_item_text"
             android:layout_marginLeft="@dimen/margin45dp"
             android:text="共计实付金额为:"></TextView>
+
         <TextView
-            android:text="0"
-            android:textColor="@color/orange"
-            android:layout_centerVertical="true"
+            style="@style/new_wuye_item_text"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/margin165dp"
-            style="@style/new_wuye_item_text"></TextView>
+            android:text="0"
+            android:textColor="@color/orange"></TextView>
+
         <Button
-            android:background="@drawable/blue_btn"
             android:id="@+id/btn_wuye_goto_pay"
-            android:textColor="@color/white"
-            android:text="去缴费"
-            android:layout_marginRight="@dimen/margin15dp"
+            android:layout_width="@dimen/margin135dp"
+            android:layout_height="@dimen/margin39dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_width="@dimen/margin135dp"
-            android:layout_height="@dimen/margin39dp"></Button>
+            android:layout_marginRight="@dimen/margin15dp"
+            android:background="@drawable/blue_btn"
+            android:text="去缴费"
+            android:textColor="@color/white"></Button>
     </RelativeLayout>
 </RelativeLayout>

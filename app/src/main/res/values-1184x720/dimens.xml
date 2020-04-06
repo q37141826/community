@@ -206,10 +206,23 @@
     <dimen name="margin198dp">396px</dimen>
     <dimen name="margin199dp">398px</dimen>
     <dimen name="margin200dp">400px</dimen>
-    <dimen name="margin300dp">600px</dimen>
 
     <dimen name="margin220dp">440px</dimen>
     <dimen name="margin230dp">460px</dimen>
+    <dimen name="margin240dp">480px</dimen>
+    <dimen name="margin250dp">500px</dimen>
+    <dimen name="margin260dp">520px</dimen>
+    <dimen name="margin270dp">540px</dimen>
+    <dimen name="margin280dp">560px</dimen>
+    <dimen name="margin290dp">580px</dimen>
+    <dimen name="margin300dp">600px</dimen>
+    <dimen name="margin310dp">620px</dimen>
+    <dimen name="margin320dp">640px</dimen>
+    <dimen name="margin330dp">660px</dimen>
+    <dimen name="margin340dp">680px</dimen>
+    <dimen name="margin350dp">700px</dimen>
+    <dimen name="margin360dp">720px</dimen>
+    <dimen name="margin370dp">740px</dimen>
 
     <dimen name="margin500dp">1000px</dimen>
 

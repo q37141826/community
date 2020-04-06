@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout_back_for_dismiss"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pop_alpha_black">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin370dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/background_corp_white">
+
+        <com.qixiu.intelligentcommunity.mvp.view.widget.mypopselect.MyPickerView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/picker_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin280dp"
+            android:layout_marginTop="@dimen/margin20dp"></com.qixiu.intelligentcommunity.mvp.view.widget.mypopselect.MyPickerView>
+
+        <Button
+            android:id="@+id/btn_cancle"
+            android:layout_width="@dimen/margin143dp"
+            android:layout_height="@dimen/margin37dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/margin30dp"
+            android:layout_marginBottom="@dimen/margin31dp"
+            android:background="@drawable/wuye_btn_cancel"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="14sp"></Button>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="@dimen/margin143dp"
+            android:layout_height="@dimen/margin37dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="@dimen/margin30dp"
+            android:layout_marginBottom="@dimen/margin31dp"
+            android:background="@drawable/wuye_btn_confirm"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textSize="14sp"></Button>
+    </RelativeLayout>
+</RelativeLayout>

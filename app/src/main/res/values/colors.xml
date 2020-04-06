@@ -77,5 +77,7 @@
     <color name="text_littie_grey">#9EAAB4</color>
     <color name="home_news_bg_color">#977BF6</color>
     <color name="wuye_btn_color">#5065F2</color>
+    <color name="wuye_btn_cancle_color">#12C0EB</color>
+    <color name="pop_alpha_black">#70000000</color>
 
 </resources>

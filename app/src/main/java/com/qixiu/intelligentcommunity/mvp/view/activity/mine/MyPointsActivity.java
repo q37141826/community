@@ -81,7 +81,11 @@ public class MyPointsActivity extends NewTitleActivity implements OKHttpUIUpdata
 
     @Override
     public void onSuccess(BaseBean data, int i) {
-        textView_myPoints.setText(data.getO().toString());
+        try {
+            textView_myPoints.setText(data.getO().toString());
+        }catch (Exception e){// TODO: 2020/4/6 这个地方可能数据不正确 
+            e.printStackTrace();
+        }
     }
 
     @Override
