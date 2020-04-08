@@ -47,11 +47,11 @@ public class PointSelector {
 
     private void refreshState() {
         if (isSelectOk) {
-            ivbtn_yes.setImageResource(R.mipmap.is_selected);
-            ivbtn_no.setImageResource(R.mipmap.circle_black2x);
+            ivbtn_yes.setImageResource(R.mipmap.wuye_point_selected_2x);
+            ivbtn_no.setImageResource(R.mipmap.wuye_point_no_selected_2x);
         } else {
-            ivbtn_yes.setImageResource(R.mipmap.circle_black2x);
-            ivbtn_no.setImageResource(R.mipmap.is_selected);
+            ivbtn_yes.setImageResource(R.mipmap.wuye_point_no_selected_2x);
+            ivbtn_no.setImageResource(R.mipmap.wuye_point_selected_2x);
         }
     }
 

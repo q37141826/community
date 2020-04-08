@@ -22,7 +22,7 @@ public class ConstantUrl {
     public static String hosturl = "http://app.mochouwuye.com/";
     public static String hostImageurl = "http://app.mochouwuye.com/";
 
-//    public static String nativehostImageurl = "http://192.168.168.39/community";
+    //    public static String nativehostImageurl = "http://192.168.168.39/community";
     public static String nativehostImageurl = hostImageurl;
     //   public static String WEBURL_PREFIX = "http://192.168.168.39/community/smartCommunity/#";
     public static String WEBURL_PREFIX = hosturl + "smartCommunity/#";
@@ -315,5 +315,10 @@ public class ConstantUrl {
     public static String versionUrl = hosturl + "api/Personal/vivt";
 
     //首页通知
-   public static  String homeNoticeUrl= hosturl+"api/Certification/noticesIndex";
+    public static String homeNoticeUrl = hosturl + "api/Certification/noticesIndex";
+
+
+    //物业新界面获取个人缴费详情
+    public static String newWuyePayDetailsUrl = hosturl + "api/cost/getUserWuye";
+
 }

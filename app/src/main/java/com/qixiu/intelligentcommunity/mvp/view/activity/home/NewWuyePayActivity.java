@@ -10,15 +10,27 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.qixiu.intelligentcommunity.R;
+import com.qixiu.intelligentcommunity.constants.ConstantString;
+import com.qixiu.intelligentcommunity.constants.ConstantUrl;
+import com.qixiu.intelligentcommunity.mvp.beans.BaseBean;
+import com.qixiu.intelligentcommunity.mvp.beans.C_CodeBean;
+import com.qixiu.intelligentcommunity.mvp.beans.home.NewWuyePayBean;
 import com.qixiu.intelligentcommunity.mvp.beans.home.PayTimeDataHelper;
 import com.qixiu.intelligentcommunity.mvp.model.home_modle.PointSelector;
+import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpRequestModel;
+import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpUIUpdataListener;
 import com.qixiu.intelligentcommunity.mvp.view.activity.base.NewTitleActivity;
 import com.qixiu.intelligentcommunity.mvp.view.widget.mypopselect.SinglePopPickView;
 import com.qixiu.intelligentcommunity.utlis.CommonUtils;
+import com.qixiu.intelligentcommunity.utlis.Preference;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class NewWuyePayActivity extends NewTitleActivity {
+import okhttp3.Call;
+
+public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpdataListener {
     public static final String TITLE = "物业缴费";
     public static final String TAG = "NewWuyePayActivity";
     public static final String TITLE_RIGHT = "缴费记录";
@@ -31,12 +43,26 @@ public class NewWuyePayActivity extends NewTitleActivity {
     private SinglePopPickView singlePopPickView;
     private int currentPayMonths;
 
+    private OKHttpRequestModel okHttpRequestModel;
+
+
     //哥哥view
     private TextView textView_wuye_pay_time;
+    private TextView textView_wuye_mianji;
+    private TextView textView_wuye_price;
+    private TextView textView_wuye_last_pay_time;
+    private NewWuyePayBean wuyePayBean;
 
     @Override
     protected void onInitData() {
+        okHttpRequestModel = new OKHttpRequestModel(this);
+        requestPayData();
+    }
 
+    private void requestPayData() {
+        Map<String, String> map = new HashMap<>();
+        map.put("uid", Preference.get(ConstantString.USERID, ""));
+        okHttpRequestModel.okhHttpPost(ConstantUrl.newWuyePayDetailsUrl, map, new NewWuyePayBean());
     }
 
     @Override
@@ -65,7 +91,11 @@ public class NewWuyePayActivity extends NewTitleActivity {
         ivbtn_no = findViewById(R.id.ivbtn_no);
         rl_pay_how_long = findViewById(R.id.rl_pay_how_long);
         textView_wuye_pay_time = findViewById(R.id.textView_wuye_pay_time);
+        textView_wuye_mianji = findViewById(R.id.textView_wuye_mianji);
+        textView_wuye_price = findViewById(R.id.textView_wuye_price);
+        textView_wuye_last_pay_time = findViewById(R.id.textView_wuye_last_pay_time);
 
+        //每个需要显示的数据textview
 
 
         pointSelector = new PointSelector(this, ivbtn_yes, ivbtn_no);
@@ -101,4 +131,28 @@ public class NewWuyePayActivity extends NewTitleActivity {
         currentPayMonths = months;
     }
 
+    @Override
+    public void onSuccess(Object data, int i) {
+        if (data instanceof NewWuyePayBean) {
+            wuyePayBean = (NewWuyePayBean) data;
+            setPayDetails(wuyePayBean);
+        }
+    }
+
+    private void setPayDetails(NewWuyePayBean wuyePayBean) {
+        textView_wuye_mianji.setText(wuyePayBean.getO().getBarea());
+        textView_wuye_price.setText(wuyePayBean.getO().getBprice());
+        textView_wuye_last_pay_time.setText(wuyePayBean.getO().getEndtime_desc());
+
+    }
+
+    @Override
+    public void onError(Call call, Exception e, int i) {
+
+    }
+
+    @Override
+    public void onFailure(C_CodeBean c_codeBean) {
+
+    }
 }

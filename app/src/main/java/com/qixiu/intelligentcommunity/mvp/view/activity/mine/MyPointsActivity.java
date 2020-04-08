@@ -19,11 +19,14 @@ import com.qixiu.intelligentcommunity.mvp.view.activity.home.web.HomeWebActivity
 import com.qixiu.intelligentcommunity.utlis.CommonUtils;
 import com.qixiu.intelligentcommunity.utlis.Preference;
 import com.qixiu.intelligentcommunity.utlis.ToastUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.request.OkHttpRequest;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.Call;
+import okhttp3.OkHttpClient;
 
 import static com.qixiu.intelligentcommunity.constants.ConstantUrl.loadGame;
 
