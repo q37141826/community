@@ -320,5 +320,7 @@ public class ConstantUrl {
 
     //物业新界面获取个人缴费详情
     public static String newWuyePayDetailsUrl = hosturl + "api/cost/getUserWuye";
+    //物业新界面生成订单
+    public static String newWuyePayCreatOrderUrl = hosturl + "api/cost/wuyePay";
 
 }

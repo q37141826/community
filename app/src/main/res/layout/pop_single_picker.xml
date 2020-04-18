@@ -12,6 +12,7 @@
         android:background="@drawable/background_corp_white">
 
         <com.qixiu.intelligentcommunity.mvp.view.widget.mypopselect.MyPickerView
+            android:paddingLeft="@dimen/margin100dp"
             android:layout_centerHorizontal="true"
             android:id="@+id/picker_view"
             android:layout_width="match_parent"

@@ -79,5 +79,6 @@
     <color name="wuye_btn_color">#5065F2</color>
     <color name="wuye_btn_cancle_color">#12C0EB</color>
     <color name="pop_alpha_black">#70000000</color>
+    <color name="text_orange">#FF4400</color>
 
 </resources>

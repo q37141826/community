@@ -3,7 +3,9 @@ package com.qixiu.intelligentcommunity.utlis;
 import android.text.format.Time;
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,6 +13,14 @@ import java.util.List;
  */
 
 public class TimeDataUtil {
+    private final static long minute = 60 * 1000;// 1分钟
+    private final static long hour = 60 * minute;// 1小时
+    private final static long day = 24 * hour;// 1天
+    private final static long month = 31 * day;// 月
+    private final static long year = 12 * month;// 年
+    public final static String DEFULT_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    public final static String DEFULT_DATE_FORMAT = "yyyy-MM-dd";
+
     public static String getDate(long addTime) {
         String time = "";
         Time t = new Time();
@@ -28,8 +38,8 @@ public class TimeDataUtil {
         if (day < 10) {
             days = 0 + "" + day;
         }
-        time = "" + year +"/"+ months+"/" + days;
-        Log.e("time",System.currentTimeMillis()+"添加的时间"+addTime+"最后解析为"+time);
+        time = "" + year + "/" + months + "/" + days;
+        Log.e("time", System.currentTimeMillis() + "添加的时间" + addTime + "最后解析为" + time);
         return time;
     }
 
@@ -78,7 +88,7 @@ public class TimeDataUtil {
     }
 
     public static List<String> getTimtArea(int now) {
-        if(now>11){
+        if (now > 11) {
             return null;
         }
         List<String> list = new ArrayList<>();
@@ -90,41 +100,42 @@ public class TimeDataUtil {
     }
 
     public static int getTime() {
-        int timeAreas=0;
+        int timeAreas = 0;
         Time time = new Time();
         time.setToNow();
-        if(time.hour>9&&time.hour<20){
-            timeAreas=time.hour-9;
+        if (time.hour > 9 && time.hour < 20) {
+            timeAreas = time.hour - 9;
         }
         return timeAreas;
     }
 
-    public static boolean  isToday(String time){
+    public static boolean isToday(String time) {
         String date = getDate(0);
-        if((date+"").equals(time)){
+        if ((date + "").equals(time)) {
             return true;
         }
         return false;
     }
 
-    public static final int BEFORE_SECTION=001,AFTER_SECTION=002,DURING_SECTION=003;
-    public static int getTimeSection(int before,int after) {
-        int timeAreas=0;
+    public static final int BEFORE_SECTION = 001, AFTER_SECTION = 002, DURING_SECTION = 003;
+
+    public static int getTimeSection(int before, int after) {
+        int timeAreas = 0;
         Time time = new Time();
         time.setToNow();
-        if(time.hour<before){
-         return  BEFORE_SECTION;
-        }else if(time.hour>after){
+        if (time.hour < before) {
+            return BEFORE_SECTION;
+        } else if (time.hour > after) {
             return AFTER_SECTION;
-        }else {
+        } else {
             return DURING_SECTION;
         }
     }
 
-    public  int getYear(){
+    public int getYear() {
         String time = "";
         Time t = new Time();
-        t.set(System.currentTimeMillis() );
+        t.set(System.currentTimeMillis());
         int year = t.year;
         int month = t.month + 1;
         int day = t.monthDay;
@@ -132,10 +143,11 @@ public class TimeDataUtil {
         int hour = t.hour;
         return year;
     }
-    public  int getMonth(){
+
+    public int getMonth() {
         String time = "";
         Time t = new Time();
-        t.set(System.currentTimeMillis() );
+        t.set(System.currentTimeMillis());
         int year = t.year;
         int month = t.month + 1;
         int day = t.monthDay;
@@ -144,5 +156,24 @@ public class TimeDataUtil {
         return month;
     }
 
+    public static String getTimeStamp(long time, String format) {
+        Date date = new Date(time);
+        SimpleDateFormat formate = new SimpleDateFormat(format);
+        return formate.format(date);
+    }
 
+    public static String getTimeStamp(long time) {
+        return getTimeStamp(time, DEFULT_DATE_FORMAT);
+    }
+
+    public static String timeStamp2Date(String seconds, String format) {
+        if (seconds == null || seconds.isEmpty() || seconds.equals("null")) {
+            return "";
+        }
+        if (format == null || format.isEmpty()) {
+            format = "yyyy-MM-dd HH:mm:ss";
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        return sdf.format(new Date(Long.valueOf(seconds + "000")));
+    }
 }

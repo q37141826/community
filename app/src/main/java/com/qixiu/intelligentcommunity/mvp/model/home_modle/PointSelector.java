@@ -9,6 +9,14 @@ public class PointSelector {
     private ImageButton ivbtn_yes;
     private ImageButton ivbtn_no;
 
+    public void setSelectedListenner(SelectedListenner selectedListenner) {
+        this.selectedListenner = selectedListenner;
+    }
+
+    private SelectedListenner selectedListenner;
+
+
+
     public void setSelectOk(boolean selectOk) {
         isSelectOk = selectOk;
     }
@@ -53,7 +61,13 @@ public class PointSelector {
             ivbtn_yes.setImageResource(R.mipmap.wuye_point_no_selected_2x);
             ivbtn_no.setImageResource(R.mipmap.wuye_point_selected_2x);
         }
+        if(selectedListenner!=null){
+            selectedListenner.selected();
+        }
     }
 
+    public  interface SelectedListenner{
+        void selected();
+    }
 
 }

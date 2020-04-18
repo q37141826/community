@@ -61,9 +61,10 @@ public class AliWeixinPayActivity extends BaseActivity implements View.OnClickLi
     private String title;
 
     ZProgressHUD zProgressHUD;
+
     @Override
     protected void onInitData() {
-        zProgressHUD=new ZProgressHUD(this);
+        zProgressHUD = new ZProgressHUD(this);
         okmodel = new OKHttpRequestModel(this);
         setWhichSelected(0);
         try {
@@ -81,7 +82,8 @@ public class AliWeixinPayActivity extends BaseActivity implements View.OnClickLi
             public void onReceive(Context context, Intent intent) {
                 try {
                     zProgressHUD.dismiss();
-                }catch (Exception e){}
+                } catch (Exception e) {
+                }
                 finish();
             }
         };

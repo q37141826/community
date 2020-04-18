@@ -219,6 +219,7 @@
                         android:text="使用积分(个):"></TextView>
 
                     <EditText
+                        android:inputType="number"
                         android:id="@+id/edittext_use_point"
                         style="@style/new_wuye_item_text"
                         android:layout_alignParentRight="true"
