@@ -10,6 +10,7 @@ import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
@@ -66,6 +67,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
     private TextView textView_wuye_this_time_pay;
     private TextView textView_wuye_pay_how_much;
     private EditText edittext_use_point;
+    private Button btn_wuye_goto_pay;
 
     @Override
     protected void onInitData() {
@@ -117,11 +119,13 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
         extView_introduce_point = findViewById(R.id.textView_introduce_point);
         textView_wuye_pay_how_much = findViewById(R.id.textView_wuye_pay_how_much);
         edittext_use_point = findViewById(R.id.edittext_use_point);
+        btn_wuye_goto_pay = findViewById(R.id.btn_wuye_goto_pay);
         //每个需要显示的数据textview
 
 
         pointSelector = new PointSelector(this, ivbtn_yes, ivbtn_no);
         rl_pay_how_long.setOnClickListener(this);
+        btn_wuye_goto_pay.setOnClickListener(this);
         pointSelector.setSelectedListenner(() -> refreshEdittext());
     }
 
@@ -131,7 +135,27 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
             case R.id.rl_pay_how_long:
                 showPick();
                 break;
+            case R.id.btn_wuye_goto_pay:
+                sendPayRequest();
+                break;
         }
+    }
+
+    private void sendPayRequest() {
+        Map<String, String> map = new HashMap<>();
+        int usePoint = 0;
+        if (pointSelector.isSelectOk()) {
+            String s = edittext_use_point.getText().toString();
+            try {
+                usePoint = Integer.parseInt(s);
+            } catch (Exception e) {
+                usePoint = 0;
+            }
+        }
+        map.put("score",usePoint+"");
+        map.put("uid",Preference.get(ConstantString.USERID,""));
+        map.put("cost_type",3+"");
+        okHttpRequestModel.okhHttpPost(ConstantUrl.newWuyePayCreatOrderUrl,map,new BaseBean<>());
     }
 
     private void showPick() {
@@ -178,7 +202,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
             //做个付款类型标记
             Preference.put(ConstantString.payWhat, WuyePayActivity.class.getSimpleName());
             intent.putExtra("type", type);
-            intent.putExtra("money", currentPayMonths*wuyePayBean.getO().getYearprice() / 12+"");
+            intent.putExtra("money", currentPayMonths * wuyePayBean.getO().getYearprice() / 12 + "");
             intent.putExtra("payid", payid);
             startActivity(intent);
         }
