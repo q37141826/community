@@ -7,7 +7,7 @@
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true" />
-
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
