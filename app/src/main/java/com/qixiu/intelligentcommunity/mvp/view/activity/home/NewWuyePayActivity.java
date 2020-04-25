@@ -155,6 +155,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
         map.put("score",usePoint+"");
         map.put("uid",Preference.get(ConstantString.USERID,""));
         map.put("cost_type",3+"");
+        map.put("years",currentPayMonths/12+"");
         okHttpRequestModel.okhHttpPost(ConstantUrl.newWuyePayCreatOrderUrl,map,new BaseBean<>());
     }
 
@@ -238,5 +239,12 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
     @Override
     public void onFailure(C_CodeBean c_codeBean) {
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        requestPayData();
+        refreshEdittext();
     }
 }
