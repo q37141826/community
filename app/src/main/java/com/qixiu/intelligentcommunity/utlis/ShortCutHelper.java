@@ -6,6 +6,9 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import me.leolin.shortcutbadger.ShortcutBadger;
 
 public class ShortCutHelper {
 
