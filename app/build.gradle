@@ -146,4 +146,5 @@ dependencies {
     implementation 'com.yanzhenjie:album:2.0.0'
     implementation 'com.yanzhenjie:permission:1.0.7'
     implementation project(path: ':jpush')
+    implementation "me.leolin:ShortcutBadger:1.1.22@aar"
 }
