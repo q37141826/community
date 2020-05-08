@@ -26,6 +26,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api files('libs/jcore-android-2.1.4.jar')
-    api files('libs/jpush-android-3.3.6.jar')
+    api files('libs/jcore-android-2.3.4.jar')
+    api files('libs/jpush-android-3.6.0.jar')
 }
