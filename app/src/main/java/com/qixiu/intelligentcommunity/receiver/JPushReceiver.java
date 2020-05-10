@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
@@ -21,7 +22,10 @@ import org.json.JSONObject;
 
 import java.util.Iterator;
 
+import cn.jpush.android.api.CustomMessage;
 import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.local.JPushAction;
+import cn.jpush.android.service.JPushMessageReceiver;
 
 import static com.qixiu.intelligentcommunity.receiver.JPushReceiver.JPushAction.KEY_MESSAGE;
 

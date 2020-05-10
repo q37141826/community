@@ -7,7 +7,7 @@
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true" />
-    <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="com.qixiu.nanhu.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />

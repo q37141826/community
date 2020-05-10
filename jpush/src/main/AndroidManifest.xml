@@ -58,12 +58,12 @@
 <!--            </intent-filter>-->
 <!--        </activity>-->
 
-<!--        &lt;!&ndash; Rich push 核心功能 since 2.0.6&ndash;&gt;-->
-<!--        <activity-->
-<!--            android:name="cn.jpush.android.ui.PopWinActivity"-->
-<!--            android:theme="@style/MyDialogStyle"-->
-<!--            android:exported="false">-->
-<!--        </activity>-->
+        <!-- Rich push 核心功能 since 2.0.6-->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:theme="@style/MyDialogStyle"
+            android:exported="false">
+        </activity>
 
         <!-- Required SDK核心功能-->
         <activity
@@ -174,14 +174,14 @@
 
 
 
-<!--        &lt;!&ndash; User defined.  For test only  用户自定义接收消息器,3.0.7开始支持,目前新tag/alias接口设置结果会在该广播接收器对应的方法中回调&ndash;&gt;-->
-<!--        &lt;!&ndash;since 3.3.0 接收JPush相关事件&ndash;&gt;-->
-<!--        <receiver android:name="com.example.jpushdemo.PushMessageReceiver">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />-->
-<!--                <category android:name="${applicationId}"></category>-->
-<!--            </intent-filter>-->
-<!--        </receiver>-->
+        <!-- User defined.  For test only  用户自定义接收消息器,3.0.7开始支持,目前新tag/alias接口设置结果会在该广播接收器对应的方法中回调-->
+        <!--since 3.3.0 接收JPush相关事件-->
+        <receiver android:name="com.example.jpushdemo.PushMessageReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+                <category android:name="${applicationId}"></category>
+            </intent-filter>
+        </receiver>
 
         <!--since 3.3.0 Required SDK核心功能-->
         <activity
@@ -204,11 +204,11 @@
                 <action android:name="cn.jiguang.user.service.action" />
             </intent-filter>
         </service>
-<!--        &lt;!&ndash; since 3.5.6 新增华硕通道  &ndash;&gt;-->
-<!--        <receiver android:name="cn.jpush.android.asus.AsusPushMessageReceiver"></receiver>-->
-<!--        &lt;!&ndash; Required  . Enable it you can get statistics data with channel &ndash;&gt;-->
-<!--        <meta-data android:name="JPUSH_CHANNEL" android:value="${JPUSH_CHANNEL}"/>-->
-<!--        <meta-data android:name="JPUSH_APPKEY" android:value="${JPUSH_APPKEY}" /> &lt;!&ndash;  </>值来自开发者平台取得的AppKey&ndash;&gt;-->
+        <!-- since 3.5.6 新增华硕通道  -->
+        <receiver android:name="cn.jpush.android.asus.AsusPushMessageReceiver"></receiver>
+        <!-- Required  . Enable it you can get statistics data with channel -->
+        <meta-data android:name="JPUSH_CHANNEL" android:value="${JPUSH_CHANNEL}"/>
+        <meta-data android:name="JPUSH_APPKEY" android:value="${JPUSH_APPKEY}" /> <!--  </>值来自开发者平台取得的AppKey-->
 
     </application>
 </manifest>
