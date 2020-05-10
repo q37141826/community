@@ -31,9 +31,9 @@ public class JpushEngine {
      */
     public static void initJPush(Context context) {
         JPushInterface.init(context);
-//        String machineCode = getMachineCode();
-//        if (machineCode != null)
-//            setAlias(context, machineCode);
+        String machineCode = getMachineCode();
+        if (machineCode != null)
+            setAlias(context, machineCode);
         Log.d(TAG, "initJPush: registerId"+ getRegistrationID(context));
     }
 

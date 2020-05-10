@@ -32,6 +32,6 @@ public class DeviceIdUtil {
     }
 
     private static void saveUUid() {
-        Preference.put(UUID_KEY, UUID.randomUUID().toString());
+        Preference.put(UUID_KEY, MD5Util.MD5(UUID.randomUUID().toString()));
     }
 }
