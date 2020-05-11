@@ -30,9 +30,7 @@ public class StartPageActivity extends AppCompatActivity {
 
 
     protected void onInitData() {
-        ShortcutBadger.applyCount(getApplicationContext(), 4); //for 1.1.4+
-//        ShortcutBadger.removeCount(getApplicationContext()); //for 1.1.4+//设置数字角标
-        ShortCutHelper.setXiaoMiBadge(getApplicationContext(),4);
+
 
 //        try {
 //            if (!Preference.getBoolean(ConstantString.IS_FIRST_LOGIN)) {

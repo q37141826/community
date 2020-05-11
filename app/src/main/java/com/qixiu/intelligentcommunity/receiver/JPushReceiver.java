@@ -10,23 +10,36 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.qixiu.intelligentcommunity.constants.ConstantString;
+import com.qixiu.intelligentcommunity.constants.ConstantUrl;
 import com.qixiu.intelligentcommunity.constants.IntentDataKeyConstant;
+import com.qixiu.intelligentcommunity.mvp.beans.C_CodeBean;
+import com.qixiu.intelligentcommunity.mvp.beans.home.UnReadMessageBean;
+import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpRequestModel;
+import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpUIUpdataListener;
+import com.qixiu.intelligentcommunity.mvp.view.activity.guidepage.StartPageActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.mine.LoginActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.mine.messagelist.MessageListActivity;
 import com.qixiu.intelligentcommunity.utlis.ArshowLog;
 import com.qixiu.intelligentcommunity.utlis.ConfigInfo;
 import com.qixiu.intelligentcommunity.utlis.DeviceIdUtil;
+import com.qixiu.intelligentcommunity.utlis.LogUtil;
+import com.qixiu.intelligentcommunity.utlis.LoginUtils;
 import com.qixiu.intelligentcommunity.utlis.Preference;
+import com.qixiu.intelligentcommunity.utlis.ShortCutHelper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import cn.jpush.android.api.CustomMessage;
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.local.JPushAction;
 import cn.jpush.android.service.JPushMessageReceiver;
+import me.leolin.shortcutbadger.ShortcutBadger;
+import okhttp3.Call;
 
 import static com.qixiu.intelligentcommunity.receiver.JPushReceiver.JPushAction.KEY_MESSAGE;
 
@@ -34,13 +47,17 @@ import static com.qixiu.intelligentcommunity.receiver.JPushReceiver.JPushAction.
  * Created by Administrator on 2017/5/25 0025.
  */
 
-public class JPushReceiver extends BroadcastReceiver {
+public class JPushReceiver extends BroadcastReceiver implements OKHttpUIUpdataListener {
     Context context;
+    OKHttpRequestModel okHttpRequestModel = new OKHttpRequestModel(this);
 
     @Override
     public void onReceive(Context context, Intent intent) {
         this.context = context;
         Bundle bundle = intent.getExtras();
+        if (LoginUtils.isLogined()) {
+            requestBasege(context);
+        }
         ArshowLog.d(getClass(), "[MyReceiver] onReceive - " + intent.getAction() + ", extras: " +
                 printBundle(bundle));
 
@@ -60,11 +77,11 @@ public class JPushReceiver extends BroadcastReceiver {
             String titile = bundle.getString(JPushInterface.EXTRA_NOTIFICATION_TITLE);
             //通知来了之后误操作状态下的消息处理
             Intent exitIntent = new Intent("com.qixiu.example.broadcast.normal");
-            if (titile.contains("关闭授权")||titile.contains("拒绝")) {
-                exitIntent.putExtra("type","no_identify");
+            if (titile.contains("关闭授权") || titile.contains("拒绝")) {
+                exitIntent.putExtra("type", "no_identify");
                 context.sendBroadcast(exitIntent);
-            }else if(titile.contains("授权认证成功")||titile.contains("开启授权")){
-                exitIntent.putExtra("type","identify");
+            } else if (titile.contains("授权认证成功") || titile.contains("开启授权")) {
+                exitIntent.putExtra("type", "identify");
                 context.sendBroadcast(exitIntent);
             }
 
@@ -103,6 +120,12 @@ public class JPushReceiver extends BroadcastReceiver {
         } else {
             ArshowLog.d(getClass(), "[MyReceiver] Unhandled intent - " + intent.getAction());
         }
+    }
+
+    private void requestBasege(Context context) {
+        Map<String, String> map = new HashMap<>();
+        map.put("uid", Preference.get(ConstantString.USERID, ""));
+        okHttpRequestModel.okhHttpPost(ConstantUrl.notReadMessageNum, map, new UnReadMessageBean());
     }
 
     /**
@@ -180,4 +203,29 @@ public class JPushReceiver extends BroadcastReceiver {
 
     }
 
+
+    @Override
+    public void onSuccess(Object data, int i) {
+        if (data instanceof UnReadMessageBean) {
+            UnReadMessageBean bean = (UnReadMessageBean) data;
+            try {
+                ShortcutBadger.applyCount(context.getApplicationContext(), bean.getO().getActivity_unread()); //for 1.1.4+
+                ShortCutHelper.setXiaoMiBadge(context.getApplicationContext(), bean.getO().getActivity_unread());
+                if(bean.getO().getActivity_unread() == 0){
+                    ShortcutBadger.removeCount(context.getApplicationContext()); //for 1.1.4+
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    @Override
+    public void onError(Call call, Exception e, int i) {
+
+    }
+
+    @Override
+    public void onFailure(C_CodeBean c_codeBean) {
+
+    }
 }

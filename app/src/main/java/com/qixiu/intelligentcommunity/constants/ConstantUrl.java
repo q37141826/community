@@ -323,4 +323,7 @@ public class ConstantUrl {
     //物业新界面生成订单
     public static String newWuyePayCreatOrderUrl = hosturl + "api/cost/wuyePay";
 
+
+    //未读消息树
+    public static String notReadMessageNum = hosturl +  "index.php/api/personal/getIndexUnread";
 }
