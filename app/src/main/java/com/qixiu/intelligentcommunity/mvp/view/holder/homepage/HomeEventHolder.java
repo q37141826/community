@@ -22,19 +22,40 @@ public class HomeEventHolder extends RecyclerBaseHolder<HomeBean.EBean> {
     private TextView textView_event_state_item;
     private ImageView imageView_event_home_item;
     private TextView textView_title_event_item;
+    private TextView textView_goto_event;
     private RelativeLayout relativeLayout_event_item;
+
+    public void setGotoEventPageInterf(GotoEventPageInterf gotoEventPageInterf) {
+        this.gotoEventPageInterf = gotoEventPageInterf;
+    }
+
+    private GotoEventPageInterf gotoEventPageInterf;
+
+
 
     public HomeEventHolder(View itemView, Context context, RecyclerView.Adapter adapter) {
         super(itemView, context, adapter);
         imageView_event_home_item = (ImageView) itemView.findViewById(R.id.imageView_event_home_item);
         textView_title_event_item = (TextView) itemView.findViewById(R.id.textView_title_event_item);
         textView_event_state_item = (TextView) itemView.findViewById(R.id.textView_event_state_item);
+        textView_goto_event = (TextView) itemView.findViewById(R.id.textView_goto_event);
         relativeLayout_event_item = (RelativeLayout) itemView.findViewById(R.id.relativeLayout_event_item);
     }
 
 
     @Override
     public void bindHolder(int position) {
+        if(mData.isGotoEvent()){
+            textView_goto_event.setVisibility(View.VISIBLE);
+            textView_goto_event.setOnClickListener(view -> {
+                if(gotoEventPageInterf!=null){
+                    gotoEventPageInterf.gotoEvent();
+                }
+            });
+            return;
+        }else {
+            textView_goto_event.setVisibility(View.GONE);
+        }
         if (mData.getImgs().size() != 0) {
             Glide.with(mContext).load(ConstantUrl.hostImageurl + mData.getImgs().get(0)).placeholder(R.mipmap.loading).dontAnimate().into(imageView_event_home_item);
         }
@@ -62,5 +83,9 @@ public class HomeEventHolder extends RecyclerBaseHolder<HomeBean.EBean> {
 //                textView_event_state_item.setText("活动结束");
 //                break;
 //        }
+    }
+
+    public interface GotoEventPageInterf{
+        void gotoEvent();
     }
 }

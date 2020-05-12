@@ -8,7 +8,7 @@ import java.util.List;
  * Created by HuiHeZe on 2017/6/19.
  */
 
-public class HomeBean  extends BaseBean<List<HomeBean.OBean>> {
+public class HomeBean extends BaseBean<List<HomeBean.OBean>> {
 
 
     /**
@@ -21,8 +21,6 @@ public class HomeBean  extends BaseBean<List<HomeBean.OBean>> {
     private List<EBean> e;
 
 
-
-
     public List<EBean> getE() {
         return e;
     }
@@ -31,7 +29,7 @@ public class HomeBean  extends BaseBean<List<HomeBean.OBean>> {
         this.e = e;
     }
 
-    public  class OBean {
+    public class OBean {
         /**
          * ad_id : 79
          * ad_code : /public/upload/ad/2018/10-22/e4fbde9141b8d40a46a2ab1a6c94d4c3.png
@@ -77,6 +75,15 @@ public class HomeBean  extends BaseBean<List<HomeBean.OBean>> {
 
         private int id;
         private String title;
+        private boolean isGotoEvent = false;
+
+        public boolean isGotoEvent() {
+            return isGotoEvent;
+        }
+
+        public void setGotoEvent(boolean gotoEvent) {
+            isGotoEvent = gotoEvent;
+        }
 
         public String getAddtime_desc() {
             return addtime_desc;
@@ -122,7 +129,6 @@ public class HomeBean  extends BaseBean<List<HomeBean.OBean>> {
             this.imgs = imgs;
         }
     }
-
 
 
 }

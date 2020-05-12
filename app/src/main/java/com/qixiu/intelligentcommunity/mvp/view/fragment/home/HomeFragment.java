@@ -70,6 +70,7 @@ import com.qixiu.intelligentcommunity.mvp.view.adapter.home.EventAdapter;
 import com.qixiu.intelligentcommunity.mvp.view.adapter.home.TestNormalAdapter;
 import com.qixiu.intelligentcommunity.mvp.view.adapter.store.StoreAdapter;
 import com.qixiu.intelligentcommunity.mvp.view.fragment.base.BaseFragment;
+import com.qixiu.intelligentcommunity.mvp.view.holder.homepage.HomeEventHolder;
 import com.qixiu.intelligentcommunity.mvp.view.widget.VerticalSwipeRefreshLayout;
 import com.qixiu.intelligentcommunity.mvp.view.widget.loading.ZProgressHUD;
 import com.qixiu.intelligentcommunity.mvp.view.widget.my_alterdialog.ArshowContextUtil;
@@ -111,7 +112,7 @@ import static com.qixiu.intelligentcommunity.constants.ConstantUrl.loadSecondhan
  */
 
 public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener<BaseBean>, View.OnClickListener, IBluetoothServiceEventReceiver, BluetoothService.ConnectCallBack,
-        OnRecyclerItemListener<HomeBean.EBean>, XRecyclerView.LoadingListener {
+        OnRecyclerItemListener<HomeBean.EBean>, XRecyclerView.LoadingListener, HomeEventHolder.GotoEventPageInterf {
 
     private LinearLayout linearlayout_onkeyCall, linearlayout_progress_circle;
     private RollPagerView roll_view_pager_home;//轮播图控件
@@ -186,6 +187,7 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
         mOkHttpRequestModel = new OKHttpRequestModel(this);
         getGoodsData();
         eventAdapter = new EventAdapter();
+        eventAdapter.setGotoEventPageInterf(this);
         eventAdapter.setOnItemClickListener(this);
         recyclerview_event_home.setAdapter(eventAdapter);
 
@@ -519,7 +521,8 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
                 images.add(ConstantUrl.hostImageurl + homeBean.getO().get(j).getAd_code());
             }
             //加载活动图
-            eventAdapter.refreshData(homeBean.getE());
+            loadEvent(homeBean.getE());
+
             roll_view_pager_home.setAdapter(new TestNormalAdapter(images, getContext()));//// TODO: 2017/6/16 放入网络数据
             //轮播图
             mHomeAdvAdapter = new ImageUrlAdapter(roll_view_pager_home);//这里互相设置
@@ -554,6 +557,13 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
             HomeNoticeBean homeNoticeBean = (HomeNoticeBean) data;
             setNoticeData(homeNoticeBean);
         }
+    }
+
+    private void loadEvent(List<HomeBean.EBean> eBeanList) {
+        HomeBean.EBean lastEbean = new HomeBean.EBean();
+        lastEbean.setGotoEvent(true);
+        eBeanList.add(lastEbean);
+        eventAdapter.refreshData(eBeanList);
     }
 
     private void setNoticeData(HomeNoticeBean homeNoticeBean) {
@@ -611,13 +621,7 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
 
             case R.id.imageView_event_home:
             case R.id.textViewMoreEvent:
-                if (Preference.get(ConstantString.UTYPE, "").equals(4 + "")) {
-                    ToastUtil.toast(R.string.no_permission);
-                    return;
-                }
-                if (onClickSwitchListener != null) {
-                    onClickSwitchListener.onClickSwitch(1);
-                }
+                gotoEventPage();
                 break;
             case R.id.imageView_onkeyOpen:
                 blueToothIntf.bluetoothCall();
@@ -706,11 +710,21 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
             case R.id.imageView_hotgoods:
             case R.id.textViewMoreGoods:
 //                Bundle bundle1 = new Bundle();
-                Intent intent =new Intent();
-                intent.putExtra(IntentDataKeyConstant.ID,IntentDataKeyConstant.GOODES_DEFULT_ID);
+                Intent intent = new Intent();
+                intent.putExtra(IntentDataKeyConstant.ID, IntentDataKeyConstant.GOODES_DEFULT_ID);
                 CommonUtils.startIntent(getContext(), StoreClassifyListActivity.class);
 //                ((MainActivity) getContext()).swtichToFragment(((MainActivity) getContext()).getFootView(3), bundle1);
                 break;
+        }
+    }
+
+    private void gotoEventPage() {
+        if (Preference.get(ConstantString.UTYPE, "").equals(4 + "")) {
+            ToastUtil.toast(R.string.no_permission);
+            return;
+        }
+        if (onClickSwitchListener != null) {
+            onClickSwitchListener.onClickSwitch(1);
         }
     }
 
@@ -996,6 +1010,10 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
             ToastUtil.toast(R.string.no_permission);
             return;
         }
+        if(data.isGotoEvent() ){
+            gotoEventPage();
+            return;
+        }
         Intent intent = new Intent(getActivity(), OwnerEventDetailActivity.class);
         intent.putExtra(IntentDataKeyConstant.AID, data.getId() + StringConstants.EMPTY_STRING);
         startActivity(intent);
@@ -1029,6 +1047,11 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
                 mBluetoothDevices.clear();
             }
         }
+    }
+
+    @Override
+    public void gotoEvent() {
+        gotoEventPage();
     }
 
     private class Timer extends CountDownTimer {

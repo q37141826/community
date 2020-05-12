@@ -13,6 +13,13 @@ import com.qixiu.intelligentcommunity.mvp.view.holder.homepage.HomeEventHolder;
  */
 
 public class EventAdapter extends RecyclerBaseAdapter<HomeBean.EBean,HomeEventHolder> {
+
+    HomeEventHolder.GotoEventPageInterf gotoEventPageInterf;
+
+    public void setGotoEventPageInterf(HomeEventHolder.GotoEventPageInterf gotoEventPageInterf) {
+        this.gotoEventPageInterf = gotoEventPageInterf;
+    }
+
     @Override
     public int getLayoutId() {
         return R.layout.item_event_home;
@@ -20,6 +27,8 @@ public class EventAdapter extends RecyclerBaseAdapter<HomeBean.EBean,HomeEventHo
 
     @Override
     public HomeEventHolder createViewHolder(View itemView, Context context, int viewType) {
-        return new HomeEventHolder(itemView,context,this);
+        HomeEventHolder homeEventHolder = new HomeEventHolder(itemView, context, this);
+        homeEventHolder.setGotoEventPageInterf(gotoEventPageInterf);
+        return homeEventHolder;
     }
 }

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/margin140dp"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+   >
 
     <RelativeLayout
         android:id="@+id/relativeLayout_event_item"
@@ -18,7 +18,17 @@
             android:background="@color/white"
             android:elevation="@dimen/margin5dp"
             android:scaleType="fitXY" />
+
     </RelativeLayout>
+    <TextView
+        android:textSize="15sp"
+        android:text="查看更多活动"
+        android:textColor="@color/theme_color"
+        android:paddingTop="@dimen/margin40dp"
+        android:gravity="center"
+        android:id="@+id/textView_goto_event"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></TextView>
     <RelativeLayout
         android:layout_below="@+id/relativeLayout_event_item"
         android:orientation="horizontal"
@@ -48,6 +58,7 @@
             android:gravity="right"
             android:textColor="@color/default_clickable_color"
             android:textSize="@dimen/font_size_12" />
+
     </RelativeLayout>
 
 </RelativeLayout>
