@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
@@ -16,13 +15,10 @@ import com.qixiu.intelligentcommunity.mvp.beans.C_CodeBean;
 import com.qixiu.intelligentcommunity.mvp.beans.home.UnReadMessageBean;
 import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpRequestModel;
 import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpUIUpdataListener;
-import com.qixiu.intelligentcommunity.mvp.view.activity.guidepage.StartPageActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.mine.LoginActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.mine.messagelist.MessageListActivity;
 import com.qixiu.intelligentcommunity.utlis.ArshowLog;
 import com.qixiu.intelligentcommunity.utlis.ConfigInfo;
-import com.qixiu.intelligentcommunity.utlis.DeviceIdUtil;
-import com.qixiu.intelligentcommunity.utlis.LogUtil;
 import com.qixiu.intelligentcommunity.utlis.LoginUtils;
 import com.qixiu.intelligentcommunity.utlis.Preference;
 import com.qixiu.intelligentcommunity.utlis.ShortCutHelper;
@@ -34,10 +30,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import cn.jpush.android.api.CustomMessage;
 import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.local.JPushAction;
-import cn.jpush.android.service.JPushMessageReceiver;
 import me.leolin.shortcutbadger.ShortcutBadger;
 import okhttp3.Call;
 
@@ -125,7 +118,7 @@ public class JPushReceiver extends BroadcastReceiver implements OKHttpUIUpdataLi
     private void requestBasege(Context context) {
         Map<String, String> map = new HashMap<>();
         map.put("uid", Preference.get(ConstantString.USERID, ""));
-        okHttpRequestModel.okhHttpPost(ConstantUrl.notReadMessageNum, map, new UnReadMessageBean());
+        okHttpRequestModel.okhHttpPost(ConstantUrl.unReadMessageUrl, map, new UnReadMessageBean());
     }
 
     /**

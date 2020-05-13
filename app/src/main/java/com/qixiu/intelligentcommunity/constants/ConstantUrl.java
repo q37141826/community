@@ -325,5 +325,7 @@ public class ConstantUrl {
 
 
     //未读消息树
-    public static String notReadMessageNum = hosturl +  "index.php/api/personal/getIndexUnread";
+    public static String unReadMessageUrl = hosturl +  "index.php/api/personal/getIndexUnread";
+    //阅读活动接口
+    public static String eventReadUrl = hosturl +  "index.php/api/activity/activityread";
 }

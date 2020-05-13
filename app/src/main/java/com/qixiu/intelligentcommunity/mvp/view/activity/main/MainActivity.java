@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ import com.qixiu.intelligentcommunity.bluetooth.BluetoothService;
 import com.qixiu.intelligentcommunity.bluetooth.BluetoothServiceBle;
 import com.qixiu.intelligentcommunity.bluetooth.BluetoothUtil;
 import com.qixiu.intelligentcommunity.bluetooth.ReleseSingle;
+import com.qixiu.intelligentcommunity.constants.Constant;
 import com.qixiu.intelligentcommunity.constants.ConstantString;
 import com.qixiu.intelligentcommunity.constants.ConstantUrl;
 import com.qixiu.intelligentcommunity.constants.IntentDataKeyConstant;
@@ -49,6 +51,7 @@ import com.qixiu.intelligentcommunity.mvp.beans.C_CodeBean;
 import com.qixiu.intelligentcommunity.mvp.beans.PermissionNotice;
 import com.qixiu.intelligentcommunity.mvp.beans.bluetooth.BluetoothMatchBean;
 import com.qixiu.intelligentcommunity.mvp.beans.home.NewsStateBean;
+import com.qixiu.intelligentcommunity.mvp.beans.home.UnReadMessageBean;
 import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpRequestModel;
 import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpUIUpdataListener;
 import com.qixiu.intelligentcommunity.mvp.view.activity.base.TitleActivity;
@@ -83,7 +86,7 @@ import java.util.Map;
 
 import okhttp3.Call;
 
-public class MainActivity extends TitleActivity implements OnClickSwitchListener, View.OnTouchListener, BluetoothService.ConnectCallBack, MainBlueToothIntf {
+public class MainActivity extends TitleActivity implements OnClickSwitchListener, View.OnTouchListener, BluetoothService.ConnectCallBack, MainBlueToothIntf, OKHttpUIUpdataListener {
 
     private RelativeLayout activity_main;
     private TextView mTv_title;
@@ -116,9 +119,11 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
     private BluetoothEngine mBluetoothEngine;
     ZProgressHUD mZProgressHUD;
     private String permissions[] = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_COARSE_LOCATION};
+    private OKHttpRequestModel okHttpRequestModel;
 
     @Override
     protected void onInitData() {
+        okHttpRequestModel = new OKHttpRequestModel(this);
         mZProgressHUD = new ZProgressHUD(this);
         receiver = new BroadcastReceiver() {
             @Override
@@ -134,6 +139,13 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
             VersionCheckUtil.checkVersion(this);
             JpushEngine.initJPush(getContext());
         }
+        getUnreadMessage();
+    }
+
+    private void getUnreadMessage() {
+        Map<String, String> map = new HashMap<>();
+        map.put("uid", Preference.get(ConstantString.USERID, ""));
+        okHttpRequestModel.okhHttpPost(ConstantUrl.unReadMessageUrl, map, new UnReadMessageBean());
     }
 
     private void initBluetoothInfo() {
@@ -609,6 +621,25 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
     @Override
     public void bluetoothCall() {
         startOneKeyOpen();
+    }
+
+    @Override
+    public void onSuccess(Object data, int i) {
+        if (data instanceof UnReadMessageBean) {
+            UnReadMessageBean unReadMessageBean = (UnReadMessageBean) data;
+            mTv_more.setText(unReadMessageBean.getO().getMessages_unread()+"");
+            mTv_more.setTextColor(Color.WHITE);
+        }
+    }
+
+    @Override
+    public void onError(Call call, Exception e, int i) {
+
+    }
+
+    @Override
+    public void onFailure(C_CodeBean c_codeBean) {
+
     }
 
 
