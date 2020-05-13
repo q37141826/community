@@ -53,6 +53,7 @@ import static com.qixiu.intelligentcommunity.constants.ConstantUrl.activityDelUr
 import static com.qixiu.intelligentcommunity.constants.ConstantUrl.activityInfoUrl;
 import static com.qixiu.intelligentcommunity.constants.ConstantUrl.activityReplyUrl;
 import static com.qixiu.intelligentcommunity.constants.ConstantUrl.activitySendComent;
+import static com.qixiu.intelligentcommunity.constants.ConstantUrl.eventReadUrl;
 
 
 /**
@@ -270,6 +271,8 @@ public class OwnerEventDetailActivity extends TitleActivity implements SwipeRefr
         OwenEventDetailBean owenEventDetailBean = new OwenEventDetailBean();
         owenEventDetailBean.setUrl(activityInfoUrl);
         mOkHttpRequestModel.okhHttpPost(activityInfoUrl, stringMap, owenEventDetailBean, false);
+        mOkHttpRequestModel.okhHttpPost(eventReadUrl, stringMap, new BaseBean(), false);
+
     }
 
     @Override
