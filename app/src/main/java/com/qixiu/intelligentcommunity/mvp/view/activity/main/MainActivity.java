@@ -317,6 +317,7 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
         mTv_more.setVisibility(getString(R.string.main_home_txt).equals(childAt.getText()) || (getString(R.string.main_ownercircle_txt).equals(childAt.getText()) && cunrrentTitlePosition != 2) ? View.VISIBLE : View.GONE);
         mTv_title.setText(getString(R.string.main_mine_txt).equals(childAt.getText()) ? getString(R.string.main_personalcenter_txt) : childAt.getText());
         mTv_more.setText(getString(R.string.main_ownercircle_txt).equals(childAt.getText()) ? getString(R.string.main_tltle_right_release_txt) : StringConstants.EMPTY_STRING);
+        tv_message_num.setVisibility(getString(R.string.main_home_txt).equals(childAt.getText()) && !tv_message_num.getText().toString().equals("0") ? View.VISIBLE : View.GONE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             if (messageState == 1 && cunrrentPosition == 0) {
                 mTv_more.setCompoundDrawablesWithIntrinsicBounds(getString(R.string.main_home_txt).equals(childAt.getText()) ? R.mipmap.home_have_message : 0, 0, 0, 0);
@@ -627,8 +628,13 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
     public void onSuccess(Object data, int i) {
         if (data instanceof UnReadMessageBean) {
             UnReadMessageBean unReadMessageBean = (UnReadMessageBean) data;
-            mTv_more.setText(unReadMessageBean.getO().getMessages_unread()+"");
-            mTv_more.setTextColor(Color.WHITE);
+            tv_message_num.setText(unReadMessageBean.getO().getMessages_unread() + "");
+            if (unReadMessageBean.getO().getMessages_unread() == 0) {
+                tv_message_num.setVisibility(View.GONE);
+            } else {
+                tv_message_num.setVisibility(View.VISIBLE);
+            }
+            tv_message_num.setTextColor(Color.WHITE);
         }
     }
 

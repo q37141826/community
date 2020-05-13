@@ -16,6 +16,7 @@ public abstract class TitleActivity extends BaseActivity implements View.OnClick
     public View rl_title_right;
     protected TextView mTv_more;
     private TextView tv_title;
+    public TextView tv_message_num;
 
     /**
      * 在这里添加公共的标题
@@ -25,6 +26,7 @@ public abstract class TitleActivity extends BaseActivity implements View.OnClick
         ib_back = (ImageButton) findViewById(R.id.ib_back);
         rl_title_right = findViewById(R.id.rl_title_right);
         mTv_more = (TextView) findViewById(R.id.tv_more);
+        tv_message_num = (TextView) findViewById(R.id.tv_message_num);
         tv_title =  findViewById(R.id.tv_title);
         if (ib_back != null) {
             ib_back.setOnClickListener(this);
