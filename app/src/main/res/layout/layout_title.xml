@@ -54,6 +54,7 @@
                 android:textSize="14sp"
                 />
             <TextView
+                android:visibility="gone"
                 android:background="@drawable/back_red_circle"
                 android:layout_toRightOf="@id/tv_more"
                 android:layout_marginTop="@dimen/margin10dp"

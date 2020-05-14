@@ -139,10 +139,11 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
             VersionCheckUtil.checkVersion(this);
             JpushEngine.initJPush(getContext());
         }
-        getUnreadMessage();
+
     }
 
-    private void getUnreadMessage() {
+    @Override
+    public void getUnreadMessage() {
         Map<String, String> map = new HashMap<>();
         map.put("uid", Preference.get(ConstantString.USERID, ""));
         okHttpRequestModel.okhHttpPost(ConstantUrl.unReadMessageUrl, map, new UnReadMessageBean());

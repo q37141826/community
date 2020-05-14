@@ -35,20 +35,29 @@ import com.qixiu.intelligentcommunity.config.ToolBarOptions;
 import com.qixiu.intelligentcommunity.constants.ConstantString;
 import com.qixiu.intelligentcommunity.constants.ConstantUrl;
 import com.qixiu.intelligentcommunity.mvp.beans.BaseBean;
+import com.qixiu.intelligentcommunity.mvp.beans.C_CodeBean;
 import com.qixiu.intelligentcommunity.mvp.beans.MessageBean;
+import com.qixiu.intelligentcommunity.mvp.beans.home.UnReadMessageBean;
 import com.qixiu.intelligentcommunity.mvp.beans.login.SendCodeBean;
+import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpRequestModel;
+import com.qixiu.intelligentcommunity.mvp.model.request.OkHttpUIUpdataAdapterListener;
 import com.qixiu.intelligentcommunity.mvp.view.activity.mine.LoginActivity;
 import com.qixiu.intelligentcommunity.utlis.AppManager;
 import com.qixiu.intelligentcommunity.utlis.CommonUtils;
 import com.qixiu.intelligentcommunity.utlis.DeviceIdUtil;
 import com.qixiu.intelligentcommunity.utlis.GetGson;
 import com.qixiu.intelligentcommunity.utlis.Preference;
+import com.qixiu.intelligentcommunity.utlis.ShortCutHelper;
 import com.qixiu.intelligentcommunity.utlis.ToastUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import butterknife.ButterKnife;
 import cn.jpush.android.api.JPushInterface;
+import me.leolin.shortcutbadger.ShortcutBadger;
 import okhttp3.Call;
 
 /**
@@ -228,6 +237,38 @@ public abstract class BaseActivity extends AppCompatActivity {
         Log.e("where", this.getClass().getSimpleName());
     }
 
+    public void getUnreadMessage() {
+        Map<String, String> map = new HashMap<>();
+        map.put("uid", Preference.get(ConstantString.USERID, ""));
+        OKHttpRequestModel okHttpRequestModel=new OKHttpRequestModel(new OkHttpUIUpdataAdapterListener() {
+            @Override
+            public void onSuccess(Object data, int i) {
+                if (data instanceof UnReadMessageBean) {
+                    UnReadMessageBean bean = (UnReadMessageBean) data;
+                    try {
+                        ShortcutBadger.applyCount(getApplicationContext(), bean.getO().getActivity_unread()); //for 1.1.4+
+                        ShortCutHelper.setXiaoMiBadge(getApplicationContext(), bean.getO().getActivity_unread());
+                        if(bean.getO().getActivity_unread() == 0){
+                            ShortcutBadger.removeCount(getApplicationContext()); //for 1.1.4+
+                        }
+                    } catch (Exception e) {
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Call call, Exception e, int i) {
+
+            }
+
+            @Override
+            public void onFailure(C_CodeBean c_codeBean) {
+
+            }
+        });
+        okHttpRequestModel.okhHttpPost(ConstantUrl.unReadMessageUrl, map, new UnReadMessageBean());
+    }
+
     protected void getDeviceId() {
         try {
             TelephonyManager tm = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
@@ -257,6 +298,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         intentFilter.setPriority(600);
         registerReceiver(receiver, intentFilter);
         JPushInterface.onResume(this);
+        getUnreadMessage();
     }
 
     @Override
