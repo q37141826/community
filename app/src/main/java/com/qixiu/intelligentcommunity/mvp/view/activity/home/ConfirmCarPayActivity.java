@@ -13,7 +13,7 @@ import com.qixiu.intelligentcommunity.mvp.view.widget.titleview.TitleView;
 import com.qixiu.intelligentcommunity.utlis.Preference;
 
 public class ConfirmCarPayActivity extends BaseActivity {
-    TextView textView_input_carNum_car,textView_input_payhaomuch_car;
+    TextView textView_input_carNum_car, textView_input_payhaomuch_car;
     RelativeLayout relativeLayout_title_confirmcar;
     Button btn_gotopay_car;
     String carNum, payid, money;
@@ -29,7 +29,7 @@ public class ConfirmCarPayActivity extends BaseActivity {
 
     @Override
     protected void onInitView() {
-        textView_input_payhaomuch_car= (TextView) findViewById(R.id.textView_input_payhaomuch_car);
+        textView_input_payhaomuch_car = (TextView) findViewById(R.id.textView_input_payhaomuch_car);
         btn_gotopay_car = (Button) findViewById(R.id.btn_gotopay_car);
         relativeLayout_title_confirmcar = (RelativeLayout) findViewById(R.id.relativeLayout_title_confirmcar);
         textView_input_carNum_car = (TextView) findViewById(R.id.textView_input_carNum_car);
@@ -47,10 +47,10 @@ public class ConfirmCarPayActivity extends BaseActivity {
         intent.putExtra("carNum", carNum);
         intent.putExtra("payid", payid);
         intent.putExtra("money", money);
-        intent.putExtra("type",2);
+        intent.putExtra("type", 2);
         startActivity(intent);
         //做一个标志
-        Preference.put(ConstantString.payWhat,ConfirmCarPayActivity.class.getSimpleName());
+        Preference.put(ConstantString.payWhat, ConfirmCarPayActivity.class.getSimpleName());
     }
 
     private void inittile() {

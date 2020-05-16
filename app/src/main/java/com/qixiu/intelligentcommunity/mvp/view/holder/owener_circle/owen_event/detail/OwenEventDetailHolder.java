@@ -29,6 +29,7 @@ import com.qixiu.intelligentcommunity.mvp.view.widget.itemdecoration.LinearSpace
 import com.qixiu.intelligentcommunity.mvp.view.widget.my_alterdialog.ArshowContextUtil;
 import com.qixiu.intelligentcommunity.mvp.view.widget.my_alterdialog.ArshowDialog;
 import com.qixiu.intelligentcommunity.mvp.view.widget.mypopselect.MyPopForInput;
+import com.qixiu.intelligentcommunity.utlis.LoginUtils;
 import com.qixiu.intelligentcommunity.utlis.Preference;
 import com.qixiu.intelligentcommunity.utlis.ToastUtil;
 
@@ -97,7 +98,7 @@ public class OwenEventDetailHolder extends RecyclerBaseHolder<OwenEventDetailBea
     public void onItemClick(View v, Object data) {
         if (data instanceof OwenEventDetailBean.EOwenEventDetailInfo.PpuidInfoBean) {
             mPpuidInfoBean = (OwenEventDetailBean.EOwenEventDetailInfo.PpuidInfoBean) data;
-            if ((mPpuidInfoBean.getAuid() + "").equals(Preference.get(ConstantString.USERID, ""))) {
+            if ((mPpuidInfoBean.getAuid() + "").equals(LoginUtils.getLoginId())) {
                 setDialog(mPpuidInfoBean.getId() + "", "确认删除该评论");
             } else {
                 popInput = new MyPopForInput(mContext);

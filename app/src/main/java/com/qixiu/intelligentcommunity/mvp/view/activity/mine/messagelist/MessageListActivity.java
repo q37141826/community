@@ -17,6 +17,7 @@ import com.qixiu.intelligentcommunity.mvp.view.widget.itemdecoration.SpaceItemsD
 import com.qixiu.intelligentcommunity.mvp.view.widget.titleview.TitleView;
 import com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView;
 import com.qixiu.intelligentcommunity.utlis.GetGson;
+import com.qixiu.intelligentcommunity.utlis.LoginUtils;
 import com.qixiu.intelligentcommunity.utlis.Preference;
 import com.qixiu.intelligentcommunity.utlis.ToastUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -80,7 +81,7 @@ public class MessageListActivity extends BaseActivity implements XRecyclerView.L
 
     public void getdata() {
         OkHttpUtils.post().url(ConstantUrl.messageListUrl)
-                .addParams("suid", Preference.get(ConstantString.USERID, ""))
+                .addParams("suid", LoginUtils.getLoginId())
                 .addParams("pageNo", pageNo + "")
                 .addParams("pageSize", pageSize + "").build().execute(new StringCallback() {
             @Override

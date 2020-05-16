@@ -5,7 +5,6 @@ import com.qixiu.intelligentcommunity.mvp.beans.BaseBean;
 public class UnReadMessageBean extends BaseBean<UnReadMessageBean.OBean> {
 
 
-
     public static class OBean {
         /**
          * activity_unread : 12
@@ -49,6 +48,11 @@ public class UnReadMessageBean extends BaseBean<UnReadMessageBean.OBean> {
 
         public void setMessages_unread(int messages_unread) {
             this.messages_unread = messages_unread;
+        }
+
+
+        public int getAllUnread() {
+            return getActivity_unread() + getMessages_unread() + getNews_unread() + getNotice_unread();
         }
     }
 }

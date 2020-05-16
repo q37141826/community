@@ -46,6 +46,7 @@ import com.qixiu.intelligentcommunity.utlis.AppManager;
 import com.qixiu.intelligentcommunity.utlis.CommonUtils;
 import com.qixiu.intelligentcommunity.utlis.DeviceIdUtil;
 import com.qixiu.intelligentcommunity.utlis.GetGson;
+import com.qixiu.intelligentcommunity.utlis.LoginUtils;
 import com.qixiu.intelligentcommunity.utlis.Preference;
 import com.qixiu.intelligentcommunity.utlis.ShortCutHelper;
 import com.qixiu.intelligentcommunity.utlis.ToastUtil;
@@ -239,16 +240,16 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void getUnreadMessage() {
         Map<String, String> map = new HashMap<>();
-        map.put("uid", Preference.get(ConstantString.USERID, ""));
+        map.put("uid", LoginUtils.getLoginId());
         OKHttpRequestModel okHttpRequestModel=new OKHttpRequestModel(new OkHttpUIUpdataAdapterListener() {
             @Override
             public void onSuccess(Object data, int i) {
                 if (data instanceof UnReadMessageBean) {
                     UnReadMessageBean bean = (UnReadMessageBean) data;
                     try {
-                        ShortcutBadger.applyCount(getApplicationContext(), bean.getO().getActivity_unread()); //for 1.1.4+
-                        ShortCutHelper.setXiaoMiBadge(getApplicationContext(), bean.getO().getActivity_unread());
-                        if(bean.getO().getActivity_unread() == 0){
+                        ShortcutBadger.applyCount(getApplicationContext(),  bean.getO().getAllUnread()); //for 1.1.4+
+                        ShortCutHelper.setXiaoMiBadge(getApplicationContext(), bean.getO().getAllUnread());
+                        if(bean.getO().getAllUnread() == 0){
                             ShortcutBadger.removeCount(getApplicationContext()); //for 1.1.4+
                         }
                     } catch (Exception e) {

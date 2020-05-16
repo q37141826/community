@@ -30,6 +30,7 @@ import com.qixiu.intelligentcommunity.mvp.view.holder.base.RecyclerBaseHolder;
 import com.qixiu.intelligentcommunity.mvp.view.widget.my_alterdialog.ArshowDialog;
 import com.qixiu.intelligentcommunity.mvp.view.widget.mypopselect.MyPopForInput;
 import com.qixiu.intelligentcommunity.utlis.GetGson;
+import com.qixiu.intelligentcommunity.utlis.LoginUtils;
 import com.qixiu.intelligentcommunity.utlis.Preference;
 import com.qixiu.intelligentcommunity.utlis.ToastUtil;
 import com.qixiu.intelligentcommunity.widget.TimeLineContentTextView;
@@ -237,7 +238,7 @@ public class OwenerOwenAllHolder extends RecyclerBaseHolder<OwenCircleAllBean.OB
             public void onItemClick(View v, Object data) {
                 if (data instanceof OwenCircleAllBean.OBean.ListBean.CommentBean) {
                     OwenCircleAllBean.OBean.ListBean.CommentBean bean = (OwenCircleAllBean.OBean.ListBean.CommentBean) data;
-                    if ((bean.getUid().getId() + "").equals(Preference.get(ConstantString.USERID, ""))) {
+                    if ((bean.getUid().getId() + "").equals(LoginUtils.getLoginId())) {
                         //弹出选项弹窗
 //                        ToastUtil.showToast(mContext, "弹出删除选项的弹窗");
                         setDialog(bean.getId() + "", "是否删除该评论", data, position);
@@ -248,7 +249,7 @@ public class OwenerOwenAllHolder extends RecyclerBaseHolder<OwenCircleAllBean.OB
                     }
                 } else {
                     OwenCircleAllBean.OBean.ListBean.PpuidBean bean = (OwenCircleAllBean.OBean.ListBean.PpuidBean) data;
-                    if ((bean.getUid().getId() + "").equals(Preference.get(ConstantString.USERID, ""))) {
+                    if ((bean.getUid().getId() + "").equals(LoginUtils.getLoginId())) {
                         //弹出选项弹窗
                         setDialog(bean.getId() + "", "是否删除该评论", data, position);
 //                        ToastUtil.showToast(mContext, "弹出删除选项的弹窗");
@@ -274,7 +275,7 @@ public class OwenerOwenAllHolder extends RecyclerBaseHolder<OwenCircleAllBean.OB
                 }
                 OkHttpUtils.post().url(ConstantUrl.leaveBackUrl)
                         .addParams("pid", pid + "")
-                        .addParams("uid", Preference.get(ConstantString.USERID, ""))
+                        .addParams("uid", LoginUtils.getLoginId())
                         .addParams("ob_uid", id + "")
                         .addParams("content", pop_feedback.getText().toString()).build().execute(new StringCallback() {
                     @Override
@@ -301,7 +302,7 @@ public class OwenerOwenAllHolder extends RecyclerBaseHolder<OwenCircleAllBean.OB
     private void sendCommnit(String text, final int position) {
         OkHttpUtils.post().url(ConstantUrl.leaveUrl)
                 .addParams("pid", mData.getId() + "")
-                .addParams("uid", Preference.get(ConstantString.USERID, ""))
+                .addParams("uid", LoginUtils.getLoginId())
                 .addParams("ob_uid", mData.getUid() + "")
                 .addParams("content", text).build().execute(new StringCallback() {
             @Override
@@ -329,7 +330,7 @@ public class OwenerOwenAllHolder extends RecyclerBaseHolder<OwenCircleAllBean.OB
         }
         OkHttpUtils.post().url(url)
                 .addParams("id", mData.getId() + "")
-                .addParams("uid", Preference.get(ConstantString.USERID, "")).build().execute(new StringCallback() {
+                .addParams("uid", LoginUtils.getLoginId()).build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int i) {
                 btn_like_owen_all.setEnabled(true);
@@ -396,7 +397,7 @@ public class OwenerOwenAllHolder extends RecyclerBaseHolder<OwenCircleAllBean.OB
 
     private void startDelete() {
         OkHttpUtils.post().url(ConstantUrl.deleteblogUrl)
-                .addParams("uid", Preference.get(ConstantString.USERID, ""))
+                .addParams("uid", LoginUtils.getLoginId())
                 .addParams("id", mData.getId() + "").build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int i) {
@@ -450,7 +451,7 @@ public class OwenerOwenAllHolder extends RecyclerBaseHolder<OwenCircleAllBean.OB
 
     public void getItemNewData(final int type, final int position) {
         OkHttpUtils.post().url(ConstantUrl.refreshOwenItemUrl)
-                .addParams("uid", Preference.get(ConstantString.USERID, ""))
+                .addParams("uid", LoginUtils.getLoginId())
                 .addParams("id", mData.getId() + "").build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int i) {

@@ -70,6 +70,7 @@ import com.qixiu.intelligentcommunity.mvp.view.fragment.store.StoreFragment;
 import com.qixiu.intelligentcommunity.mvp.view.widget.loading.ZProgressHUD;
 import com.qixiu.intelligentcommunity.utlis.CommonUtils;
 import com.qixiu.intelligentcommunity.utlis.GetGson;
+import com.qixiu.intelligentcommunity.utlis.LoginUtils;
 import com.qixiu.intelligentcommunity.utlis.Preference;
 import com.qixiu.intelligentcommunity.utlis.ToastUtil;
 import com.qixiu.intelligentcommunity.utlis.VersionCheckUtil;
@@ -145,7 +146,7 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
     @Override
     public void getUnreadMessage() {
         Map<String, String> map = new HashMap<>();
-        map.put("uid", Preference.get(ConstantString.USERID, ""));
+        map.put("uid", LoginUtils.getLoginId());
         okHttpRequestModel.okhHttpPost(ConstantUrl.unReadMessageUrl, map, new UnReadMessageBean());
     }
 
@@ -319,19 +320,19 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
         mTv_title.setText(getString(R.string.main_mine_txt).equals(childAt.getText()) ? getString(R.string.main_personalcenter_txt) : childAt.getText());
         mTv_more.setText(getString(R.string.main_ownercircle_txt).equals(childAt.getText()) ? getString(R.string.main_tltle_right_release_txt) : StringConstants.EMPTY_STRING);
         tv_message_num.setVisibility(getString(R.string.main_home_txt).equals(childAt.getText()) && !tv_message_num.getText().toString().equals("0") ? View.VISIBLE : View.GONE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            if (messageState == 1 && cunrrentPosition == 0) {
-                mTv_more.setCompoundDrawablesWithIntrinsicBounds(getString(R.string.main_home_txt).equals(childAt.getText()) ? R.mipmap.home_have_message : 0, 0, 0, 0);
-            } else {
-                mTv_more.setCompoundDrawablesWithIntrinsicBounds(getString(R.string.main_home_txt).equals(childAt.getText()) ? R.mipmap.home_no_message2x : 0, 0, 0, 0);
-            }
-        } else {
-            if (messageState == 1 && cunrrentPosition == 0) {
-                mTv_more.setCompoundDrawables(getResources().getDrawable(getString(R.string.main_home_txt).equals(childAt.getText()) ? R.mipmap.home_have_message : 0), null, null, null);
-            } else {
-                mTv_more.setCompoundDrawables(getResources().getDrawable(getString(R.string.main_home_txt).equals(childAt.getText()) ? R.mipmap.home_no_message2x : 0), null, null, null);
-            }
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+//            if (messageState == 1 && cunrrentPosition == 0) {
+//                mTv_more.setCompoundDrawablesWithIntrinsicBounds(getString(R.string.main_home_txt).equals(childAt.getText()) ? R.mipmap.home_have_message : 0, 0, 0, 0);
+//            } else {
+        mTv_more.setCompoundDrawablesWithIntrinsicBounds(getString(R.string.main_home_txt).equals(childAt.getText()) ? R.mipmap.home_no_message2x : 0, 0, 0, 0);
+//            }
+//        } else {
+//            if (messageState == 1 && cunrrentPosition == 0) {
+//                mTv_more.setCompoundDrawables(getResources().getDrawable(getString(R.string.main_home_txt).equals(childAt.getText()) ? R.mipmap.home_have_message : 0), null, null, null);
+//            } else {
+//                mTv_more.setCompoundDrawables(getResources().getDrawable(getString(R.string.main_home_txt).equals(childAt.getText()) ? R.mipmap.home_no_message2x : 0), null, null, null);
+//            }
+//        }
         changeColor();
 //        if (getString(R.string.main_home_txt).equals(childAt.getText())) {
 //            mInclude_title.setVisibility(View.GONE);
@@ -630,12 +631,11 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
         if (data instanceof UnReadMessageBean) {
             UnReadMessageBean unReadMessageBean = (UnReadMessageBean) data;
             tv_message_num.setText(unReadMessageBean.getO().getMessages_unread() + "");
-            if (unReadMessageBean.getO().getMessages_unread() == 0) {
+            if (unReadMessageBean.getO().getMessages_unread() == 0 || !mTv_title.getText().toString().equals(getString(R.string.main_home_txt))) {
                 tv_message_num.setVisibility(View.GONE);
             } else {
                 tv_message_num.setVisibility(View.VISIBLE);
             }
-            tv_message_num.setTextColor(Color.WHITE);
         }
     }
 

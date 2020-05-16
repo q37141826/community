@@ -260,7 +260,6 @@ public class AuthorizationActivity extends NewTitleActivity implements OKHttpUIU
 
     private void startIdentifyfy() {
         oldPassword = password + "";
-        password = MD5Util.MD5(password);
         String estate = estate_id + "";
         String utype = "";
         if (mEt_user_identity.getText().toString().equals("亲友")) {

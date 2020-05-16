@@ -31,4 +31,8 @@ public class LoginUtils {
         Preference.put(LOGIN_DATA, data);
         return true;
     }
+
+    public static String getLoginId(){
+        return Preference.get(ConstantString.USERID,"");
+    }
 }

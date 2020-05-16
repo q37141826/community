@@ -5,7 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/android_project-community.iml" filepath="$PROJECT_DIR$/android_project-community.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/community.iml" filepath="$PROJECT_DIR$/community.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/community-app.iml" filepath="$PROJECT_DIR$/app/community-app.iml" group="community/app" />
+      <module fileurl="file://$PROJECT_DIR$/app/community-app.iml" filepath="$PROJECT_DIR$/app/community-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/jpush/community-jpush.iml" filepath="$PROJECT_DIR$/jpush/community-jpush.iml" />
       <module fileurl="file://$PROJECT_DIR$/jpush/jpush.iml" filepath="$PROJECT_DIR$/jpush/jpush.iml" group="community/jpush" />
       <module fileurl="file://$PROJECT_DIR$/zhanqiaozongyuan-community-master-community.iml" filepath="$PROJECT_DIR$/zhanqiaozongyuan-community-master-community.iml" group="community" />

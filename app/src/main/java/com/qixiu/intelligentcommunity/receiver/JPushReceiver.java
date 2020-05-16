@@ -202,9 +202,9 @@ public class JPushReceiver extends BroadcastReceiver implements OKHttpUIUpdataLi
         if (data instanceof UnReadMessageBean) {
             UnReadMessageBean bean = (UnReadMessageBean) data;
             try {
-                ShortcutBadger.applyCount(context.getApplicationContext(), bean.getO().getActivity_unread()); //for 1.1.4+
-                ShortCutHelper.setXiaoMiBadge(context.getApplicationContext(), bean.getO().getActivity_unread());
-                if(bean.getO().getActivity_unread() == 0){
+                ShortcutBadger.applyCount(context.getApplicationContext(),  bean.getO().getAllUnread()); //for 1.1.4+
+                ShortCutHelper.setXiaoMiBadge(context.getApplicationContext(), bean.getO().getAllUnread());
+                if(bean.getO().getAllUnread() == 0){
                     ShortcutBadger.removeCount(context.getApplicationContext()); //for 1.1.4+
                 }
             } catch (Exception e) {
