@@ -51,6 +51,7 @@ import com.qixiu.intelligentcommunity.mvp.beans.home.HomeBean;
 import com.qixiu.intelligentcommunity.mvp.beans.home.HomeHotGoodsBean;
 import com.qixiu.intelligentcommunity.mvp.beans.home.HomeNoticeBean;
 import com.qixiu.intelligentcommunity.mvp.beans.home.NewsStateBean;
+import com.qixiu.intelligentcommunity.mvp.beans.home.UnReadMessageBean;
 import com.qixiu.intelligentcommunity.mvp.beans.store.StoreBean;
 import com.qixiu.intelligentcommunity.mvp.model.home_modle.HomeSelectorModle;
 import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpRequestModel;
@@ -166,6 +167,9 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
     private TextView textViewNewsDate;
     private TextView textViewMoreEvent;
     private TextView textViewMoreGoods;
+    private TextView textViewNewsNum;
+    private TextView textViewNoticeNum;
+    private UnReadMessageBean unReadMessageBean;
 
     public void setBlueToothIntf(MainBlueToothIntf blueToothIntf) {
         this.blueToothIntf = blueToothIntf;
@@ -384,6 +388,11 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
         linearlayout_onkeyCall = (LinearLayout) view.findViewById(R.id.linearlayout_onkeyCall);
         textViewMoreEvent = view.findViewById(R.id.textViewMoreEvent);
         textViewMoreGoods = view.findViewById(R.id.textViewMoreGoods);
+
+        textViewNoticeNum = view.findViewById(R.id.textViewNoticeNum);
+        textViewNewsNum = view.findViewById(R.id.textViewNewsNum);
+
+
         //社区业务板块
         initSevice(view);
 
@@ -1010,7 +1019,7 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
             ToastUtil.toast(R.string.no_permission);
             return;
         }
-        if(data.isGotoEvent() ){
+        if (data.isGotoEvent()) {
             gotoEventPage();
             return;
         }
@@ -1053,6 +1062,29 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
     public void gotoEvent() {
         gotoEventPage();
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (null != unReadMessageBean) {
+            setUnreadData();
+        }
+    }
+
+    private void setUnreadData() {
+        textViewNoticeNum.setVisibility(unReadMessageBean.getO().getNotice_unread() == 0?View.GONE:View.VISIBLE);
+        textViewNewsNum.setVisibility(unReadMessageBean.getO().getNews_unread() == 0?View.GONE:View.VISIBLE);
+        textViewNoticeNum.setText(unReadMessageBean.getO().getNotice_unread() + "");
+        textViewNewsNum.setText(unReadMessageBean.getO().getNews_unread() + "");
+    }
+
+    public void setUnreadData(UnReadMessageBean unReadMessageBean) {
+        this.unReadMessageBean = unReadMessageBean;
+        if (isResumed()) {
+            setUnreadData();
+        }
+    }
+
 
     private class Timer extends CountDownTimer {
         public Timer() {

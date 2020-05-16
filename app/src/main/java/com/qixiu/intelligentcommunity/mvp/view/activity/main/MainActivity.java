@@ -121,6 +121,7 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
     ZProgressHUD mZProgressHUD;
     private String permissions[] = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_COARSE_LOCATION};
     private OKHttpRequestModel okHttpRequestModel;
+    private HomeFragment homeFragment;
 
     @Override
     protected void onInitData() {
@@ -148,6 +149,7 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
         Map<String, String> map = new HashMap<>();
         map.put("uid", LoginUtils.getLoginId());
         okHttpRequestModel.okhHttpPost(ConstantUrl.unReadMessageUrl, map, new UnReadMessageBean());
+        super.getUnreadMessage();
     }
 
     private void initBluetoothInfo() {
@@ -268,7 +270,7 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
 
     private void initFragments() {
         mFragmentList = new ArrayList<>();
-        HomeFragment homeFragment = new HomeFragment();
+        homeFragment = new HomeFragment();
         homeFragment.setOnClickSwitchListener(this);
         homeFragment.setBlueToothIntf(this);
         mFragmentList.add(homeFragment);
@@ -636,7 +638,12 @@ public class MainActivity extends TitleActivity implements OnClickSwitchListener
             } else {
                 tv_message_num.setVisibility(View.VISIBLE);
             }
+            setHomeFragment(unReadMessageBean);
         }
+    }
+
+    private void setHomeFragment(UnReadMessageBean unReadMessageBean) {
+        homeFragment.setUnreadData(unReadMessageBean);
     }
 
     @Override

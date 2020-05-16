@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:orientation="vertical">
 
 
     <RelativeLayout
@@ -24,12 +23,12 @@
                 android:background="@color/white">
 
                 <TableLayout
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin10dp"
+                    android:layout_marginTop="@dimen/margin80dp"
                     android:layout_marginRight="@dimen/margin10dp"
-                    android:layout_marginTop="@dimen/margin80dp">
+                    android:visibility="gone">
 
                     <TableRow>
 
@@ -119,29 +118,31 @@
 
                     </TableRow>
                 </TableLayout>
+
                 <com.jude.rollviewpager.RollPagerView
-                    android:layout_centerVertical="true"
                     android:id="@+id/roll_user_selector"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/margin129dp"></com.jude.rollviewpager.RollPagerView>
+                    android:layout_height="@dimen/margin129dp"
+                    android:layout_centerVertical="true"></com.jude.rollviewpager.RollPagerView>
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin10dp"
                 android:background="@color/diliver_505050"></RelativeLayout>
+
             <com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView>
             <!--一键开门-->
             <LinearLayout
-                android:visibility="gone"
                 android:id="@+id/linearlayout_onkeyCall"
-
                 android:layout_width="@dimen/screenwith"
+
                 android:layout_height="@dimen/screenwith_half"
                 android:background="@color/white"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/imageView_commnityManager_home"
@@ -154,11 +155,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-<!--                    <ImageView-->
-<!--                        android:id="@+id/imageView_onkeyOpen"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="@dimen/screenwith_forthper"-->
-<!--                        android:src="@drawable/commnityonekeyopen" />-->
+                    <!--                    <ImageView-->
+                    <!--                        android:id="@+id/imageView_onkeyOpen"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="@dimen/screenwith_forthper"-->
+                    <!--                        android:src="@drawable/commnityonekeyopen" />-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -171,11 +172,11 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1">
 
-<!--                            <ImageView-->
-<!--                                android:id="@+id/imageView_notice_home"-->
-<!--                                android:layout_width="@dimen/screenwith_forthper"-->
-<!--                                android:layout_height="match_parent"-->
-<!--                                android:src="@drawable/commnitynotice" />-->
+                            <!--                            <ImageView-->
+                            <!--                                android:id="@+id/imageView_notice_home"-->
+                            <!--                                android:layout_width="@dimen/screenwith_forthper"-->
+                            <!--                                android:layout_height="match_parent"-->
+                            <!--                                android:src="@drawable/commnitynotice" />-->
 
                             <ImageView
                                 android:id="@+id/imageView_home_have_notice"
@@ -191,11 +192,11 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1">
 
-<!--                            <ImageView-->
-<!--                                android:id="@+id/imageView_news_home"-->
-<!--                                android:layout_width="@dimen/screenwith_forthper"-->
-<!--                                android:layout_height="match_parent"-->
-<!--                                android:src="@drawable/commnitynews" />-->
+                            <!--                            <ImageView-->
+                            <!--                                android:id="@+id/imageView_news_home"-->
+                            <!--                                android:layout_width="@dimen/screenwith_forthper"-->
+                            <!--                                android:layout_height="match_parent"-->
+                            <!--                                android:src="@drawable/commnitynews" />-->
 
                             <ImageView
                                 android:id="@+id/imageView_home_have_news"
@@ -210,93 +211,127 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
             <RelativeLayout
-                android:paddingLeft="@dimen/margin15dp"
-                android:paddingRight="@dimen/margin15dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin106dp"
+                android:background="@color/white"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:background="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/margin106dp">
+                android:paddingLeft="@dimen/margin15dp"
+                android:paddingRight="@dimen/margin15dp">
+
                 <LinearLayout
                     android:id="@+id/imageView_notice_home"
-                    android:paddingLeft="@dimen/margin15dp"
+                    android:layout_width="@dimen/margin145dp"
+                    android:layout_height="@dimen/margin74dp"
+                    android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:background="@mipmap/home_noticebg2x"
-                    android:layout_alignParentLeft="true"
                     android:orientation="vertical"
-                    android:layout_width="@dimen/margin145dp"
-                    android:layout_height="@dimen/margin74dp">
+                    android:paddingLeft="@dimen/margin15dp">
+
                     <TextView
+                        android:layout_width="@dimen/margin61dp"
+                        android:layout_height="@dimen/margin22dp"
                         android:background="@drawable/home_notice_bg"
-                        android:textColor="@color/white"
                         android:gravity="center"
                         android:text="通知公告"
-                        android:layout_height="@dimen/margin22dp"
-                        android:layout_width="@dimen/margin61dp"></TextView>
+                        android:textColor="@color/white"></TextView>
+
                     <TextView
-                        android:textSize="12sp"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:layout_marginTop="@dimen/margin9dp"
                         android:id="@+id/textViewNoticeMsg"
-                        android:textColor="@color/praise_item_default"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-                    <TextView
-                        android:textSize="11sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin9dp"
                         android:ellipsize="end"
                         android:maxLines="1"
+                        android:textColor="@color/praise_item_default"
+                        android:textSize="12sp"></TextView>
+
+                    <TextView
                         android:id="@+id/textViewNoticeDate"
-                        android:layout_marginTop="@dimen/margin5dp"
-                        android:textColor="@color/text_littie_grey"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textColor="@color/text_littie_grey"
+                        android:textSize="11sp"></TextView>
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/imageView_news_home"
-                    android:background="@mipmap/home_newsbg2x"
-                    android:paddingLeft="@dimen/margin25dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:orientation="vertical"
                     android:layout_width="@dimen/margin145dp"
-                    android:layout_height="@dimen/margin74dp">
+                    android:layout_height="@dimen/margin74dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/home_newsbg2x"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/margin25dp">
+
                     <TextView
+                        android:layout_width="@dimen/margin61dp"
+                        android:layout_height="@dimen/margin22dp"
                         android:background="@drawable/home_news_bg"
-                        android:textColor="@color/white"
                         android:gravity="center"
                         android:text="社区新闻"
-                        android:layout_height="@dimen/margin22dp"
-                        android:layout_width="@dimen/margin61dp"></TextView>
+                        android:textColor="@color/white"></TextView>
+
                     <TextView
-                        android:textSize="12sp"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:layout_marginTop="@dimen/margin9dp"
                         android:id="@+id/textViewNews"
-                        android:textColor="@color/praise_item_default"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-                    <TextView
-                        android:textSize="11sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin9dp"
                         android:ellipsize="end"
                         android:maxLines="1"
+                        android:textColor="@color/praise_item_default"
+                        android:textSize="12sp"></TextView>
+
+                    <TextView
                         android:id="@+id/textViewNewsDate"
-                        android:layout_marginTop="@dimen/margin5dp"
-                        android:textColor="@color/text_littie_grey"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textColor="@color/text_littie_grey"
+                        android:textSize="11sp"></TextView>
 
 
                 </LinearLayout>
+
                 <ImageView
                     android:id="@+id/imageView_onkeyOpen"
-                    android:src="@mipmap/home_open2x"
-                    android:layout_centerInParent="true"
                     android:layout_width="@dimen/margin55dp"
-                    android:layout_height="@dimen/margin55dp"></ImageView>
+                    android:layout_height="@dimen/margin55dp"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/home_open2x"></ImageView>
+
+                <TextView
+                    android:id="@+id/textViewNoticeNum"
+                    android:layout_width="@dimen/margin20dp"
+                    android:layout_height="@dimen/margin20dp"
+                    android:layout_marginLeft="@dimen/margin90dp"
+                    android:layout_marginTop="@dimen/margin20dp"
+                    android:background="@drawable/back_red_circle"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:visibility="gone"></TextView>
+
+                <TextView
+                    android:id="@+id/textViewNewsNum"
+                    android:layout_width="@dimen/margin20dp"
+                    android:layout_height="@dimen/margin20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/margin20dp"
+                    android:layout_marginRight="@dimen/margin30dp"
+                    android:background="@drawable/back_red_circle"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:visibility="gone"></TextView>
             </RelativeLayout>
 
 
@@ -310,43 +345,46 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:clipChildren="false">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="55dp">
+
                     <View
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/margin15dp"
-                        android:background="@color/theme_color"
                         android:layout_width="@dimen/margin3dp"
                         android:layout_height="@dimen/margin15dp"
-                        ></View>
-                    <TextView
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/margin23dp"
+                        android:layout_marginLeft="@dimen/margin15dp"
+                        android:background="@color/theme_color"></View>
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin23dp"
                         android:text="活动报名"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
+
                     <TextView
                         android:id="@+id/textViewMoreEvent"
-                        android:layout_toLeftOf="@+id/imageView_event_home"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/imageView_event_home"
                         android:text="更多"
                         android:textColor="@color/txt_DBDBDB"
                         android:textSize="16sp" />
+
                     <ImageView
-                        android:layout_marginRight="@dimen/margin10dp"
-                        android:layout_centerVertical="true"
                         android:id="@+id/imageView_event_home"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/margin10dp"
                         android:src="@mipmap/homejiantou3x" />
                 </RelativeLayout>
-
 
 
                 <!--<android.support.v4.view.ViewPager-->
@@ -359,11 +397,10 @@
 
                 <!--因为是横向滑动的，所以把这个设置成宽度自适应-->
                 <android.support.v7.widget.RecyclerView
-                    android:layout_marginTop="@dimen/margin55dp"
                     android:id="@+id/recyclerview_event_home"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                   ></android.support.v7.widget.RecyclerView>
+                    android:layout_marginTop="@dimen/margin55dp"></android.support.v7.widget.RecyclerView>
 
                 <LinearLayout
                     android:id="@+id/linearlayout_progress_circle"
@@ -413,47 +450,48 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin55dp"
                 android:background="@color/white">
+
                 <View
-                    android:layout_marginLeft="@dimen/margin15dp"
-                    android:layout_centerVertical="true"
-                    android:background="@color/theme_color"
                     android:layout_width="@dimen/margin3dp"
                     android:layout_height="@dimen/margin15dp"
-                    ></View>
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin15dp"
+                    android:background="@color/theme_color"></View>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin23dp"
                     android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin23dp"
                     android:text="热销商品"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
-                   />
+                    android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/textViewMoreGoods"
-                    android:layout_toLeftOf="@+id/imageView_hotgoods"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/imageView_hotgoods"
                     android:text="更多"
                     android:textColor="@color/txt_DBDBDB"
                     android:textSize="16sp" />
+
                 <ImageView
                     android:id="@+id/imageView_hotgoods"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/margin10dp"
                     android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin10dp"
                     android:src="@mipmap/homejiantou3x" />
 
                 <!--<android.support.v7.widget.RecyclerView-->
-                    <!--android:id="@+id/recycleview_hotwork_home"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_below="@+id/imageView_hotgoods"-->
-                    <!--android:layout_marginTop="@dimen/margin10dp"></android.support.v7.widget.RecyclerView>-->
+                <!--android:id="@+id/recycleview_hotwork_home"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@+id/imageView_hotgoods"-->
+                <!--android:layout_marginTop="@dimen/margin10dp"></android.support.v7.widget.RecyclerView>-->
 
 
             </RelativeLayout>
@@ -466,8 +504,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin10dp"
             android:layout_marginRight="@dimen/margin10dp"
-            android:background="@color/white"
-        >
+            android:background="@color/white">
 
             <com.jude.rollviewpager.RollPagerView
                 android:id="@+id/roll_view_pager_home"
