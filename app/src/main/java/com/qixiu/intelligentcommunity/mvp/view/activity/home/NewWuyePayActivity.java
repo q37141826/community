@@ -1,15 +1,19 @@
 package com.qixiu.intelligentcommunity.mvp.view.activity.home;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -68,13 +72,29 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
     private TextView textView_wuye_pay_how_much;
     private EditText edittext_use_point;
     private Button btn_wuye_goto_pay;
+    private TextView textView_finnal_money;
 
     @Override
     protected void onInitData() {
         okHttpRequestModel = new OKHttpRequestModel(this);
         requestPayData();
         refreshEdittext();
+        hideSoftKeyboard(this);
     }
+
+
+
+    /**
+     * 隐藏软键盘(只适用于Activity，不适用于Fragment)
+     */
+    public void hideSoftKeyboard(Activity activity) {
+        View view = activity.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
 
     private void refreshEdittext() {
         edittext_use_point.setEnabled(pointSelector.isSelectOk() ? true : false);
@@ -120,6 +140,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
         textView_wuye_pay_how_much = findViewById(R.id.textView_wuye_pay_how_much);
         edittext_use_point = findViewById(R.id.edittext_use_point);
         btn_wuye_goto_pay = findViewById(R.id.btn_wuye_goto_pay);
+        textView_finnal_money = findViewById(R.id.textView_finnal_money);
         //每个需要显示的数据textview
 
 
@@ -127,6 +148,55 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
         rl_pay_how_long.setOnClickListener(this);
         btn_wuye_goto_pay.setOnClickListener(this);
         pointSelector.setSelectedListenner(() -> refreshEdittext());
+
+
+        edittext_use_point.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                int usePoint = 0;
+                try {
+                    usePoint = Integer.parseInt(s.toString());
+                    int currentPoint = Integer.parseInt(wuyePayBean.getO().getInter());
+                    if(usePoint>currentPoint){
+                        edittext_use_point.postDelayed(new EdiitextWorker(edittext_use_point,currentPoint+""),100);
+                    }
+                } catch (Exception e) {
+                    usePoint = 0;
+                    edittext_use_point.postDelayed(new EdiitextWorker(edittext_use_point,usePoint+""),100);
+                }
+                if(wuyePayBean!=null){
+                    double finalMoney = currentPayMonths * wuyePayBean.getO().getYearprice() / 12 - usePoint / wuyePayBean.getO().getScore_to_money();
+                    textView_finnal_money.setText(finalMoney + "元");
+                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
+
+    public static class EdiitextWorker implements Runnable{
+        private EditText ediitext;
+        private String string;
+
+        public EdiitextWorker(EditText ediitext, String string) {
+            this.ediitext = ediitext;
+            this.string = string;
+        }
+
+        @Override
+        public void run() {
+            ediitext.setText(string);
+            ediitext.setSelection(string.length());
+        }
     }
 
     @Override
@@ -152,11 +222,11 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
                 usePoint = 0;
             }
         }
-        map.put("score",usePoint+"");
-        map.put("uid",Preference.get(ConstantString.USERID,""));
-        map.put("cost_type",3+"");
-        map.put("years",currentPayMonths/12+"");
-        okHttpRequestModel.okhHttpPost(ConstantUrl.newWuyePayCreatOrderUrl,map,new BaseBean<>());
+        map.put("score", usePoint + "");
+        map.put("uid", Preference.get(ConstantString.USERID, ""));
+        map.put("cost_type", 3 + "");
+        map.put("years", currentPayMonths / 12 + "");
+        okHttpRequestModel.okhHttpPost(ConstantUrl.newWuyePayCreatOrderUrl, map, new BaseBean<>());
     }
 
     private void showPick() {
