@@ -64,6 +64,8 @@ public class MyPickerView extends View {
     private int showLines = DEFUALT_LINES;//默认显示三行
     private float lineScale = 1.0f;//根据行数调整倍数
 
+    private Padding padding;
+
     public void setShowLines(int showLines) {
         this.showLines = showLines;
         lineScale = ((float) DEFUALT_LINES) / ((float) showLines) * 1.4f;//这里搞一个补偿系数
@@ -172,7 +174,9 @@ public class MyPickerView extends View {
         float y = (float) (mViewHeight / MIN_SIZE + mMoveLen);
         Paint.FontMetricsInt fmi = mPaint.getFontMetricsInt();
         float baseline = (float) (y - (fmi.bottom / MIN_SIZE + fmi.top / MIN_SIZE));
-
+        if(padding!=null){
+            x+=padding.left;
+        }
         canvas.drawText(mDataList.get(mCurrentSelected), x, baseline, mPaint);
         // 绘制上方data  
         for (int i = 1; (mCurrentSelected - i) >= 0; i++) {
@@ -202,15 +206,19 @@ public class MyPickerView extends View {
         float y = (float) (mViewHeight / MIN_SIZE + type * d);
         Paint.FontMetricsInt fmi = mPaint.getFontMetricsInt();
         float baseline = (float) (y - (fmi.bottom / MIN_SIZE + fmi.top / MIN_SIZE));
+        int xAdding=0;
+        if(padding!=null){
+            xAdding = padding.left;
+        }
         if (mCurrentSelected + type * position >= mDataList.size()) {
             canvas.drawText(mDataList.get(0),
-                    (float) (mViewWidth / MIN_SIZE), baseline, mPaint);
+                    (float) (mViewWidth / MIN_SIZE)+xAdding, baseline, mPaint);
         } else if (mCurrentSelected + type * position<0) {
             canvas.drawText(mDataList.get(mDataList.size()-1),
-                    (float) (mViewWidth / MIN_SIZE), baseline, mPaint);
+                    (float) (mViewWidth / MIN_SIZE)+xAdding, baseline, mPaint);
         } else {
             canvas.drawText(mDataList.get(mCurrentSelected + type * position),
-                    (float) (mViewWidth / MIN_SIZE), baseline, mPaint);
+                    (float) (mViewWidth / MIN_SIZE)+xAdding, baseline, mPaint);
         }
     }
 
@@ -268,6 +276,12 @@ public class MyPickerView extends View {
         invalidate();
     }
 
+    public void settextPadding(int left, int top, int right, int bottom) {
+       padding = new Padding(left,top,right,bottom);
+       invalidate();
+    }
+
+
     private void doUp(MotionEvent event) {
         // 抬起手后mCurrentSelected的位置由当前位置move到中间选中位置  
         if (Math.abs(mMoveLen) < 0.0001) {
@@ -298,5 +312,19 @@ public class MyPickerView extends View {
 
     public interface onSelectListener {
         void onSelect(String text);
+    }
+
+    public static class Padding {
+        int left;
+        int top;
+        int right;
+        int bottom;
+
+        public Padding(int left, int top, int right, int bottom) {
+            this.left = left;
+            this.top = top;
+            this.right = right;
+            this.bottom = bottom;
+        }
     }
 }  

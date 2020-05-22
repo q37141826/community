@@ -42,6 +42,7 @@ public class SinglePopPickView {
         btn_cancle = contentView.findViewById(R.id.btn_cancle);
         btn_confirm = contentView.findViewById(R.id.btn_confirm);
         picker_view.setShowLines(5);
+        picker_view.settextPadding(140,0,0,0);
         btn_confirm.setOnClickListener(v -> {
             selectedLister.onSelected(currentSelectedData);
             popupWindow.dismiss();

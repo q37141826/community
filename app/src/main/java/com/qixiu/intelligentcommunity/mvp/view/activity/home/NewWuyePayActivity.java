@@ -36,6 +36,7 @@ import com.qixiu.intelligentcommunity.utlis.CommonUtils;
 import com.qixiu.intelligentcommunity.utlis.Preference;
 import com.qixiu.intelligentcommunity.utlis.TimeDataUtil;
 
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -81,7 +82,6 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
         refreshEdittext();
         hideSoftKeyboard(this);
     }
-
 
 
     /**
@@ -157,12 +157,12 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
                 try {
                     usePoint = Integer.parseInt(s.toString());
                     int currentPoint = Integer.parseInt(wuyePayBean.getO().getInter());
-                    if(usePoint>currentPoint){
-                        edittext_use_point.postDelayed(new EdiitextWorker(edittext_use_point,currentPoint+""),100);
+                    if (usePoint > currentPoint) {
+                        edittext_use_point.postDelayed(new EdiitextWorker(edittext_use_point, currentPoint + ""), 100);
                     }
                 } catch (Exception e) {
                     usePoint = 0;
-                    edittext_use_point.postDelayed(new EdiitextWorker(edittext_use_point,usePoint+""),100);
+                    edittext_use_point.postDelayed(new EdiitextWorker(edittext_use_point, usePoint + ""), 100);
                 }
                 setFinnalMoney(usePoint);
             }
@@ -180,14 +180,17 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
     }
 
     private void setFinnalMoney(int usePoint) {
-        if(wuyePayBean!=null){
+        if (wuyePayBean != null) {
             double finalMoney = currentPayMonths * wuyePayBean.getO().getYearprice() / 12 - usePoint / wuyePayBean.getO().getScore_to_money();
-            textView_finnal_money.setText(finalMoney + "元");
+            NumberFormat instance = NumberFormat.getInstance();
+            instance.setMaximumFractionDigits(2);
+            String format = instance.format(finalMoney);
+            textView_finnal_money.setText(format + "元");
         }
     }
 
 
-    public static class EdiitextWorker implements Runnable{
+    public static class EdiitextWorker implements Runnable {
         private EditText ediitext;
         private String string;
 
@@ -255,7 +258,10 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
             long time = wuyePayBean.getO().getLast_wuye_endtime();
             textView_wuye_this_time_pay.setText(TimeDataUtil.timeStamp2Date((time + seconds) + "", "yyyy年MM月dd日"));
             currentPayMonths = months;
-            textView_wuye_pay_how_much.setText(months * wuyePayBean.getO().getYearprice() / 12 + "元");
+            NumberFormat instance = NumberFormat.getInstance();
+            instance.setMaximumFractionDigits(2);
+            String money = instance.format(months * wuyePayBean.getO().getYearprice() / 12);
+            textView_wuye_pay_how_much.setText(money + "元");
         }
         setFinnalMoney(0);
         Log.d(TAG, "showPick: data = " + o.toString());
@@ -270,7 +276,9 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
         if (data instanceof NewWuyePayBean) {
             wuyePayBean = (NewWuyePayBean) data;
             setPayDetails(wuyePayBean);
-            setSelectedPayState(PayTimeDataHelper.PAYTIME_ONE_YEAR);
+            if (currentPayMonths == 0) {
+                setSelectedPayState(PayTimeDataHelper.PAYTIME_ONE_YEAR);
+            }
         }
         if (data.getUrl().equals(ConstantUrl.newWuyePayCreatOrderUrl)) {
             String payid = data.getO().toString();
