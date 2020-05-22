@@ -164,10 +164,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
                     usePoint = 0;
                     edittext_use_point.postDelayed(new EdiitextWorker(edittext_use_point,usePoint+""),100);
                 }
-                if(wuyePayBean!=null){
-                    double finalMoney = currentPayMonths * wuyePayBean.getO().getYearprice() / 12 - usePoint / wuyePayBean.getO().getScore_to_money();
-                    textView_finnal_money.setText(finalMoney + "元");
-                }
+                setFinnalMoney(usePoint);
             }
 
             @Override
@@ -180,6 +177,13 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
 
             }
         });
+    }
+
+    private void setFinnalMoney(int usePoint) {
+        if(wuyePayBean!=null){
+            double finalMoney = currentPayMonths * wuyePayBean.getO().getYearprice() / 12 - usePoint / wuyePayBean.getO().getScore_to_money();
+            textView_finnal_money.setText(finalMoney + "元");
+        }
     }
 
 
@@ -253,6 +257,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
             currentPayMonths = months;
             textView_wuye_pay_how_much.setText(months * wuyePayBean.getO().getYearprice() / 12 + "元");
         }
+        setFinnalMoney(0);
         Log.d(TAG, "showPick: data = " + o.toString());
     }
 
