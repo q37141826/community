@@ -35,6 +35,7 @@ import com.qixiu.intelligentcommunity.mvp.view.widget.mypopselect.SinglePopPickV
 import com.qixiu.intelligentcommunity.utlis.CommonUtils;
 import com.qixiu.intelligentcommunity.utlis.Preference;
 import com.qixiu.intelligentcommunity.utlis.TimeDataUtil;
+import com.qixiu.intelligentcommunity.utlis.ToastUtil;
 
 import java.text.NumberFormat;
 import java.util.HashMap;
@@ -159,6 +160,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
                     int currentPoint = Integer.parseInt(wuyePayBean.getO().getInter());
                     if (usePoint > currentPoint) {
                         edittext_use_point.postDelayed(new EdiitextWorker(edittext_use_point, currentPoint + ""), 100);
+                        ToastUtil.toast("积分不够");
                     }
                 } catch (Exception e) {
                     usePoint = 0;
@@ -293,8 +295,8 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
     }
 
     private void setPayDetails(NewWuyePayBean wuyePayBean) {
-        textView_wuye_mianji.setText(wuyePayBean.getO().getBarea());
-        textView_wuye_price.setText(wuyePayBean.getO().getBprice());
+        textView_wuye_mianji.setText(wuyePayBean.getO().getBarea()+"平米");
+        textView_wuye_price.setText(wuyePayBean.getO().getBprice()+"元/平米/月");
         textView_wuye_last_pay_time.setText(wuyePayBean.getO().getEndtime_desc());
         setInroduce(wuyePayBean);
     }

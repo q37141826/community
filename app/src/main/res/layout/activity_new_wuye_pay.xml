@@ -277,7 +277,7 @@
         <TextView
             style="@style/new_wuye_item_text"
             android:layout_marginLeft="@dimen/margin45dp"
-            android:text="共计实付金额为:"></TextView>
+            android:text="共计实付:"></TextView>
 
         <TextView
             android:id="@+id/textView_finnal_money"
