@@ -21,6 +21,7 @@ import com.qixiu.intelligentcommunity.mvp.view.holder.base.RecyclerBaseHolder;
 public class HomeEventHolder extends RecyclerBaseHolder<HomeBean.EBean> {
     private TextView textView_event_state_item;
     private ImageView imageView_event_home_item;
+    private ImageView imageView_isRead;
     private TextView textView_title_event_item;
     private TextView textView_goto_event;
     private RelativeLayout relativeLayout_event_item;
@@ -36,6 +37,7 @@ public class HomeEventHolder extends RecyclerBaseHolder<HomeBean.EBean> {
     public HomeEventHolder(View itemView, Context context, RecyclerView.Adapter adapter) {
         super(itemView, context, adapter);
         imageView_event_home_item = (ImageView) itemView.findViewById(R.id.imageView_event_home_item);
+        imageView_isRead = (ImageView) itemView.findViewById(R.id.imageView_isRead);
         textView_title_event_item = (TextView) itemView.findViewById(R.id.textView_title_event_item);
         textView_event_state_item = (TextView) itemView.findViewById(R.id.textView_event_state_item);
         textView_goto_event = (TextView) itemView.findViewById(R.id.textView_goto_event);
@@ -61,7 +63,7 @@ public class HomeEventHolder extends RecyclerBaseHolder<HomeBean.EBean> {
         }
         textView_title_event_item.setText(mData.getTitle());
         textView_event_state_item.setText(mData.getAddtime_desc());
-
+        imageView_isRead.setVisibility(mData.getRead()==1?View.GONE:View.VISIBLE);
         BaseActivity activity = (BaseActivity) mContext;
 //        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(activity.windowWith -3*ArshowContextUtil.dp2px(7), activity.windowWith /2-3*ArshowContextUtil.dp2px(7)/2);
 //        params.addRule(RelativeLayout.CENTER_IN_PARENT);

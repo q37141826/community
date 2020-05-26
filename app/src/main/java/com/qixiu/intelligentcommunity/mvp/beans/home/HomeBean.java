@@ -74,6 +74,7 @@ public class HomeBean extends BaseBean<List<HomeBean.OBean>> {
          */
 
         private int id;
+        private int read;
         private String title;
         private boolean isGotoEvent = false;
 
@@ -120,6 +121,15 @@ public class HomeBean extends BaseBean<List<HomeBean.OBean>> {
         public void setState(int state) {
             this.state = state;
         }
+
+        public int getRead() {
+            return read;
+        }
+
+        public void setRead(int read) {
+            this.read = read;
+        }
+
 
         public List<String> getImgs() {
             return imgs;

@@ -60,5 +60,14 @@
             android:textSize="@dimen/font_size_12" />
 
     </RelativeLayout>
-
+    <ImageView
+        android:background="@drawable/back_red_circle"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/margin30dp"
+        android:layout_marginRight="@dimen/margin20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/imageView_isRead"
+        android:layout_width="@dimen/margin1dp"
+        android:layout_height="@dimen/margin1dp"></ImageView>
 </RelativeLayout>
