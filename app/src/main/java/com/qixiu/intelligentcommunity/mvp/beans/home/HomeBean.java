@@ -74,7 +74,7 @@ public class HomeBean extends BaseBean<List<HomeBean.OBean>> {
          */
 
         private int id;
-        private int read;
+        private int read = 1;
         private String title;
         private boolean isGotoEvent = false;
 
