@@ -43,6 +43,7 @@ public class ServeFragment extends BaseFragment implements ServiceHolder.CallPer
                 getData();
             }
         });
+        getData();
     }
 
     @Override

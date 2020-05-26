@@ -15,6 +15,7 @@ public class ServiceActivity extends NewTitleActivity {
     protected void onInitData() {
         mTitleView.setTitle("服务定制");
         addFragment(R.id.frameLayout_service, new ServeFragment(), "");
+        mTitleView.setBackListener(view -> finish());
     }
 
     @Override
