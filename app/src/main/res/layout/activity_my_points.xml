@@ -68,7 +68,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:src="@mipmap/mine_mypoints02_2x"
+                android:src="@mipmap/home_game"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
