@@ -236,7 +236,7 @@ public class HomeFragment extends BaseFragment implements OKHttpUIUpdataListener
 
     private void setGameCenter() {
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(windowWith - ArshowContextUtil.dp2px(10), (windowWith - ArshowContextUtil.dp2px(10)) * 276 / 1085);
-        imageView_game_home.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        imageView_game_home.setScaleType(ImageView.ScaleType.FIT_XY);
         params.addRule(RelativeLayout.CENTER_IN_PARENT);
         imageView_game_home.setLayoutParams(params);
         imageView_game_home.setImageResource(R.mipmap.home_game);

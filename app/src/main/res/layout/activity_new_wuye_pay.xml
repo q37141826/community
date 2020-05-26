@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></RelativeLayout>
 
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,10 +27,6 @@
             android:orientation="vertical">
 
             <LinearLayout style="@style/new_wuye">
-
-                <TextView
-                    style="@style/new_wuye_item_title"
-                    android:text="物业基本信息"></TextView>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -89,13 +86,13 @@
 
 
                 </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout style="@style/new_wuye">
 
                 <TextView
                     style="@style/new_wuye_item_title"
-                    android:text="缴费信息"></TextView>
+                    android:text="物业基本信息"></TextView>
+            </LinearLayout>
+
+            <LinearLayout style="@style/new_wuye">
 
                 <RelativeLayout
                     android:id="@+id/rl_pay_how_long"
@@ -111,9 +108,16 @@
                     <TextView
                         android:id="@+id/textView_wuye_pay_time"
                         style="@style/new_wuye_item_text"
+                        android:layout_marginRight="@dimen/margin10dp"
                         android:layout_alignParentRight="true"
                         android:text="0"></TextView>
-
+                    <TextView
+                        android:layout_toRightOf="@+id/textView_wuye_pay_time"
+                        style="@style/new_wuye_item_text"
+                        android:id="@+id/textView_xiala"
+                        android:text="﹀"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></TextView>
                     <View style="@style/new_wuye_item_line"></View>
 
                 </RelativeLayout>
@@ -156,13 +160,13 @@
 
 
                 </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout style="@style/new_wuye">
 
                 <TextView
                     style="@style/new_wuye_item_title"
-                    android:text="积分信息"></TextView>
+                    android:text="缴费信息"></TextView>
+            </LinearLayout>
+
+            <LinearLayout style="@style/new_wuye">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -170,27 +174,26 @@
                     android:paddingLeft="@dimen/margin15dp"
                     android:paddingRight="@dimen/margin15dp">
 
-                    <TextView
-                        style="@style/new_wuye_item_text"
-                        android:text="是否使用积分:"></TextView>
-
-                    <TextView
-                        style="@style/new_wuye_item_text"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/margin102dp"
-                        android:text="是"></TextView>
-
                     <ImageButton
-                        android:background="@color/white"
                         android:id="@+id/ivbtn_yes"
                         android:layout_width="@dimen/margin19dp"
                         android:layout_height="@dimen/margin19dp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="@dimen/margin73dp"></ImageButton>
+                        android:layout_marginRight="@dimen/margin73dp"
+                        android:background="@color/white"></ImageButton>
 
-                    <View style="@style/new_wuye_item_line"></View>
+                    <ImageButton
+                        android:id="@+id/ivbtn_no"
+                        android:layout_width="@dimen/margin19dp"
+                        android:layout_height="@dimen/margin19dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/white"></ImageButton>
 
+                    <TextView
+                        style="@style/new_wuye_item_text"
+                        android:text="是否使用魔豆:"></TextView>
 
                     <TextView
                         style="@style/new_wuye_item_text"
@@ -198,13 +201,14 @@
                         android:layout_marginRight="@dimen/margin29dp"
                         android:text="否"></TextView>
 
-                    <ImageButton
-                        android:background="@color/white"
-                        android:id="@+id/ivbtn_no"
-                        android:layout_width="@dimen/margin19dp"
-                        android:layout_height="@dimen/margin19dp"
+
+                    <TextView
+                        style="@style/new_wuye_item_text"
                         android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"></ImageButton>
+                        android:layout_marginRight="@dimen/margin102dp"
+                        android:text="是"></TextView>
+
+                    <View style="@style/new_wuye_item_line"></View>
 
                 </RelativeLayout>
 
@@ -214,17 +218,17 @@
                     android:paddingLeft="@dimen/margin15dp"
                     android:paddingRight="@dimen/margin15dp">
 
-                    <TextView
-                        style="@style/new_wuye_item_text"
-                        android:text="使用积分(个):"></TextView>
-
                     <EditText
-                        android:inputType="number"
                         android:id="@+id/edittext_use_point"
                         style="@style/new_wuye_item_text"
                         android:layout_alignParentRight="true"
                         android:background="@null"
-                        android:hint="请填写"></EditText>
+                        android:hint="请填写"
+                        android:inputType="number"></EditText>
+
+                    <TextView
+                        style="@style/new_wuye_item_text"
+                        android:text="使用魔豆(个):"></TextView>
 
                     <View style="@style/new_wuye_item_line"></View>
 
@@ -238,7 +242,7 @@
 
                     <TextView
                         style="@style/new_wuye_item_text"
-                        android:text="积分抵扣金额:"></TextView>
+                        android:text="魔豆抵扣金额:"></TextView>
 
                     <TextView
                         android:id="@+id/textView_point_equals_how_much"
@@ -248,12 +252,17 @@
 
 
                 </RelativeLayout>
+
+                <TextView
+                    style="@style/new_wuye_item_title"
+                    android:text="魔豆信息"></TextView>
             </LinearLayout>
 
             <TextView
                 android:id="@+id/textView_introduce_point"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin31dp"
                 android:layout_marginLeft="@dimen/margin31dp"
                 android:layout_marginTop="@dimen/margin8dp"
                 android:text="说明"
@@ -268,35 +277,40 @@
 
     </android.support.v4.widget.NestedScrollView>
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/margin55dp"
         android:layout_alignParentBottom="true"
         android:background="@color/white">
 
-        <TextView
-            style="@style/new_wuye_item_text"
-            android:layout_marginLeft="@dimen/margin45dp"
-            android:text="共计实付:"></TextView>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|right">
 
-        <TextView
-            android:id="@+id/textView_finnal_money"
-            style="@style/new_wuye_item_text"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/margin165dp"
-            android:text="0"
-            android:textColor="@color/orange"></TextView>
 
-        <Button
-            android:id="@+id/btn_wuye_goto_pay"
-            android:layout_width="@dimen/margin135dp"
-            android:layout_height="@dimen/margin39dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/margin15dp"
-            android:background="@drawable/blue_btn"
-            android:text="去缴费"
-            android:textColor="@color/white"></Button>
+            <TextView
+                style="@style/new_wuye_item_text"
+                android:layout_marginLeft="@dimen/margin45dp"
+                android:text="共计实付:"></TextView>
+
+            <TextView
+                android:layout_marginRight="@dimen/margin10dp"
+                android:id="@+id/textView_finnal_money"
+                style="@style/new_wuye_item_text"
+                android:text="0"
+                android:textColor="@color/orange"></TextView>
+            <Button
+                android:id="@+id/btn_wuye_goto_pay"
+                android:layout_width="@dimen/margin135dp"
+                android:layout_height="@dimen/margin39dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:background="@drawable/blue_btn"
+                android:text="去缴费"
+                android:textColor="@color/white"></Button>
+        </LinearLayout>
+
     </RelativeLayout>
 </RelativeLayout>

@@ -25,6 +25,7 @@ public class SinglePopPickView {
     private String currentSelectedData;
     private Button btn_cancle;
     private Button btn_confirm;
+    private PopupWindow.OnDismissListener dismissListener;
 
     public SinglePopPickView(Context context, View contentView, List<String> datas, SelectedLister selectedLister) {
         this.contentView = contentView;
@@ -83,7 +84,17 @@ public class SinglePopPickView {
         showAtLocation(Gravity.CENTER, 0, 0);
     }
 
+    public void setDismissListener(PopupWindow.OnDismissListener dismissListener) {
+        this.dismissListener = dismissListener;
+        if(popupWindow!=null){
+            popupWindow.setOnDismissListener(dismissListener);
+        }
+    }
+
+
+
     public interface SelectedLister<T> {
         void onSelected(T t);
     }
+
 }

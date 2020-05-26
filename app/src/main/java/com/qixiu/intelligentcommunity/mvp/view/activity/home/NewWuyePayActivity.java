@@ -45,12 +45,14 @@ import java.util.Map;
 import okhttp3.Call;
 
 public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpdataListener<BaseBean> {
-    public static final String INTRODUCE_ONE = "说明：您的可用积分为";
+    public static final String INTRODUCE_ONE = "说明：您的可用魔豆为";
     public static final String INTRODUCE_TWO = "个，";
-    public static final String INTRODUCE_THREE = "积分=1元。积分可以通过商城购买获得";
+    public static final String INTRODUCE_THREE = "魔豆=1元。魔豆可以通过商城购买获得";
     public static final String TITLE = "物业缴费";
     public static final String TAG = "NewWuyePayActivity";
     public static final String TITLE_RIGHT = "缴费记录";
+    public static final String SELECTED_OPEN = "〈";
+    public static final String SELECTED_CLOSE = "﹀";
     //传给下个界面的参数
     int type = 1;
     private ImageButton ivbtn_yes;
@@ -75,6 +77,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
     private EditText edittext_use_point;
     private Button btn_wuye_goto_pay;
     private TextView textView_finnal_money;
+    private TextView textView_xiala;
 
     @Override
     protected void onInitData() {
@@ -142,6 +145,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
         edittext_use_point = findViewById(R.id.edittext_use_point);
         btn_wuye_goto_pay = findViewById(R.id.btn_wuye_goto_pay);
         textView_finnal_money = findViewById(R.id.textView_finnal_money);
+        textView_xiala = findViewById(R.id.textView_xiala);
         //每个需要显示的数据textview
 
 
@@ -160,9 +164,10 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
                     int currentPoint = Integer.parseInt(wuyePayBean.getO().getInter());
                     if (usePoint > currentPoint) {
                         edittext_use_point.postDelayed(new EdiitextWorker(edittext_use_point, currentPoint + ""), 100);
-                        ToastUtil.toast("积分不够");
+                        ToastUtil.toast("魔豆不够");
                     }
                 } catch (Exception e) {
+                    Log.e(TAG, "beforeTextChanged: ",e);
                     usePoint = 0;
                     edittext_use_point.postDelayed(new EdiitextWorker(edittext_use_point, usePoint + ""), 100);
                 }
@@ -213,6 +218,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
         switch (v.getId()) {
             case R.id.rl_pay_how_long:
                 showPick();
+                textView_xiala.setText(SELECTED_OPEN);
                 break;
             case R.id.btn_wuye_goto_pay:
                 sendPayRequest();
@@ -249,6 +255,9 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
             setSelectedPayState(o);
         });
         singlePopPickView.show();
+        singlePopPickView.setDismissListener(() -> {
+            textView_xiala.setText(SELECTED_CLOSE);
+        });
     }
 
     private void setSelectedPayState(Object o) {
