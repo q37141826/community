@@ -72,6 +72,7 @@ public class AliWeixinPayActivity extends BaseActivity implements View.OnClickLi
             money = getIntent().getStringExtra("money");
             type = getIntent().getIntExtra("type", 1);
             fromwhere = getIntent().getStringExtra(ConstantString.FROM_WHERE);
+            money = CommonUtils.getNumFormat(Double.parseDouble(money),2);
         } catch (Exception e) {
         }
         textView_money_howmuch.setText("¥ " + money);

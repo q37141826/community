@@ -3,6 +3,8 @@ package com.qixiu.intelligentcommunity.mvp.view.activity.home;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -51,8 +53,8 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
     public static final String TITLE = "物业缴费";
     public static final String TAG = "NewWuyePayActivity";
     public static final String TITLE_RIGHT = "缴费记录";
-    public static final String SELECTED_OPEN = "〈";
-    public static final String SELECTED_CLOSE = "﹀";
+
+    public static final int REFRESH_EDITTEXT = 0x0001;
     //传给下个界面的参数
     int type = 1;
     private ImageButton ivbtn_yes;
@@ -77,7 +79,21 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
     private EditText edittext_use_point;
     private Button btn_wuye_goto_pay;
     private TextView textView_finnal_money;
-    private TextView textView_xiala;
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            String point = msg.obj.toString();
+            edittext_use_point.setText(point);
+            edittext_use_point.setSelection(point.length());
+            ToastUtil.toast("魔豆不够");
+            btn_wuye_goto_pay.setEnabled(true);
+            try {
+                setFinnalMoney(Integer.parseInt(point));
+            } catch (Exception e) {
+            }
+        }
+    };
 
     @Override
     protected void onInitData() {
@@ -145,7 +161,6 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
         edittext_use_point = findViewById(R.id.edittext_use_point);
         btn_wuye_goto_pay = findViewById(R.id.btn_wuye_goto_pay);
         textView_finnal_money = findViewById(R.id.textView_finnal_money);
-        textView_xiala = findViewById(R.id.textView_xiala);
         //每个需要显示的数据textview
 
 
@@ -158,20 +173,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
         edittext_use_point.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                int usePoint = 0;
-                try {
-                    usePoint = Integer.parseInt(s.toString());
-                    int currentPoint = Integer.parseInt(wuyePayBean.getO().getInter());
-                    if (usePoint > currentPoint) {
-                        edittext_use_point.postDelayed(new EdiitextWorker(edittext_use_point, currentPoint + ""), 100);
-                        ToastUtil.toast("魔豆不够");
-                    }
-                } catch (Exception e) {
-                    Log.e(TAG, "beforeTextChanged: ",e);
-                    usePoint = 0;
-                    edittext_use_point.postDelayed(new EdiitextWorker(edittext_use_point, usePoint + ""), 100);
-                }
-                setFinnalMoney(usePoint);
+
             }
 
             @Override
@@ -181,44 +183,42 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                int usePoint = 0;
+                try {
+                    usePoint = Integer.parseInt(s.toString());
+                    double currentPoint = Double.parseDouble(wuyePayBean.getO().getInter());
+                    if (usePoint > currentPoint) {
+                        handler.removeMessages(REFRESH_EDITTEXT);
+                        Message message = handler.obtainMessage();
+                        message.what= REFRESH_EDITTEXT;
+                        message.obj = ((int)currentPoint)+"";
+                        handler.sendMessageDelayed(message,100);
+                        btn_wuye_goto_pay.setEnabled(false);
+                    }else {
+                        setFinnalMoney(usePoint);
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "beforeTextChanged: ", e);
+                    usePoint = 0;
+                }
             }
         });
     }
 
     private void setFinnalMoney(int usePoint) {
         if (wuyePayBean != null) {
-            double finalMoney = currentPayMonths * wuyePayBean.getO().getYearprice() / 12 - usePoint / wuyePayBean.getO().getScore_to_money();
-            NumberFormat instance = NumberFormat.getInstance();
-            instance.setMaximumFractionDigits(2);
-            String format = instance.format(finalMoney);
-            textView_finnal_money.setText(format + "元");
+            double finalMoney = currentPayMonths * wuyePayBean.getO().getYearprice() / 12 -( (float)usePoint / (float) wuyePayBean.getO().getScore_to_money());
+            String numFormat = CommonUtils.getNumFormat(finalMoney, 2);
+            textView_finnal_money.setText(numFormat + "元");
         }
     }
 
-
-    public static class EdiitextWorker implements Runnable {
-        private EditText ediitext;
-        private String string;
-
-        public EdiitextWorker(EditText ediitext, String string) {
-            this.ediitext = ediitext;
-            this.string = string;
-        }
-
-        @Override
-        public void run() {
-            ediitext.setText(string);
-            ediitext.setSelection(string.length());
-        }
-    }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.rl_pay_how_long:
                 showPick();
-                textView_xiala.setText(SELECTED_OPEN);
                 break;
             case R.id.btn_wuye_goto_pay:
                 sendPayRequest();
@@ -256,7 +256,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
         });
         singlePopPickView.show();
         singlePopPickView.setDismissListener(() -> {
-            textView_xiala.setText(SELECTED_CLOSE);
+
         });
     }
 
@@ -297,15 +297,15 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
             //做个付款类型标记
             Preference.put(ConstantString.payWhat, WuyePayActivity.class.getSimpleName());
             intent.putExtra("type", type);
-            intent.putExtra("money", currentPayMonths * wuyePayBean.getO().getYearprice() / 12 + "");
+            intent.putExtra("money", textView_finnal_money.getText().toString().replace("元",""));
             intent.putExtra("payid", payid);
             startActivity(intent);
         }
     }
 
     private void setPayDetails(NewWuyePayBean wuyePayBean) {
-        textView_wuye_mianji.setText(wuyePayBean.getO().getBarea()+"平米");
-        textView_wuye_price.setText(wuyePayBean.getO().getBprice()+"元/平米/月");
+        textView_wuye_mianji.setText(wuyePayBean.getO().getBarea() + "平米");
+        textView_wuye_price.setText(wuyePayBean.getO().getBprice() + "元/平米/月");
         textView_wuye_last_pay_time.setText(wuyePayBean.getO().getEndtime_desc());
         setInroduce(wuyePayBean);
     }

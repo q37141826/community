@@ -23,6 +23,7 @@ import com.qixiu.intelligentcommunity.mvp.view.widget.itemdecoration.SpaceItemsD
 import com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView;
 
 import java.io.File;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -434,5 +435,12 @@ public class CommonUtils {
     public static void closeInputSoft(Context context, View view){
         InputMethodManager imm = (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    public static String getNumFormat(double num, int length) {
+        NumberFormat instance = NumberFormat.getInstance();
+        instance.setMaximumFractionDigits(length);
+        String format = instance.format(num);
+        return format;
     }
 }
