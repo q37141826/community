@@ -66,6 +66,11 @@ public class MyPickerView extends View {
 
     private Padding padding;
 
+    public void setAdustingHeight(float adustingHeight) {
+        this.adustingHeight = adustingHeight;
+    }
+
+    private float adustingHeight;
     public void setShowLines(int showLines) {
         this.showLines = showLines;
         lineScale = ((float) DEFUALT_LINES) / ((float) showLines) * 1.4f;//这里搞一个补偿系数
@@ -171,7 +176,7 @@ public class MyPickerView extends View {
         mPaint.setAlpha((int) ((mMaxTextAlpha - mMinTextAlpha) * scale + mMinTextAlpha));
         // text居中绘制，注意baseline的计算才能达到居中，y值是text中心坐标  
         float x = (float) (mViewWidth / MIN_SIZE);
-        float y = (float) (mViewHeight / MIN_SIZE + mMoveLen);
+        float y = (float) (mViewHeight / MIN_SIZE + mMoveLen + adustingHeight);
         Paint.FontMetricsInt fmi = mPaint.getFontMetricsInt();
         float baseline = (float) (y - (fmi.bottom / MIN_SIZE + fmi.top / MIN_SIZE));
         if(padding!=null){
@@ -205,7 +210,7 @@ public class MyPickerView extends View {
         mPaint.setAlpha((int) ((mMaxTextAlpha - mMinTextAlpha) * scale + mMinTextAlpha));
         float y = (float) (mViewHeight / MIN_SIZE + type * d);
         Paint.FontMetricsInt fmi = mPaint.getFontMetricsInt();
-        float baseline = (float) (y - (fmi.bottom / MIN_SIZE + fmi.top / MIN_SIZE));
+        float baseline = (float) (y - (fmi.bottom / MIN_SIZE + fmi.top / MIN_SIZE)+adustingHeight);
         int xAdding=0;
         if(padding!=null){
             xAdding = padding.left;
