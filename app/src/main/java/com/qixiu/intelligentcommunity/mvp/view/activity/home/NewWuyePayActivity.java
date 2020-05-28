@@ -94,6 +94,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
             }
         }
     };
+    private TextView textView_point_equals_how_much;
 
     @Override
     protected void onInitData() {
@@ -161,6 +162,7 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
         edittext_use_point = findViewById(R.id.edittext_use_point);
         btn_wuye_goto_pay = findViewById(R.id.btn_wuye_goto_pay);
         textView_finnal_money = findViewById(R.id.textView_finnal_money);
+        textView_point_equals_how_much = findViewById(R.id.textView_point_equals_how_much);
         //每个需要显示的数据textview
 
 
@@ -207,9 +209,11 @@ public class NewWuyePayActivity extends NewTitleActivity implements OKHttpUIUpda
 
     private void setFinnalMoney(int usePoint) {
         if (wuyePayBean != null) {
-            double finalMoney = currentPayMonths * wuyePayBean.getO().getYearprice() / 12 -( (float)usePoint / (float) wuyePayBean.getO().getScore_to_money());
+            float pointMoney = (float)usePoint / (float) wuyePayBean.getO().getScore_to_money();
+            double finalMoney = currentPayMonths * wuyePayBean.getO().getYearprice() / 12 -pointMoney;
             String numFormat = CommonUtils.getNumFormat(finalMoney, 2);
             textView_finnal_money.setText(numFormat + "元");
+            textView_point_equals_how_much.setText(pointMoney+ "元");
         }
     }
 
