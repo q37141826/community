@@ -28,7 +28,7 @@
 
         <RelativeLayout
             android:id="@+id/rl_shopcar"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/margin40dp"
             android:layout_height="match_parent">
 
             <ImageView

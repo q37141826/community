@@ -3,6 +3,7 @@ package com.qixiu.intelligentcommunity.mvp.view.widget.titleview;
 import android.content.Context;
 import android.os.Build;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.qixiu.intelligentcommunity.R;
@@ -12,6 +13,7 @@ import com.qixiu.intelligentcommunity.application.BaseApplication;
 public class TitleView extends BaseView {
     TextView title_text, right_text;
     TextView backImageView;
+    private RelativeLayout rl_num_right;
 
     public TitleView(Context context) {
         super(context);
@@ -32,6 +34,7 @@ public class TitleView extends BaseView {
 
         right_text = (TextView) mView.findViewById(R.id.right_text);
         backImageView = (TextView) mView.findViewById(R.id.back_image);
+        rl_num_right = mView.findViewById(R.id.rl_num_right);
     }
 
     public void setTitle(String name) {
@@ -115,5 +118,9 @@ public class TitleView extends BaseView {
     public View getTitle() {
         return title_text;
 
+    }
+
+    public RelativeLayout getRl_num_right(){
+        return rl_num_right;
     }
 }

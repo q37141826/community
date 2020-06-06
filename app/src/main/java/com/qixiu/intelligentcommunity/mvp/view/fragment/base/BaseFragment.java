@@ -9,6 +9,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,7 +53,7 @@ public abstract class BaseFragment extends Fragment implements AccessDataFragmen
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        Log.d(getClass().toString(), "onCreateView: ");
         if (getLayoutResource() <= 0) {
             rootView = getLayoutView();
             if (rootView == null) {
@@ -76,7 +77,7 @@ public abstract class BaseFragment extends Fragment implements AccessDataFragmen
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         onInitData();
-
+        Log.d(getClass().toString(), "onCreateView: ");
     }
 
     public final <E extends View> E findViewById(int id) {

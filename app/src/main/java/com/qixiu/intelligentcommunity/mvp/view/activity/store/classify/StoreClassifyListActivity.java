@@ -14,6 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.qixiu.intelligentcommunity.R;
 import com.qixiu.intelligentcommunity.constants.ConstantUrl;
@@ -32,13 +33,17 @@ import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpRequestModel;
 import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpUIUpdataListener;
 import com.qixiu.intelligentcommunity.mvp.view.activity.base.NewTitleActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.store.GoodDetailActivity;
+import com.qixiu.intelligentcommunity.mvp.view.activity.store.StoreShopCarActivity;
 import com.qixiu.intelligentcommunity.mvp.view.activity.store.search.StoreSearchListActivity;
 import com.qixiu.intelligentcommunity.mvp.view.adapter.store.StoreClassifuMenuAdapter;
 import com.qixiu.intelligentcommunity.mvp.view.adapter.store.classify.StoreClassifyListAdapter;
 import com.qixiu.intelligentcommunity.mvp.view.itemdecoration.LinearSpacesItemDecoration;
+import com.qixiu.intelligentcommunity.mvp.view.widget.ShopCarNumGroup;
 import com.qixiu.intelligentcommunity.mvp.view.widget.my_alterdialog.ArshowContextUtil;
 import com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.ProgressStyle;
 import com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView;
+import com.qixiu.intelligentcommunity.utlis.CommonUtils;
+import com.qixiu.intelligentcommunity.utlis.LoginUtils;
 import com.qixiu.intelligentcommunity.utlis.ToastUtil;
 
 import java.util.HashMap;
@@ -60,7 +65,7 @@ public class StoreClassifyListActivity extends NewTitleActivity implements XRecy
     private SwipeRefreshLayout mSrl_classifylist;
     private StoreClassifyListAdapter mStoreClassifyListAdapter;
     boolean isMore;
-    private String mId=IntentDataKeyConstant.GOODES_DEFULT_ID;
+    private String mId = IntentDataKeyConstant.GOODES_DEFULT_ID;
     private OKHttpRequestModel mOkHttpRequestModel;
     private BaseParameter mBaseParameter;
     private ImageView mIv_nodata_showbg;
@@ -70,12 +75,13 @@ public class StoreClassifyListActivity extends NewTitleActivity implements XRecy
     private EditText edittextSearchGoods;
     private PhoneBean phoneBean;
     private StoreClassItemBean storeClassItemBean;
+    private RelativeLayout rl_shopcar;
 
     @Override
     protected void onInitData() {
         mId = getIntent().getStringExtra(IntentDataKeyConstant.ID);
-        if(mId==null){
-            mId=IntentDataKeyConstant.GOODES_DEFULT_ID;
+        if (mId == null) {
+            mId = IntentDataKeyConstant.GOODES_DEFULT_ID;
         }
         mOkHttpRequestModel = new OKHttpRequestModel(this);
 
@@ -89,6 +95,18 @@ public class StoreClassifyListActivity extends NewTitleActivity implements XRecy
 
     private void requestMenue() {
         mOkHttpRequestModel.okhHttpPost(ConstantUrl.STORE_CLASSIFY, null, new StoreClassItemBean());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getShopCarNum();
+    }
+
+    private void getShopCarNum() {
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", LoginUtils.getLoginId());
+        mOkHttpRequestModel.okhHttpPost(ConstantUrl.shopCarNumUrl,map,new BaseBean());
     }
 
 
@@ -108,6 +126,10 @@ public class StoreClassifyListActivity extends NewTitleActivity implements XRecy
         imageViewServicePhone = findViewById(R.id.imageViewServicePhone);
         imageViewTicket = findViewById(R.id.imageViewTicket);
         edittextSearchGoods = findViewById(R.id.edittextSearchGoods);
+        rl_shopcar = findViewById(R.id.rl_shopcar);
+        rl_shopcar.setOnClickListener(this);
+
+
         mRv_classifylist.addItemDecoration(new LinearSpacesItemDecoration(ArshowContextUtil.dp2px(1)));
         mSrl_classifylist.setOnRefreshListener(this);
         mRv_classifylist.setPullRefreshEnabled(false);
@@ -159,6 +181,9 @@ public class StoreClassifyListActivity extends NewTitleActivity implements XRecy
         switch (v.getId()) {
             case R.id.imageViewServicePhone:
                 mOkHttpRequestModel.okhHttpPost(ConstantUrl.callUrl, null, new PhoneBean(), true);
+                break;
+            case R.id.rl_shopcar:
+                CommonUtils.startIntent(getContext(), StoreShopCarActivity.class);
                 break;
         }
     }
@@ -234,7 +259,7 @@ public class StoreClassifyListActivity extends NewTitleActivity implements XRecy
 
         }
 
-        if(data instanceof StoreClassItemBean){
+        if (data instanceof StoreClassItemBean) {
             storeClassItemBean = (StoreClassItemBean) data;
             for (int j = 0; j < storeClassItemBean.getO().getCate().size(); j++) {
                 StoreClassItemBean.StoreClassItemInfo.ClassifyItemBean itemBean = storeClassItemBean.getO().getCate().get(j);
@@ -242,12 +267,22 @@ public class StoreClassifyListActivity extends NewTitleActivity implements XRecy
                     itemBean.setSelected(true);
                 }
             }
-            if(IntentDataKeyConstant.GOODES_DEFULT_ID.equals(mId)){
+            if (IntentDataKeyConstant.GOODES_DEFULT_ID.equals(mId)) {
                 storeClassItemBean.getO().getCate().get(0).setSelected(true);
-                mId= storeClassItemBean.getO().getCate().get(0).getId();
+                mId = storeClassItemBean.getO().getCate().get(0).getId();
             }
             storeClassifuMenuAdapter.refreshData(storeClassItemBean.getO().getCate());
             requestData();
+        }
+        setShopCarNum(data);
+    }
+
+    private void setShopCarNum(Object data) {
+        if(data instanceof BaseBean){
+            BaseBean baseBean = (BaseBean) data;
+            if(baseBean.getUrl().equals(ConstantUrl.shopCarNumUrl)){
+                ShopCarNumGroup.ShopCarNumUtil.addText(rl_shopcar,getActivity(),baseBean.getO().toString());
+            }
         }
     }
 
@@ -279,11 +314,11 @@ public class StoreClassifyListActivity extends NewTitleActivity implements XRecy
             intent.putExtra(IntentDataKeyConstant.GOODS_ID, goodListBean.getGoods_id());
             startActivity(intent);
         }
-        if (data instanceof  StoreClassItemBean.StoreClassItemInfo.ClassifyItemBean) {
+        if (data instanceof StoreClassItemBean.StoreClassItemInfo.ClassifyItemBean) {
             mStoreClassifyListAdapter.refreshData(null);
-            StoreClassItemBean.StoreClassItemInfo.ClassifyItemBean itemBean = ( StoreClassItemBean.StoreClassItemInfo.ClassifyItemBean) data;
+            StoreClassItemBean.StoreClassItemInfo.ClassifyItemBean itemBean = (StoreClassItemBean.StoreClassItemInfo.ClassifyItemBean) data;
             for (int i = 0; i < storeClassItemBean.getO().getCate().size(); i++) {
-                StoreClassItemBean.StoreClassItemInfo.ClassifyItemBean itemBeanCurrent =storeClassItemBean.getO().getCate().get(i);
+                StoreClassItemBean.StoreClassItemInfo.ClassifyItemBean itemBeanCurrent = storeClassItemBean.getO().getCate().get(i);
                 itemBeanCurrent.setSelected(false);
             }
             itemBean.setSelected(true);

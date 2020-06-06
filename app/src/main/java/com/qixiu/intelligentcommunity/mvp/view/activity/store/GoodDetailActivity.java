@@ -5,17 +5,33 @@ import android.view.View;
 
 import com.qixiu.intelligentcommunity.R;
 import com.qixiu.intelligentcommunity.application.BaseApplication;
+import com.qixiu.intelligentcommunity.constants.ConstantUrl;
+import com.qixiu.intelligentcommunity.mvp.beans.BaseBean;
+import com.qixiu.intelligentcommunity.mvp.beans.C_CodeBean;
+import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpRequestModel;
+import com.qixiu.intelligentcommunity.mvp.model.request.OKHttpUIUpdataListener;
 import com.qixiu.intelligentcommunity.mvp.view.activity.base.NewTitleActivity;
 import com.qixiu.intelligentcommunity.mvp.view.fragment.store.GoodDetailFragment;
+import com.qixiu.intelligentcommunity.mvp.view.widget.ShopCarNumGroup;
+import com.qixiu.intelligentcommunity.utlis.LoginUtils;
+import com.zhy.http.okhttp.OkHttpUtils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.Call;
 
 /**
  * Created by Administrator on 2017/5/2 0002.
  */
 
-public class GoodDetailActivity extends NewTitleActivity implements View.OnClickListener {
+public class GoodDetailActivity extends NewTitleActivity implements View.OnClickListener, OKHttpUIUpdataListener {
+
+    OKHttpRequestModel mOkHttpRequestModel ;
+
     @Override
     protected void onInitData() {
-
+        mOkHttpRequestModel =new OKHttpRequestModel(this);
     }
 
     @Override
@@ -59,6 +75,42 @@ public class GoodDetailActivity extends NewTitleActivity implements View.OnClick
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getShopCarNum();
+    }
+
+    private void getShopCarNum() {
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", LoginUtils.getLoginId());
+        mOkHttpRequestModel.okhHttpPost(ConstantUrl.shopCarNumUrl,map,new BaseBean());
+    }
+
+    @Override
+    public void onSuccess(Object data, int i) {
+        setShopCarNum(data);
+    }
+
+    private void setShopCarNum(Object data) {
+        if(data instanceof BaseBean){
+            BaseBean baseBean = (BaseBean) data;
+            if(baseBean.getUrl().equals(ConstantUrl.shopCarNumUrl)){
+                ShopCarNumGroup.ShopCarNumUtil.addText(mTitleView.getRl_num_right(),getActivity(),baseBean.getO().toString());
+            }
+        }
+    }
+
+    @Override
+    public void onError(Call call, Exception e, int i) {
+
+    }
+
+    @Override
+    public void onFailure(C_CodeBean c_codeBean) {
 
     }
 }

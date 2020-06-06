@@ -41,14 +41,21 @@
                 android:layout_centerVertical="true"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin28dp"></EditText>
-            <ImageView
-                android:id="@+id/imageViewTicket"
+            <RelativeLayout
+                android:id="@+id/rl_shopcar"
                 android:layout_alignParentRight="true"
-                android:src="@mipmap/shopcar_grey"
-                android:scaleType="center"
                 android:layout_centerVertical="true"
-                android:layout_width="@dimen/margin40dp"
-                android:layout_height="@dimen/margin40dp"></ImageView>
+                android:layout_width="@dimen/margin50dp"
+                android:layout_height="@dimen/margin40dp">
+                <ImageView
+                    android:id="@+id/imageViewTicket"
+                    android:src="@mipmap/shopcar_grey"
+                    android:scaleType="center"
+                    android:layout_centerInParent="true"
+                    android:layout_width="@dimen/margin40dp"
+                    android:layout_height="@dimen/margin40dp"></ImageView>
+            </RelativeLayout>
+
         </RelativeLayout>
         <android.support.v4.widget.SwipeRefreshLayout
             android:layout_below="@+id/belowme"
