@@ -330,4 +330,6 @@ public class ConstantUrl {
     public static String eventReadUrl = hosturl +  "index.php/api/activity/activityread";
     //购物车数量
     public static String shopCarNumUrl = hosturl +  "api/shop/getCartNum";
+    //隐私政策
+    public static String priviteUrl = hosturl+"api/personal/yinsi";
 }

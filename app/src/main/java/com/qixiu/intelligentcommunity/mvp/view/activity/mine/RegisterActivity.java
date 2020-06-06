@@ -1,6 +1,7 @@
 package com.qixiu.intelligentcommunity.mvp.view.activity.mine;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.qixiu.intelligentcommunity.R;
@@ -18,6 +20,8 @@ import com.qixiu.intelligentcommunity.listener.IntelligentTextWatcher;
 import com.qixiu.intelligentcommunity.listener.weakreferences.TextWatcherAdapterInterface;
 import com.qixiu.intelligentcommunity.mvp.beans.MessageBean;
 import com.qixiu.intelligentcommunity.mvp.view.activity.base.TitleActivity;
+import com.qixiu.intelligentcommunity.mvp.view.activity.home.web.GoToActivity;
+import com.qixiu.intelligentcommunity.mvp.view.activity.web.WebActivity;
 import com.qixiu.intelligentcommunity.mvp.view.widget.loading.ZProgressHUD;
 import com.qixiu.intelligentcommunity.utlis.CheckStringUtils;
 import com.qixiu.intelligentcommunity.utlis.CommonUtils;
@@ -47,6 +51,9 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
     private View mRl_clean_input_phone;
     private View mRl_clean_input_password;
     private ZProgressHUD zProgressHUD;
+    private ImageButton imagebt_rules;
+    private TextView textViewRules;
+    private boolean isAgreeRules = true;
 
     @Override
     protected void onInitView() {
@@ -71,6 +78,8 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
         mRl_clean_input_phone = findViewById(R.id.rl_clean_input_phone);
         mRl_clean_input_password = findViewById(R.id.rl_clean_input_password);
 
+        imagebt_rules = findViewById(R.id.imagebt_rules);
+        textViewRules = findViewById(R.id.textViewRules);
 
         iniListener();
     }
@@ -89,7 +98,8 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
         mEt_retist_phone.setOnFocusChangeListener(this);
         mEt_regist_password.setOnFocusChangeListener(this);
         mEt_checkcode.setOnFocusChangeListener(this);
-
+        imagebt_rules.setOnClickListener(this);
+        textViewRules.setOnClickListener(this);
     }
 
     @Override
@@ -159,10 +169,33 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
 //                Intent intent = new Intent(this, AuthorizationActivity.class);
 //                startActivity(intent);
                 //注册功能
+                if (!isAgreeRules) {
+                    ToastUtil.toast("请阅读并同意隐私政策");
+                }
                 startRegister();
                 break;
 
+            case R.id.imagebt_rules:
+                setImagebt();
+                break;
+
+            case R.id.textViewRules:
+                GotoWeb();
+                break;
+
         }
+    }
+
+    private void GotoWeb() {
+        Intent intent =new Intent(this,GoToActivity.class);
+        intent.putExtra(ConstantString.TITLE_NAME,"隐私政策");
+        intent.putExtra(ConstantString.URL,ConstantUrl.priviteUrl);
+        startActivity(intent);
+    }
+
+    private void setImagebt() {
+        isAgreeRules = !isAgreeRules;
+        imagebt_rules.setImageResource(!isAgreeRules ? R.mipmap.wuye_point_no_selected_2x : R.mipmap.wuye_point_selected_2x);
     }
 
     private void startRegister() {
@@ -213,7 +246,7 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
 
     @Override
     protected void onInitData() {
-
+        textViewRules.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
     }
 
     @Override
