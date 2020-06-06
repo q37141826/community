@@ -169,6 +169,7 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
 //                Intent intent = new Intent(this, AuthorizationActivity.class);
 //                startActivity(intent);
                 //注册功能
+
                 if (!isAgreeRules) {
                     ToastUtil.toast("请阅读并同意隐私政策");
                 }
@@ -185,6 +186,7 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
 
         }
     }
+
 
     private void GotoWeb() {
         Intent intent =new Intent(this,GoToActivity.class);
