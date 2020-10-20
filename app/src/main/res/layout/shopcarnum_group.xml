@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/margin_20"
+    android:layout_height="@dimen/margin_20">
+
+    <RelativeLayout
+        android:layout_width="@dimen/margin15dp"
+        android:layout_height="@dimen/margin15dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/back_red_circle">
+
+        <TextView
+            android:id="@+id/textshopCarNum"
+            style="@style/normol_text_style"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="8sp"></TextView>
+    </RelativeLayout>
+
+</RelativeLayout>

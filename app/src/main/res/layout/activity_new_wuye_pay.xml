@@ -27,7 +27,9 @@
             android:orientation="vertical">
 
             <LinearLayout style="@style/new_wuye">
-
+                <TextView
+                    style="@style/new_wuye_item_title"
+                    android:text="物业基本信息"></TextView>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/margin48dp"
@@ -87,13 +89,13 @@
 
                 </RelativeLayout>
 
-                <TextView
-                    style="@style/new_wuye_item_title"
-                    android:text="物业基本信息"></TextView>
+
             </LinearLayout>
 
             <LinearLayout style="@style/new_wuye">
-
+                <TextView
+                    style="@style/new_wuye_item_title"
+                    android:text="缴费信息"></TextView>
                 <RelativeLayout
                     android:id="@+id/rl_pay_how_long"
                     android:layout_width="match_parent"
@@ -165,13 +167,13 @@
 
                 </RelativeLayout>
 
-                <TextView
-                    style="@style/new_wuye_item_title"
-                    android:text="缴费信息"></TextView>
+
             </LinearLayout>
 
             <LinearLayout style="@style/new_wuye">
-
+                <TextView
+                    style="@style/new_wuye_item_title"
+                    android:text="魔豆信息"></TextView>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/margin48dp"
@@ -257,9 +259,7 @@
 
                 </RelativeLayout>
 
-                <TextView
-                    style="@style/new_wuye_item_title"
-                    android:text="魔豆信息"></TextView>
+
             </LinearLayout>
 
             <TextView

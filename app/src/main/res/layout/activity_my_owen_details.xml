@@ -51,7 +51,8 @@
                         <LinearLayout
                             android:id="@+id/linearlayout_own_wholike_all"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/margin35dp"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/margin35dp"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
 

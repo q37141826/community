@@ -23,6 +23,7 @@ import com.qixiu.intelligentcommunity.constants.ConstantUrl;
 import com.qixiu.intelligentcommunity.constants.IntentDataKeyConstant;
 import com.qixiu.intelligentcommunity.constants.StringConstants;
 import com.qixiu.intelligentcommunity.listener.rv_adapter.OnRecyclerItemListener;
+import com.qixiu.intelligentcommunity.mvp.beans.BaseBean;
 import com.qixiu.intelligentcommunity.mvp.beans.C_CodeBean;
 import com.qixiu.intelligentcommunity.mvp.beans.parameter.BaseParameter;
 import com.qixiu.intelligentcommunity.mvp.beans.store.ClassifyIntef;
@@ -44,10 +45,12 @@ import com.qixiu.intelligentcommunity.mvp.view.adapter.store.classify.StoreAllCl
 import com.qixiu.intelligentcommunity.mvp.view.fragment.base.BaseFragment;
 import com.qixiu.intelligentcommunity.mvp.view.itemdecoration.DashlineItemDivider;
 import com.qixiu.intelligentcommunity.mvp.view.itemdecoration.DiyDividerItemDecoration;
+import com.qixiu.intelligentcommunity.mvp.view.widget.ShopCarNumGroup;
 import com.qixiu.intelligentcommunity.mvp.view.widget.my_alterdialog.ArshowContextUtil;
 import com.qixiu.intelligentcommunity.mvp.view.widget.rollpage.ImageUrlAdapter;
 import com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.ProgressStyle;
 import com.qixiu.intelligentcommunity.mvp.view.widget.xrecyclerview.XRecyclerView;
+import com.qixiu.intelligentcommunity.utlis.LoginUtils;
 import com.qixiu.intelligentcommunity.utlis.ToastUtil;
 import com.qixiu.intelligentcommunity.utlis.XrecyclerViewUtil;
 
@@ -76,6 +79,7 @@ public class StoreFragment extends BaseFragment implements XRecyclerView.Loading
     private StoreBean storeBean;
     StoreClassifyAdapterNew mStoreAllClassifyAdapter;
     RecyclerView recyclerviewHomeStoreClassify;
+    private ViewGroup rl_shopcar;
 
     @Override
     protected void onInitData() {
@@ -84,6 +88,13 @@ public class StoreFragment extends BaseFragment implements XRecyclerView.Loading
         mStoreAllClassifyAdapter = new StoreClassifyAdapterNew();
         recyclerviewHomeStoreClassify.setAdapter(mStoreAllClassifyAdapter);
         mStoreAllClassifyAdapter.setOnItemClickListener(this);
+        getData();
+    }
+
+    private void getShopCarNum() {
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", LoginUtils.getLoginId());
+        mOkHttpRequestModel.okhHttpPost(ConstantUrl.shopCarNumUrl,map,new BaseBean());
     }
 
     @Override
@@ -168,7 +179,7 @@ public class StoreFragment extends BaseFragment implements XRecyclerView.Loading
 
     private void initStoreTitleView(View storeHeadView) {
 
-        View rl_shopcar = storeHeadView.findViewById(R.id.rl_shopcar);
+        rl_shopcar = storeHeadView.findViewById(R.id.rl_shopcar);
         rl_shopcar.setOnClickListener(this);
     }
 
@@ -258,6 +269,16 @@ public class StoreFragment extends BaseFragment implements XRecyclerView.Loading
             }
             //显示商品列表数据
             disposeGoodsList(storeInfo.getGoods());
+        }
+        setShopCarNum(data);
+    }
+
+    private void setShopCarNum(Object data) {
+        if(data instanceof BaseBean){
+            BaseBean baseBean = (BaseBean) data;
+            if(baseBean.getUrl().equals(ConstantUrl.shopCarNumUrl)){
+                ShopCarNumGroup.ShopCarNumUtil.addText(rl_shopcar,getActivity(),baseBean.getO().toString());
+            }
         }
     }
 
@@ -372,6 +393,7 @@ public class StoreFragment extends BaseFragment implements XRecyclerView.Loading
         stringMap.put(IntentDataKeyConstant.PAGENO, mBaseParameter.getPageNo() + StringConstants.EMPTY_STRING);
         stringMap.put(IntentDataKeyConstant.PAGESIZE, mBaseParameter.getPageSize() + StringConstants.EMPTY_STRING);
         mOkHttpRequestModel.okhHttpPost(ConstantUrl.STORE_SHOP, stringMap, new StoreBean());
+        getShopCarNum();
     }
 
     @Override

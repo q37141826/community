@@ -47,7 +47,7 @@ public class OwenOwenCommentsHolder extends RecyclerBaseHolder<Object> {
         line_comments_list.setVisibility(View.GONE);
         if(mData instanceof OwenCircleAllBean.OBean.ListBean.CommentBean){
             bean1= (OwenCircleAllBean.OBean.ListBean.CommentBean) mData;
-            textView_name1_comments.setText(bean1.getUid().getNickname());
+            textView_name1_comments.setText(bean1.getUid() == null ?"null":bean1.getUid().getNickname());
             textView_content_comments.setText(bean1.getContent());
             textView_callback_comments.setVisibility(View.GONE);
             circular_head_comments_owendetail.setVisibility(View.GONE);

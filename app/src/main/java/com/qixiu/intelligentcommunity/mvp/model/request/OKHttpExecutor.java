@@ -49,7 +49,7 @@ public class OKHttpExecutor {
         @Override
         public void onResponse(String s, int i) {
             if(LogUtil.isDebug){
-                Log.d(OKHttpRequestModel.TAG,s);
+                Log.d(OKHttpRequestModel.TAG,": data = " + s);
             }
             OKHttpUIUpdataListener okHttpUIUpdataListener = mOkHttpUIUpdataListenerWeakReference.get();
             if (okHttpUIUpdataListener != null && baseBean != null) {

@@ -141,10 +141,33 @@
 
     </LinearLayout>
 
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:id="@+id/ll_read_rul"
+        android:layout_below="@id/ll_input"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin50dp">
+        <ImageButton
+            android:id="@+id/imagebt_rules"
+            android:src="@mipmap/wuye_point_selected_2x"
+            android:layout_width="@dimen/margin20dp"
+            android:layout_height="@dimen/margin20dp"></ImageButton>
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/textViewRules"
+            android:text="隐私政策"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+    </LinearLayout>
+
     <Button
+        android:layout_below="@+id/ll_read_rul"
         android:id="@+id/bt_regist"
         style="@style/style_login_regist_confirm"
-        android:layout_below="@id/ll_input"
         android:text="确认"
 
         />
