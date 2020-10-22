@@ -53,7 +53,7 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
     private ZProgressHUD zProgressHUD;
     private ImageButton imagebt_rules;
     private TextView textViewRules;
-    private boolean isAgreeRules = true;
+    private boolean isAgreeRules = false;
 
     @Override
     protected void onInitView() {
@@ -80,7 +80,7 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
 
         imagebt_rules = findViewById(R.id.imagebt_rules);
         textViewRules = findViewById(R.id.textViewRules);
-
+        refreshSelectRuleState(isAgreeRules);
         iniListener();
     }
 
@@ -197,6 +197,10 @@ public class RegisterActivity extends TitleActivity implements TextWatcherAdapte
 
     private void setImagebt() {
         isAgreeRules = !isAgreeRules;
+        refreshSelectRuleState(isAgreeRules);
+    }
+
+    private void refreshSelectRuleState(boolean isAgreeRules) {
         imagebt_rules.setImageResource(!isAgreeRules ? R.mipmap.wuye_point_no_selected_2x : R.mipmap.wuye_point_selected_2x);
     }
 

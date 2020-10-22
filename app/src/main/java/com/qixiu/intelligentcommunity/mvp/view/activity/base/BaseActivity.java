@@ -85,6 +85,15 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private boolean isPaused;
 
+    public boolean hasDefultPermission(){
+        for (String permissiom : photoPermission) {
+            if (ActivityCompat.checkSelfPermission(this, permissiom) != PackageManager.PERMISSION_GRANTED) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     //检查权限
     public boolean hasPermission(String... permission) {
         for (String permissiom : permission) {
@@ -93,6 +102,10 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         }
         return true;
+    }
+
+    public void requestDefultPermission(){
+        hasRequse(1,photoPermission);
     }
 
     //添加权限
@@ -228,14 +241,18 @@ public abstract class BaseActivity extends AppCompatActivity {
         mSupportFragmentManager = getSupportFragmentManager();
         onInitView();
         onInitData();
+        checkPhoneState();
+        setScreenOrentation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        AppManager.getAppManager().addActivity(this);
+        Log.e("where", this.getClass().getSimpleName());
+    }
+
+    protected  void checkPhoneState(){
         if (hasPermission(Manifest.permission.READ_PHONE_STATE)) {
             getDeviceId();
         } else {
             hasRequse(1, Manifest.permission.READ_PHONE_STATE);
         }
-        setScreenOrentation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        AppManager.getAppManager().addActivity(this);
-        Log.e("where", this.getClass().getSimpleName());
     }
 
     public void getUnreadMessage() {

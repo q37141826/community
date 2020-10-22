@@ -139,6 +139,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             public void onReceive(Context context, Intent intent) {
                 phone = intent.getStringExtra(ConstantString.PHONE);
                 password = intent.getStringExtra(ConstantString.PASSWORD);
+                if(!hasDefultPermission()){
+                    requestDefultPermission();
+
+                }
                 startLogin();
             }
         };
@@ -193,6 +197,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 mEt_login_password.setText(StringConstants.EMPTY_STRING);
                 break;
             case R.id.bt_loging:
+                if(!hasDefultPermission()){
+                    requestDefultPermission();
+                    return;
+                }
                 getCurrentDatas();
                 if (phone.equals("")) {
                     ToastUtil.showToast(this, "请输入账号");
@@ -464,7 +472,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void initWhenReuqestPermisssionFailed() {
         super.initWhenReuqestPermisssionFailed();
-        finish();
     }
 
 
